@@ -70,8 +70,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81600535, 0)
 shape = SubResource("CapsuleShape3D_56udc")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1320450425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6394026, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0652, 0)
 gi_mode = 2
+offset = Vector2(0, 70)
 billboard = 1
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.04
