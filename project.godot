@@ -22,10 +22,6 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
-[physics]
-
-3d/physics_engine="Jolt Physics"
-
 [input]
 
 move_forward={
@@ -64,6 +60,10 @@ cam_right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
 ]
 }
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

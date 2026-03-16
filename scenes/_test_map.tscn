@@ -29,6 +29,7 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="GrassQuad_018"]
 material = SubResource("GrassMat_018")
 size = Vector2(0.5, 0.5)
+center_offset = Vector3(0, 0.25, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_018"]
 transform_format = 1
@@ -45,6 +46,7 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="GrassQuad_019"]
 material = SubResource("GrassMat_019")
 size = Vector2(0.5, 0.5)
+center_offset = Vector3(0, 0.25, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_019"]
 transform_format = 1
@@ -61,6 +63,7 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="GrassQuad_020"]
 material = SubResource("GrassMat_020")
 size = Vector2(0.5, 0.5)
+center_offset = Vector3(0, 0.25, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_020"]
 transform_format = 1
@@ -77,6 +80,7 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="GrassQuad_021"]
 material = SubResource("GrassMat_021")
 size = Vector2(0.5, 0.5)
+center_offset = Vector3(0, 0.25, 0)
 
 [sub_resource type="MultiMesh" id="MultiMesh_021"]
 transform_format = 1
