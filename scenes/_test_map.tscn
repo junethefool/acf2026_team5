@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://ct2620hn7k85s"]
+
+[ext_resource type="PackedScene" uid="uid://bos6csiscm01v" path="res://scenes/player_character.tscn" id="1_qktu3"]
+[ext_resource type="Texture2D" uid="uid://baknlenfib5fy" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_018.png" id="2_g018"]
+[ext_resource type="Texture2D" uid="uid://b3ddhiij8qn5h" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_019.png" id="3_g019"]
+[ext_resource type="Texture2D" uid="uid://bktf518hbhgkw" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_020.png" id="4_g020"]
+[ext_resource type="Texture2D" uid="uid://cnuk0s7p7hxvc" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_021.png" id="5_g021"]
+[ext_resource type="Script" uid="uid://c82thejrpr4yg" path="res://scripts/grass_foliage.gd" id="6_gfoliage"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yk5p"]
+albedo_color = Color(0.33492392, 0.45825487, 0.17824066, 1)
+metallic_specular = 0.13
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qktu3"]
+material = SubResource("StandardMaterial3D_4yk5p")
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qktu3"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="StandardMaterial3D" id="GrassMat_018"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_g018")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="GrassQuad_018"]
+material = SubResource("GrassMat_018")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="MultiMesh" id="MultiMesh_018"]
+transform_format = 1
+mesh = SubResource("GrassQuad_018")
+
+[sub_resource type="StandardMaterial3D" id="GrassMat_019"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("3_g019")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="GrassQuad_019"]
+material = SubResource("GrassMat_019")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="MultiMesh" id="MultiMesh_019"]
+transform_format = 1
+mesh = SubResource("GrassQuad_019")
+
+[sub_resource type="StandardMaterial3D" id="GrassMat_020"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("4_g020")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="GrassQuad_020"]
+material = SubResource("GrassMat_020")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="MultiMesh" id="MultiMesh_020"]
+transform_format = 1
+mesh = SubResource("GrassQuad_020")
+
+[sub_resource type="StandardMaterial3D" id="GrassMat_021"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("5_g021")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="GrassQuad_021"]
+material = SubResource("GrassMat_021")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="MultiMesh" id="MultiMesh_021"]
+transform_format = 1
+mesh = SubResource("GrassQuad_021")
+
+[node name="TestMap" type="Node3D" unique_id=1183922978]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=997523467]
+mesh = SubResource("PlaneMesh_qktu3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=818973963]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1103162863]
+shape = SubResource("BoxShape3D_qktu3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099606343]
+transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
+
+[node name="PlayerCharacter" parent="." unique_id=895493741 instance=ExtResource("1_qktu3")]
+
+[node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
+script = ExtResource("6_gfoliage")
+
+[node name="GrassMesh_018" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=138859359]
+multimesh = SubResource("MultiMesh_018")
+
+[node name="GrassMesh_019" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1726504185]
+multimesh = SubResource("MultiMesh_019")
+
+[node name="GrassMesh_020" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=570993426]
+multimesh = SubResource("MultiMesh_020")
+
+[node name="GrassMesh_021" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1953554211]
+multimesh = SubResource("MultiMesh_021")
