@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bktf518hbhgkw" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_020.png" id="4_g020"]
 [ext_resource type="Texture2D" uid="uid://cnuk0s7p7hxvc" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_021.png" id="5_g021"]
 [ext_resource type="Script" uid="uid://c82thejrpr4yg" path="res://scripts/grass_foliage.gd" id="6_gfoliage"]
+[ext_resource type="Script" uid="uid://d4a1dtj5a4v1i" path="res://scripts/pickupable.gd" id="7_s0ejd"]
+[ext_resource type="Texture2D" uid="uid://df2o5lhxwlld6" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_001.png" id="8_i1bym"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yk5p"]
 albedo_color = Color(0.33492392, 0.45825487, 0.17824066, 1)
@@ -86,6 +88,8 @@ center_offset = Vector3(0, 0.25, 0)
 transform_format = 1
 mesh = SubResource("GrassQuad_021")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
+
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=997523467]
@@ -115,3 +119,14 @@ multimesh = SubResource("MultiMesh_020")
 
 [node name="GrassMesh_021" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1953554211]
 multimesh = SubResource("MultiMesh_021")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=792436011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0636985, 0.31593657, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+
+[node name="Sprite3D" type="Sprite3D" parent="AnimatableBody3D" unique_id=640682332]
+texture = ExtResource("8_i1bym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1914504963]
+shape = SubResource("BoxShape3D_yh4bu")
