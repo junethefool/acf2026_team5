@@ -89,6 +89,7 @@ transform_format = 1
 mesh = SubResource("GrassQuad_021")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
+size = Vector3(0.2536621, 0.4482422, 0.12207031)
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
@@ -121,12 +122,14 @@ multimesh = SubResource("MultiMesh_020")
 multimesh = SubResource("MultiMesh_021")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=792436011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0636985, 0.31593657, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 
 [node name="Sprite3D" type="Sprite3D" parent="AnimatableBody3D" unique_id=640682332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("8_i1bym")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1914504963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
