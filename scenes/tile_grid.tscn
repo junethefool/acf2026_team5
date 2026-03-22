@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/tile_grid.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://d1a48btk21tx1" path="res://models/tile_earth.tscn" id="2_earth"]
+[ext_resource type="PackedScene" uid="uid://vvx18lqkdpuw" path="res://models/tile_gras.tscn" id="3_grass"]
+[ext_resource type="PackedScene" uid="uid://miw5ugwcdkq2" path="res://models/tile_snow.tscn" id="4_snow"]
+
+[node name="TileGrid" type="Node3D"]
+script = ExtResource("1_script")
+earth_scene = ExtResource("2_earth")
+grass_scene = ExtResource("3_grass")
+snow_scene = ExtResource("4_snow")

@@ -1,24 +1,16 @@
 [gd_scene format=3 uid="uid://ct2620hn7k85s"]
 
 [ext_resource type="PackedScene" uid="uid://bos6csiscm01v" path="res://scenes/player_character.tscn" id="1_qktu3"]
+[ext_resource type="PackedScene" uid="uid://bqppktuvthee2" path="res://models/tile_gras_2.tscn" id="2_3kc36"]
 [ext_resource type="Texture2D" uid="uid://baknlenfib5fy" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_018.png" id="2_g018"]
+[ext_resource type="PackedScene" uid="uid://c0w3wu8dpcitp" path="res://models/tile_snow_2.tscn" id="2_yh4bu"]
 [ext_resource type="Texture2D" uid="uid://b3ddhiij8qn5h" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_019.png" id="3_g019"]
 [ext_resource type="Texture2D" uid="uid://bktf518hbhgkw" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_020.png" id="4_g020"]
 [ext_resource type="Texture2D" uid="uid://cnuk0s7p7hxvc" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_021.png" id="5_g021"]
 [ext_resource type="Script" uid="uid://c82thejrpr4yg" path="res://scripts/grass_foliage.gd" id="6_gfoliage"]
 [ext_resource type="Script" uid="uid://d4a1dtj5a4v1i" path="res://scripts/pickupable.gd" id="7_s0ejd"]
 [ext_resource type="Texture2D" uid="uid://df2o5lhxwlld6" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_001.png" id="8_i1bym"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yk5p"]
-albedo_color = Color(0.33492392, 0.45825487, 0.17824066, 1)
-metallic_specular = 0.13
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qktu3"]
-material = SubResource("StandardMaterial3D_4yk5p")
-size = Vector2(50, 50)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qktu3"]
-size = Vector3(50, 0.1, 50)
+[ext_resource type="PackedScene" path="res://scenes/tile_grid.tscn" id="9_tilegrid"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -93,20 +85,26 @@ size = Vector3(0.2536621, 0.4482422, 0.12207031)
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=997523467]
-mesh = SubResource("PlaneMesh_qktu3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=818973963]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1103162863]
-shape = SubResource("BoxShape3D_qktu3")
+[node name="TileGrid" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
+grass_scene = ExtResource("2_3kc36")
+snow_scene = ExtResource("2_yh4bu")
+earth_height_min = -0.1
+earth_height_max = 0.0
+spring_offset_min = -0.1
+spring_offset_max = 0.15
+spring_scale_max = 1.1
+winter_offset_min = -0.2
+winter_offset_max = 0.2
+winter_scale_max = 1.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099606343]
 transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
 
 [node name="PlayerCharacter" parent="." unique_id=895493741 instance=ExtResource("1_qktu3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.496128, 0)
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
+visible = false
 script = ExtResource("6_gfoliage")
 
 [node name="GrassMesh_018" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=138859359]

@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://ikynhrqnfd33" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk6.png" id="9_xc70a"]
 [ext_resource type="Texture2D" uid="uid://c8vgcnf7ccxj6" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk7.png" id="10_2w5w8"]
 
+[sub_resource type="Environment" id="Environment_herhr"]
+background_mode = 1
+background_color = Color(0.043217406, 0.039395325, 0.06397359, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56udc"]
 height = 1.604248
 
@@ -59,6 +63,8 @@ radius = 1.6030273
 
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=895493741 node_paths=PackedStringArray("animated_sprite", "camera")]
 script = ExtResource("1_herhr")
+camera_distance = 10.0
+camera_height = 8.0
 animated_sprite = NodePath("AnimatedSprite3D")
 camera = NodePath("CameraBase/Camera3D")
 
@@ -66,10 +72,13 @@ camera = NodePath("CameraBase/Camera3D")
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 5)
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase" unique_id=1014670481]
+environment = SubResource("Environment_herhr")
 current = true
+fov = 30.0
+size = 6.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1426323853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81600535, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7401893, 0)
 shape = SubResource("CapsuleShape3D_56udc")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1320450425]

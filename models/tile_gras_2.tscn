@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bqppktuvthee2"]
+
+[ext_resource type="PackedScene" uid="uid://c2no31x72g2w2" path="res://models/tile_gras2.blend" id="1_yktln"]
+
+[node name="tile_gras2" unique_id=654218778 instance=ExtResource("1_yktln")]
