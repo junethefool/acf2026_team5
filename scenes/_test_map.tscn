@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://d4a1dtj5a4v1i" path="res://scripts/pickupable.gd" id="7_s0ejd"]
 [ext_resource type="Texture2D" uid="uid://df2o5lhxwlld6" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_001.png" id="8_i1bym"]
 [ext_resource type="PackedScene" path="res://scenes/tile_grid.tscn" id="9_tilegrid"]
+[ext_resource type="Texture2D" uid="uid://ceva67sddytnq" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_062.png" id="12_c2pks"]
+[ext_resource type="Texture2D" uid="uid://c4o2wcy47nswh" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_003.png" id="13_14kd1"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -86,13 +88,13 @@ size = Vector3(0.2536621, 0.4482422, 0.12207031)
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
 [node name="TileGrid" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
-grass_scene = ExtResource("2_3kc36")
-snow_scene = ExtResource("2_yh4bu")
 earth_height_min = -0.1
 earth_height_max = 0.0
+snow_scene = ExtResource("2_yh4bu")
 spring_offset_min = -0.1
 spring_offset_max = 0.15
 spring_scale_max = 1.1
+grass_scene = ExtResource("2_3kc36")
 winter_offset_min = -0.2
 winter_offset_max = 0.2
 winter_scale_max = 1.1
@@ -101,7 +103,7 @@ winter_scale_max = 1.1
 transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
 
 [node name="PlayerCharacter" parent="." unique_id=895493741 instance=ExtResource("1_qktu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.496128, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
 visible = false
@@ -129,5 +131,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("8_i1bym")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1914504963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="." unique_id=1468322649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+
+[node name="Sprite3D" type="Sprite3D" parent="AnimatableBody3D2" unique_id=137211806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("12_c2pks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2" unique_id=748486832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="AnimatableBody3D3" type="AnimatableBody3D" parent="." unique_id=833443072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+
+[node name="Sprite3D" type="Sprite3D" parent="AnimatableBody3D3" unique_id=1245158313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("13_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D3" unique_id=2106792933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")

@@ -12,13 +12,15 @@ extends CharacterBody3D
 
 var _camera_yaw: float = 0.0
 
-enum {neutral,pick_up,hold,place_down}
+enum {neutral,pick_up,hold,place_down,inventory_stationary, inventory_rotating}
 var state = neutral
 
 
 var last_direction: Vector3
 
 var current_pick_up: Node
+
+var inventory: Array
 
 func _physics_process(delta: float) -> void:
 	_camera_yaw -= Input.get_axis("cam_left", "cam_right") * camera_rotation_speed * delta
@@ -65,6 +67,14 @@ func _physics_process(delta: float) -> void:
 				await get_tree().physics_frame
 				await get_tree().physics_frame
 				state = pick_up
+				
+			if !Input.is_action_just_pressed("pick_up") and Input.is_action_just_pressed("inventory") and !inventory.is_empty():
+				for item in inventory:
+					for child in item.get_children():
+						if child is Sprite3D:
+							child.visible = true
+				state = inventory_stationary
+			
 		pick_up:
 			current_pick_up.global_position = current_pick_up.global_position.lerp(self.global_position,9*delta)
 			var height_vector: Vector3 = self.global_position - current_pick_up.global_position
@@ -92,9 +102,16 @@ func _physics_process(delta: float) -> void:
 			current_pick_up.global_position = global_position
 			current_pick_up.global_position.y += movement_speed * 0.25
 			
-			if Input.is_action_just_pressed("pick_up"):
+			if Input.is_action_just_pressed("pick_up") and !Input.is_action_just_pressed("inventory"):
 				state = place_down
 				
+			if !Input.is_action_just_pressed("pick_up") and Input.is_action_just_pressed("inventory"):
+				inventory.push_front(current_pick_up)
+				for child in current_pick_up.get_children():
+					if child is Sprite3D:
+						child.visible = false
+				state = neutral
+				print(inventory[0])
 		place_down:
 			var move_vector: Vector3 = Vector3.ZERO
 			move_vector.x = last_direction.x*2 + global_position.x
@@ -114,6 +131,36 @@ func _physics_process(delta: float) -> void:
 					if child is CollisionShape3D:
 						child.disabled = false
 				current_pick_up = null
+		
+		inventory_stationary:
+			
+			inventory[0].global_position = global_position
+			inventory[0].global_position.y = movement_speed * 0.25
+			
+			var pivot = Vector3(global_position.x,global_position.y + movement_speed * 0.25,global_position.z - movement_speed * 0.1)
+			var offset =  inventory[0].global_position - pivot 
+			for item in inventory:
+				var new_offset = offset.rotated(Vector3.UP, 2 * PI / inventory.size() * inventory.find(item))
+				item.global_position = new_offset + pivot
+			
+			if Input.is_action_just_pressed("move_right"):
+				inventory.push_front(inventory.pop_back())
+			if Input.is_action_just_pressed("move_left"):
+				inventory.append(inventory.pop_front())
+			if Input.is_action_just_pressed("pick_up") and !Input.is_action_just_pressed("inventory"):
+				current_pick_up = inventory.pop_front()
+				for item in inventory:
+					for child in item.get_children():
+						if child is Sprite3D:
+							child.visible = false
+				state = hold
+				
+			if !Input.is_action_just_pressed("pick_up") and Input.is_action_just_pressed("inventory"):
+				for item in inventory:
+					for child in item.get_children():
+						if child is Sprite3D:
+							child.visible = false
+				state = neutral
 			
 	# --- Animation ---
 	if animated_sprite:
