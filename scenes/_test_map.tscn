@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" path="res://scenes/tile_grid.tscn" id="9_tilegrid"]
 [ext_resource type="Texture2D" uid="uid://ceva67sddytnq" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_062.png" id="12_c2pks"]
 [ext_resource type="Texture2D" uid="uid://c4o2wcy47nswh" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_003.png" id="13_14kd1"]
+[ext_resource type="Script" uid="uid://bndrx8ep7gjqo" path="res://scripts/room_transition.gd" id="14_14kd1"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -84,6 +85,8 @@ mesh = SubResource("GrassQuad_021")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
 size = Vector3(0.2536621, 0.4482422, 0.12207031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
@@ -159,3 +162,13 @@ texture = ExtResource("13_14kd1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D3" unique_id=2106792933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=316142318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=573864369]
+shape = SubResource("BoxShape3D_t02xj")
+
+[node name="Marker3D" type="Marker3D" parent="Area3D" unique_id=1379632844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
