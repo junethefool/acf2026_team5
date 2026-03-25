@@ -12,5 +12,5 @@ func _ready2():
 		room_transition.room_transition.connect(_on_room_transition)
 		
 func _on_room_transition():
-	if $Sprite3D.visible == true and locked != true:
+	if $CollisionShape3D.disabled == false and locked != true:
 		global_position = spawn
