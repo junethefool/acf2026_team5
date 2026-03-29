@@ -5,7 +5,7 @@ var spawn: Vector3
 var locked = false
 func _ready():
 	call_deferred("_ready2")
-
+	print(name)
 func _ready2():
 	spawn = global_position
 	for room_transition in get_tree().get_nodes_in_group("room_transitions"):
