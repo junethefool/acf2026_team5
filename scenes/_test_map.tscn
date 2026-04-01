@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://ckmqki8dexg6c" path="res://scripts/item_area.gd" id="15_nfuak"]
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
 [ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
+[ext_resource type="Script" uid="uid://d1h088btyd6bc" path="res://scripts/fade.gd" id="19_0i24u"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -206,3 +207,13 @@ shape = SubResource("BoxShape3D_nfuak")
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=914346501]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
 texture = ExtResource("16_frdpu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=86619136]
+layer = 20
+script = ExtResource("19_0i24u")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2137247950]
+modulate = Color(0, 0, 0, 0)
+visibility_layer = 524288
+offset_right = 1920.0
+offset_bottom = 1080.0

@@ -18,5 +18,6 @@ func _on_body_entered(body: CharacterBody3D):
 	#		if child is CollisionShape3D:
 	#			child.disabled = false
 	#	body.current_pick_up = null
-	
+	get_tree().get_first_node_in_group("fade").fade(2,3)
+	await get_tree().create_timer(3)
 	body.global_position = $Marker3D.global_position

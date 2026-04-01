@@ -25,6 +25,7 @@ window/stretch/aspect="keep_height"
 [global_group]
 
 room_transitions=""
+fade=""
 
 [input]
 
