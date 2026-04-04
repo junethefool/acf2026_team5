@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://el1anl5aaefs"]
+
+[node name="NPC Talk Range" type="Area3D" unique_id=1441785651]
+collision_layer = 0
+collision_mask = 16
