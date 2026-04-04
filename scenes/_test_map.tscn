@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
 [ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
 [ext_resource type="Script" uid="uid://d1h088btyd6bc" path="res://scripts/fade.gd" id="19_0i24u"]
+[ext_resource type="Script" uid="uid://ccao8bkhsg1ht" path="res://scripts/item_desciption.gd" id="20_f3ura"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -116,7 +117,7 @@ winter_scale_max = 1.1
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099606343]
 transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
 
-[node name="PlayerCharacter" parent="." unique_id=895493741 instance=ExtResource("1_qktu3")]
+[node name="PlayerCharacter" parent="." unique_id=895493741 groups=["Player"] instance=ExtResource("1_qktu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
@@ -139,6 +140,7 @@ multimesh = SubResource("MultiMesh_021")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's blue"
 
 [node name="Sprite3D" type="Sprite3D" parent="blue_flower" unique_id=640682332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -152,6 +154,7 @@ shape = SubResource("BoxShape3D_yh4bu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's red"
 
 [node name="Sprite3D" type="Sprite3D" parent="red_flower" unique_id=137211806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -165,6 +168,7 @@ shape = SubResource("BoxShape3D_yh4bu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's purple"
 
 [node name="Sprite3D" type="Sprite3D" parent="purple_flower" unique_id=1245158313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -217,3 +221,25 @@ modulate = Color(0, 0, 0, 0)
 visibility_layer = 524288
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="Node" type="Node" parent="." unique_id=294773107]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Node" unique_id=1323652359 groups=["item_description"]]
+
+[node name="ColorRect2" type="ColorRect" parent="Node/CanvasLayer2" unique_id=1278899006]
+offset_left = 715.0
+offset_top = 249.0
+offset_right = 955.0
+offset_bottom = 407.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="Node" unique_id=1449499846]
+script = ExtResource("20_f3ura")
+
+[node name="description" type="Label" parent="Node/CanvasLayer3" unique_id=1960693850]
+visibility_layer = 2
+offset_left = 726.0
+offset_top = 256.0
+offset_right = 950.0
+offset_bottom = 401.0
+autowrap_mode = 2

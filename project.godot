@@ -26,6 +26,8 @@ window/stretch/aspect="keep_height"
 
 room_transitions=""
 fade=""
+item_description=""
+Player=""
 
 [input]
 
