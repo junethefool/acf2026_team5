@@ -3,6 +3,7 @@ extends AnimatableBody3D
 var pickupable = true
 var spawn: Vector3
 var locked = false
+@export_multiline var description: String
 func _ready():
 	call_deferred("_ready2")
 	print(name)

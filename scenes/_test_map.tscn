@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
 [ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
 [ext_resource type="PackedScene" uid="uid://cswshokw6jhcm" path="res://scenes/test_npc.tscn" id="19_0i24u"]
+[ext_resource type="Script" uid="uid://dilln0tshmqfj" path="res://scripts/item_description.gd" id="20_f3ura"]
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -139,6 +140,7 @@ multimesh = SubResource("MultiMesh_021")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's blue"
 
 [node name="Sprite3D" type="Sprite3D" parent="blue_flower" unique_id=640682332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -152,6 +154,7 @@ shape = SubResource("BoxShape3D_yh4bu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's red"
 
 [node name="Sprite3D" type="Sprite3D" parent="red_flower" unique_id=137211806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -165,6 +168,7 @@ shape = SubResource("BoxShape3D_yh4bu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
+description = "A flower, it's purple"
 
 [node name="Sprite3D" type="Sprite3D" parent="purple_flower" unique_id=1245158313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -210,3 +214,25 @@ texture = ExtResource("16_frdpu")
 
 [node name="Test NPC" parent="." unique_id=1584754386 instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0880938, 0, 0)
+
+[node name="item_description" type="Node" parent="." unique_id=97153694]
+script = ExtResource("20_f3ura")
+
+[node name="background" type="CanvasLayer" parent="item_description" unique_id=863101436 groups=["fade"]]
+
+[node name="ColorRect" type="ColorRect" parent="item_description/background" unique_id=1123508142]
+offset_left = 724.0
+offset_top = 231.0
+offset_right = 937.0
+offset_bottom = 386.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="CanvasLayer" parent="item_description" unique_id=196957051]
+layer = 2
+
+[node name="Label" type="Label" parent="item_description/text" unique_id=2066200433]
+offset_left = 741.0
+offset_top = 249.0
+offset_right = 926.0
+offset_bottom = 377.0
+autowrap_mode = 2
