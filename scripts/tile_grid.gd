@@ -116,7 +116,7 @@ func _generate_grid() -> void:
 	_snow_rotations.resize(_total_tiles)
 	_grass_rotations = PackedFloat32Array()
 	_grass_rotations.resize(_total_tiles)
-	
+    
 	var earth_noise := FastNoiseLite.new()
 	earth_noise.seed = randi()
 	earth_noise.frequency = 0.05

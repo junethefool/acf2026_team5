@@ -7,8 +7,9 @@ func _ready():
 	add_to_group("room_transitions")
 	
 	 
-func _on_body_entered(body: CharacterBody3D):
-	
+func _on_body_entered(body):
+	if not body is Area3D:
+		pass
 	if body.name == "PlayerCharacter":
 		room_transition.emit()
 	
@@ -18,6 +19,5 @@ func _on_body_entered(body: CharacterBody3D):
 	#		if child is CollisionShape3D:
 	#			child.disabled = false
 	#	body.current_pick_up = null
-	get_tree().get_first_node_in_group("fade").fade(2,3)
-	await get_tree().create_timer(3)
+	
 	body.global_position = $Marker3D.global_position

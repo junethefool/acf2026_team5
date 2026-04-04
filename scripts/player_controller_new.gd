@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			
 			#doing this every frame to later add a UI element indicating the current target
-			var object_list = $Area3D.get_overlapping_bodies()
+			var object_list = $PlayerRange.get_overlapping_bodies()
 			object_list = object_list.filter(func (object): return object.get("pickupable") == true)
 			object_list.sort_custom(func(a,b): return global_position.distance_to(a.global_position) < global_position.distance_to(b.global_position))
 			var pick_up_target = Node

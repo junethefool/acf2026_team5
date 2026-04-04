@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://gf1jdeij3rvg" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk5.png" id="8_br6ma"]
 [ext_resource type="Texture2D" uid="uid://ikynhrqnfd33" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk6.png" id="9_xc70a"]
 [ext_resource type="Texture2D" uid="uid://c8vgcnf7ccxj6" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk7.png" id="10_2w5w8"]
+[ext_resource type="Script" uid="uid://bcpo7hgrareib" path="res://scripts/player_range.gd" id="11_xb3ya"]
 
 [sub_resource type="Environment" id="Environment_herhr"]
 background_mode = 1
@@ -61,7 +62,7 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_herhr"]
 radius = 1.6030273
 
-[node name="PlayerCharacter" type="CharacterBody3D" unique_id=895493741 node_paths=PackedStringArray("animated_sprite", "camera")]
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=895493741 node_paths=PackedStringArray("animated_sprite", "camera") groups=["player"]]
 script = ExtResource("1_herhr")
 camera_distance = 10.0
 camera_height = 8.0
@@ -91,7 +92,9 @@ alpha_antialiasing_edge = 0.04
 sprite_frames = SubResource("SpriteFrames_qwq0k")
 animation = &"idle"
 
-[node name="Area3D" type="Area3D" parent="." unique_id=675698056]
+[node name="PlayerRange" type="Area3D" parent="." unique_id=675698056]
+collision_layer = 17
+script = ExtResource("11_xb3ya")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=412012784]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRange" unique_id=412012784]
 shape = SubResource("CylinderShape3D_herhr")

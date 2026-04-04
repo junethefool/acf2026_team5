@@ -21,7 +21,9 @@ func _ready2():
 			filled = true
 			items_received.emit()
 
-func _on_body_entered(body: AnimatableBody3D):
+func _on_body_entered(body):
+	if not body is AnimatableBody3D:
+		pass
 	if needed_item_list.find(body.name) != -1:
 		present_item_list.append(str(body.name))
 		difference= needed_item_list.duplicate()
@@ -31,6 +33,8 @@ func _on_body_entered(body: AnimatableBody3D):
 			filled = true
 			items_received.emit()
 func _on_body_exited(body):
+	if not body is AnimatableBody3D:
+		pass
 	if needed_item_list.find(body.name) != -1:
 		present_item_list.append(str(body.name))
 		difference= needed_item_list.duplicate()
