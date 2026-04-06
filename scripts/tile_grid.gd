@@ -116,10 +116,18 @@ func _generate_grid() -> void:
 	_snow_rotations.resize(_total_tiles)
 	_grass_rotations = PackedFloat32Array()
 	_grass_rotations.resize(_total_tiles)
-	
+
 	var earth_noise := FastNoiseLite.new()
 	earth_noise.seed = randi()
 	earth_noise.frequency = 0.05
+
+	var spring_noise := FastNoiseLite.new()
+	spring_noise.seed = randi()
+	spring_noise.frequency = noise_frequency
+
+	var winter_noise := FastNoiseLite.new()
+	winter_noise.seed = randi()
+	winter_noise.frequency = noise_frequency
 
 	var half_x := grid_size.x / 2.0
 	var half_z := grid_size.y / 2.0
@@ -132,24 +140,33 @@ func _generate_grid() -> void:
 			_world_x[i] = wx
 			_world_z[i] = wz
 
-
 			var noise_val := earth_noise.get_noise_2d(float(x), float(z))
 			_earth_heights[i] = remap(noise_val, -1.0, 1.0, earth_height_min, earth_height_max)
 
+			var sv := remap(spring_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
+			var wv := remap(winter_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
 
-			_current_spring[i] = 0.0
-			_target_spring[i] = 0.0
-			_current_winter[i] = 1.0
-			_target_winter[i] = 1.0
-
+			_current_spring[i] = sv
+			_target_spring[i] = sv
+			_current_winter[i] = wv
+			_target_winter[i] = wv
 
 			_snow_rotations[i] = randf() * TAU if randomize_snow_rotation else 0.0
 			_grass_rotations[i] = randf() * TAU if randomize_grass_rotation else 0.0
 
-
 			_earth_mm.set_instance_transform(i, _compute_earth_transform(i))
-			_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, 0.0, spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, 0.0))
-			_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, 1.0, winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
+			_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, sv, spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, _grass_rotations[i]))
+			_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, wv, winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
+
+
+func restore_state(spring_vals: PackedFloat32Array, winter_vals: PackedFloat32Array) -> void:
+	for i in _total_tiles:
+		_current_spring[i] = spring_vals[i]
+		_target_spring[i] = spring_vals[i]
+		_current_winter[i] = winter_vals[i]
+		_target_winter[i] = winter_vals[i]
+		_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, spring_vals[i], spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, _grass_rotations[i]))
+		_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, winter_vals[i], winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
 
 
 func _compute_earth_transform(i: int) -> Transform3D:

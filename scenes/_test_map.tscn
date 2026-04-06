@@ -20,6 +20,16 @@
 [ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
 [ext_resource type="PackedScene" uid="uid://cswshokw6jhcm" path="res://scenes/test_npc.tscn" id="19_0i24u"]
 [ext_resource type="Script" uid="uid://dilln0tshmqfj" path="res://scripts/item_description.gd" id="20_f3ura"]
+[ext_resource type="Script" uid="uid://itcodfm1hv4e" path="res://scripts/camera_controller.gd" id="21_camctrl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
+size = Vector3(0.2536621, 0.4482422, 0.12207031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14kd1"]
+size = Vector3(3.5927734, 2.045044, 3.5604248)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfuak"]
+size = Vector3(3.8898163, 2.5466309, 1)
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -89,16 +99,7 @@ center_offset = Vector3(0, 0.25, 0)
 transform_format = 1
 mesh = SubResource("GrassQuad_021")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
-size = Vector3(0.2536621, 0.4482422, 0.12207031)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_14kd1"]
-size = Vector3(3.5927734, 2.045044, 3.5604248)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nfuak"]
-size = Vector3(3.8898163, 2.5466309, 1)
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
@@ -117,8 +118,104 @@ winter_scale_max = 1.1
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099606343]
 transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
 
-[node name="PlayerCharacter" parent="." unique_id=895493741 instance=ExtResource("1_qktu3")]
+[node name="CameraController" type="Node3D" parent="." unique_id=322327230]
+script = ExtResource("21_camctrl")
+
+[node name="GameState" type="Node3D" parent="." unique_id=1688615954]
+
+[node name="PlayerCharacter" parent="GameState" unique_id=895493741 instance=ExtResource("1_qktu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
+
+[node name="blue_flower" type="AnimatableBody3D" parent="GameState" unique_id=792436011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "A flower, it's blue"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState/blue_flower" unique_id=640682332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("8_i1bym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/blue_flower" unique_id=1914504963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="red_flower" type="AnimatableBody3D" parent="GameState" unique_id=1468322649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "A flower, it's red"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState/red_flower" unique_id=137211806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("12_c2pks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/red_flower" unique_id=748486832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="purple_flower" type="AnimatableBody3D" parent="GameState" unique_id=833443072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "A flower, it's purple"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState/purple_flower" unique_id=1245158313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("13_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/purple_flower" unique_id=2106792933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="item_tree" type="Area3D" parent="GameState" unique_id=638578764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8383284, 0.014832616, -7.5505657)
+script = ExtResource("15_nfuak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/item_tree" unique_id=263046338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122011185, 0.522522, 0.3114047)
+shape = SubResource("BoxShape3D_14kd1")
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState/item_tree" unique_id=649522734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1625643, 0.42530155)
+texture = ExtResource("15_6djn3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GameState" unique_id=1834736393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.978775)
+script = ExtResource("17_0i24u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D" unique_id=1550502492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002975464, 1.5545188, 0)
+shape = SubResource("BoxShape3D_nfuak")
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState/StaticBody3D" unique_id=914346501]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
+texture = ExtResource("16_frdpu")
+
+[node name="Test NPC" parent="GameState" unique_id=1584754386 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0880938, 0, 0)
+
+[node name="item_description" type="Node" parent="GameState" unique_id=97153694]
+script = ExtResource("20_f3ura")
+
+[node name="background" type="CanvasLayer" parent="GameState/item_description" unique_id=863101436 groups=["fade"]]
+
+[node name="ColorRect" type="ColorRect" parent="GameState/item_description/background" unique_id=1123508142]
+offset_left = 724.0
+offset_top = 231.0
+offset_right = 937.0
+offset_bottom = 386.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="CanvasLayer" parent="GameState/item_description" unique_id=196957051]
+layer = 2
+
+[node name="Label" type="Label" parent="GameState/item_description/text" unique_id=2066200433]
+offset_left = 741.0
+offset_top = 249.0
+offset_right = 926.0
+offset_bottom = 377.0
+autowrap_mode = 2
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
 visible = false
@@ -136,48 +233,6 @@ multimesh = SubResource("MultiMesh_020")
 [node name="GrassMesh_021" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1953554211]
 multimesh = SubResource("MultiMesh_021")
 
-[node name="blue_flower" type="AnimatableBody3D" parent="." unique_id=792436011]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
-sync_to_physics = false
-script = ExtResource("7_s0ejd")
-description = "A flower, it's blue"
-
-[node name="Sprite3D" type="Sprite3D" parent="blue_flower" unique_id=640682332]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
-texture = ExtResource("8_i1bym")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="blue_flower" unique_id=1914504963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
-shape = SubResource("BoxShape3D_yh4bu")
-
-[node name="red_flower" type="AnimatableBody3D" parent="." unique_id=1468322649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
-sync_to_physics = false
-script = ExtResource("7_s0ejd")
-description = "A flower, it's red"
-
-[node name="Sprite3D" type="Sprite3D" parent="red_flower" unique_id=137211806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
-texture = ExtResource("12_c2pks")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="red_flower" unique_id=748486832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
-shape = SubResource("BoxShape3D_yh4bu")
-
-[node name="purple_flower" type="AnimatableBody3D" parent="." unique_id=833443072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
-sync_to_physics = false
-script = ExtResource("7_s0ejd")
-description = "A flower, it's purple"
-
-[node name="Sprite3D" type="Sprite3D" parent="purple_flower" unique_id=1245158313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
-texture = ExtResource("13_14kd1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="purple_flower" unique_id=2106792933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
-shape = SubResource("BoxShape3D_yh4bu")
-
 [node name="Area3D" type="Area3D" parent="." unique_id=316142318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
 script = ExtResource("14_14kd1")
@@ -187,52 +242,3 @@ shape = SubResource("BoxShape3D_t02xj")
 
 [node name="Marker3D" type="Marker3D" parent="Area3D" unique_id=1379632844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
-
-[node name="item_tree" type="Area3D" parent="." unique_id=638578764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8383284, 0.014832616, -7.5505657)
-script = ExtResource("15_nfuak")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="item_tree" unique_id=263046338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122011185, 0.522522, 0.3114047)
-shape = SubResource("BoxShape3D_14kd1")
-
-[node name="Sprite3D" type="Sprite3D" parent="item_tree" unique_id=649522734]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1625643, 0.42530155)
-texture = ExtResource("15_6djn3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1834736393]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.978775)
-script = ExtResource("17_0i24u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1550502492]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002975464, 1.5545188, 0)
-shape = SubResource("BoxShape3D_nfuak")
-
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=914346501]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
-texture = ExtResource("16_frdpu")
-
-[node name="Test NPC" parent="." unique_id=1584754386 instance=ExtResource("19_0i24u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0880938, 0, 0)
-
-[node name="item_description" type="Node" parent="." unique_id=97153694]
-script = ExtResource("20_f3ura")
-
-[node name="background" type="CanvasLayer" parent="item_description" unique_id=863101436 groups=["fade"]]
-
-[node name="ColorRect" type="ColorRect" parent="item_description/background" unique_id=1123508142]
-offset_left = 724.0
-offset_top = 231.0
-offset_right = 937.0
-offset_bottom = 386.0
-color = Color(0, 0, 0, 1)
-
-[node name="text" type="CanvasLayer" parent="item_description" unique_id=196957051]
-layer = 2
-
-[node name="Label" type="Label" parent="item_description/text" unique_id=2066200433]
-offset_left = 741.0
-offset_top = 249.0
-offset_right = 926.0
-offset_bottom = 377.0
-autowrap_mode = 2

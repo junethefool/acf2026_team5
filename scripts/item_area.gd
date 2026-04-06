@@ -2,9 +2,9 @@ extends Area3D
 
 signal items_received
 var needed_item_list = ["blue_flower", "red_flower", "purple_flower"]
-var present_item_list = []
+@export var present_item_list: Array = []
 var difference = []
-var filled = false
+@export var filled: bool = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -12,6 +12,9 @@ func _ready():
 	call_deferred("_ready2")
 	
 func _ready2():
+	if filled:
+		items_received.emit()
+		return
 	for body in get_overlapping_bodies():
 		present_item_list.append(str(body.name))
 		difference= needed_item_list.duplicate()

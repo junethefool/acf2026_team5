@@ -1,16 +1,10 @@
 extends CharacterBody3D
 
 @export var movement_speed: float = 5.0
-@export var camera_rotation_speed: float = 2.0
-
-@export var camera_distance: float = 5.0
-@export var camera_height: float = 5.0
 
 @export var animated_sprite: AnimatedSprite3D
 
-@export var camera: Camera3D
-
-var _camera_yaw: float = 0.0
+var _camera_controller: Node
 
 enum {neutral,pick_up,hold,place_down,inventory_stationary, inventory_rotating}
 var state = neutral
@@ -21,20 +15,36 @@ var last_direction: Vector3
 var current_pick_up: Node
 
 var inventory: Array
+@export var inventory_names: PackedStringArray = []
+
+func _ready():
+	call_deferred("_rebuild_inventory")
+
+func _rebuild_inventory():
+	if inventory_names.is_empty():
+		return
+	var game_state = get_parent()
+	for item_name in inventory_names:
+		var node = game_state.find_child(item_name, true, false)
+		if node:
+			inventory.append(node)
+			for child in node.get_children():
+				if child is Sprite3D:
+					child.visible = false
+				if child is CollisionShape3D:
+					child.disabled = true
+	state = neutral
+	inventory_names = PackedStringArray()
+
+func prepare_save():
+	inventory_names = PackedStringArray()
+	for item in inventory:
+		inventory_names.append(item.name)
+
 
 func _physics_process(delta: float) -> void:
-	_camera_yaw -= Input.get_axis("cam_left", "cam_right") * camera_rotation_speed * delta
-
-	if camera:
-		camera.global_position = global_position + Vector3(
-			sin(_camera_yaw) * camera_distance,
-			camera_height,
-			cos(_camera_yaw) * camera_distance
-		)
-		camera.look_at(global_position + Vector3.UP, Vector3.UP)
-
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := Vector3(input_dir.x, 0.0, input_dir.y).rotated(Vector3.UP, _camera_yaw)
+	var direction := Vector3(input_dir.x, 0.0, input_dir.y)
 	
 
 	match state:
