@@ -130,7 +130,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
-description = "A flower, it's blue"
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
 
 [node name="Sprite3D" type="Sprite3D" parent="GameState/blue_flower" unique_id=640682332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
@@ -203,8 +204,8 @@ script = ExtResource("20_f3ura")
 [node name="ColorRect" type="ColorRect" parent="GameState/item_description/background" unique_id=1123508142]
 offset_left = 724.0
 offset_top = 231.0
-offset_right = 937.0
-offset_bottom = 386.0
+offset_right = 999.0
+offset_bottom = 425.0
 color = Color(0, 0, 0, 1)
 
 [node name="text" type="CanvasLayer" parent="GameState/item_description" unique_id=196957051]
@@ -213,8 +214,8 @@ layer = 2
 [node name="Label" type="Label" parent="GameState/item_description/text" unique_id=2066200433]
 offset_left = 741.0
 offset_top = 249.0
-offset_right = 926.0
-offset_bottom = 377.0
+offset_right = 986.0
+offset_bottom = 406.0
 autowrap_mode = 2
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
