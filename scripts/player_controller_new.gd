@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 var _camera_controller: Node
 
-enum {neutral,pick_up,hold,place_down,inventory_stationary, inventory_rotating}
+enum {neutral,pick_up,hold,place_down,inventory_stationary, inventory_rotating,wait}
 var state = neutral
 
 
@@ -17,8 +17,16 @@ var current_pick_up: Node
 var inventory: Array
 @export var inventory_names: PackedStringArray = []
 
-func _ready():
+func _ready() -> void:
+	Dialogic.timeline_started.connect(_on_timeline_start)
+	Dialogic.timeline_ended.connect(_on_timeline_end)
 	call_deferred("_rebuild_inventory")
+
+func _on_timeline_start():
+	state = wait
+func _on_timeline_end():
+	state = neutral
+	
 
 func _rebuild_inventory():
 	if inventory_names.is_empty():

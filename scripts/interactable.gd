@@ -16,9 +16,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("activate") && can_interact == true:
+	if Input.is_action_just_pressed("activate") && can_interact == true and get_tree().get_first_node_in_group("player").state == 0:
 		Interact.emit()
-
+		
 func on_area_entered(other_area: Area3D):
 	if not other_area is PlayerRange:
 		pass

@@ -6,7 +6,9 @@ class_name NPC
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
-
+	
 
 func on_interact():
 	print("you did it, dumbass")
+	Dialogic.start("flower observation")
+	

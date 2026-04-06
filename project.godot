@@ -22,9 +22,31 @@ GameManager="*res://scripts/game_manager.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Bear": "res://Dialogic characters/Bear.dch",
+"Crow": "res://Dialogic characters/Crow.dch",
+"Faun": "res://Dialogic characters/Faun.dch",
+"Seelie": "res://Dialogic characters/Seelie.dch",
+"Unicorn": "res://Dialogic characters/Unicorn.dch"
+}
 directories/dtl_directory={
-"test_timeline": "res://dialogue/timelines/test_timeline.dtl"
+"Crow invitation": "res://Dialogic timelines/Crow invitation.dtl",
+"Faun couldn't find the knife": "res://Dialogic timelines/Faun couldn't find the knife.dtl",
+"Faun fiddle task": "res://Dialogic timelines/Faun fiddle task.dtl",
+"Faun finale": "res://Dialogic timelines/Faun finale.dtl",
+"Faun hints": "res://Dialogic timelines/Faun hints.dtl",
+"Faun making the fiddle": "res://Dialogic timelines/Faun making the fiddle.dtl",
+"Faun ready for music": "res://Dialogic timelines/Faun ready for music.dtl",
+"Seelie and berries": "res://Dialogic timelines/Seelie and berries.dtl",
+"Seelie invitation": "res://Dialogic timelines/Seelie invitation.dtl",
+"Unicorn first meeting": "res://Dialogic timelines/Unicorn first meeting.dtl",
+"Unicorn invitation": "res://Dialogic timelines/Unicorn invitation.dtl",
+"bear asleep": "res://Dialogic timelines/bear asleep.dtl",
+"crow seelie education and task": "res://Dialogic timelines/crow seelie education and task.dtl",
+"crow the nest": "res://Dialogic timelines/crow the nest.dtl",
+"flower observation": "res://Dialogic timelines/flower observation.dtl",
+"test_timeline": "res://dialogue/timelines/test_timeline.dtl",
+"tutorial": "res://Dialogic timelines/tutorial.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true

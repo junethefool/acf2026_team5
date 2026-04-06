@@ -4,6 +4,7 @@ const SAVE_PATH = "user://savegame.scn"
 const TILE_SAVE_PATH = "user://tilegrid.dat"
 
 var is_loading: bool = false
+var player: CharacterBody3D
 
 func has_save() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)
