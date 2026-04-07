@@ -57,7 +57,7 @@ func _ready() -> void:
 
 	_setup_multimeshes(earth_mesh, grass_mesh, snow_mesh)
 	_generate_grid()
-	_setup_collision()
+	#_setup_collision()
 
 
 func _extract_mesh(scene: PackedScene) -> Mesh:

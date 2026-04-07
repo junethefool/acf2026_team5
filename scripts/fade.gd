@@ -5,12 +5,14 @@ func _ready():
 
 func fade_out(duration):
 	var tween = create_tween()
-	tween.tween_property($ColorRect,"modulate:a",1,duration)
+	var box = get_child(0)
+	tween.tween_property(box,"modulate:a",1,duration)
 	await tween.finished
 	
 func fade_in(duration):
 	var tween = create_tween()
-	tween.tween_property($ColorRect,"modulate:a",0,duration)
+	var box = get_child(0)
+	tween.tween_property(box,"modulate:a",0,duration)
 	await tween.finished
 
 func fade(duration,wait):

@@ -21,15 +21,37 @@
 [ext_resource type="PackedScene" uid="uid://cswshokw6jhcm" path="res://scenes/test_npc.tscn" id="19_0i24u"]
 [ext_resource type="Script" uid="uid://dilln0tshmqfj" path="res://scripts/item_description.gd" id="20_f3ura"]
 [ext_resource type="Script" uid="uid://itcodfm1hv4e" path="res://scripts/camera_controller.gd" id="21_camctrl"]
+[ext_resource type="Script" uid="uid://d1h088btyd6bc" path="res://scripts/fade.gd" id="22_de8fr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
 size = Vector3(0.2536621, 0.4482422, 0.12207031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
+size = Vector3(3.8876953, 2.0577393, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14kd1"]
 size = Vector3(3.5927734, 2.045044, 3.5604248)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfuak"]
 size = Vector3(3.8898163, 2.5466309, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c6e5"]
+size = Vector3(23.866226, 1, 24.030518)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_de8fr"]
+size = Vector3(1, 2.1834717, 24.017456)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c08rl"]
+size = Vector3(1, 2.0976563, 24.042297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy6go"]
+size = Vector3(9.861328, 2.0723877, 3.04187)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u1tvc"]
+size = Vector3(7.988983, 2.0474243, 2.9412842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_outm6"]
+size = Vector3(21.769531, 2.1229248, 1)
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -99,8 +121,6 @@ center_offset = Vector3(0, 0.25, 0)
 transform_format = 1
 mesh = SubResource("GrassQuad_021")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
-
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
 [node name="TileGrid" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
@@ -115,16 +135,35 @@ winter_offset_min = -0.2
 winter_offset_max = 0.2
 winter_scale_max = 1.1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1099606343]
-transform = Transform3D(0.81839365, 0.42658132, -0.3850456, -0.16625008, 0.8171453, 0.551937, 0.55008423, -0.38768786, 0.7396657, -0.8, 8.077, 0)
-
 [node name="CameraController" type="Node3D" parent="." unique_id=322327230]
 script = ExtResource("21_camctrl")
 
+[node name="item_description" type="Node" parent="." unique_id=97153694]
+script = ExtResource("20_f3ura")
+
+[node name="background" type="CanvasLayer" parent="item_description" unique_id=863101436]
+
+[node name="ColorRect" type="ColorRect" parent="item_description/background" unique_id=1123508142]
+offset_left = 724.0
+offset_top = 231.0
+offset_right = 999.0
+offset_bottom = 425.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="CanvasLayer" parent="item_description" unique_id=196957051]
+layer = 2
+
+[node name="Label" type="Label" parent="item_description/text" unique_id=2066200433]
+offset_left = 741.0
+offset_top = 249.0
+offset_right = 986.0
+offset_bottom = 406.0
+autowrap_mode = 2
+
 [node name="GameState" type="Node3D" parent="." unique_id=1688615954]
 
-[node name="PlayerCharacter" parent="GameState" unique_id=895493741 instance=ExtResource("1_qktu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameState" unique_id=1099606343]
+transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
 
 [node name="blue_flower" type="AnimatableBody3D" parent="GameState" unique_id=792436011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
@@ -169,6 +208,16 @@ texture = ExtResource("13_14kd1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
+[node name="Area3D" type="Area3D" parent="GameState" unique_id=316142318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/Area3D" unique_id=573864369]
+shape = SubResource("BoxShape3D_t02xj")
+
+[node name="Marker3D" type="Marker3D" parent="GameState/Area3D" unique_id=1379632844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+
 [node name="item_tree" type="Area3D" parent="GameState" unique_id=638578764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8383284, 0.014832616, -7.5505657)
 script = ExtResource("15_nfuak")
@@ -196,27 +245,136 @@ texture = ExtResource("16_frdpu")
 [node name="Test NPC" parent="GameState" unique_id=1584754386 instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0880938, 0, 0)
 
-[node name="item_description" type="Node" parent="GameState" unique_id=97153694]
-script = ExtResource("20_f3ura")
+[node name="GameState2" type="Node3D" parent="." unique_id=890754198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.7812)
 
-[node name="background" type="CanvasLayer" parent="GameState/item_description" unique_id=863101436 groups=["fade"]]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameState2" unique_id=990801972]
+transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
 
-[node name="ColorRect" type="ColorRect" parent="GameState/item_description/background" unique_id=1123508142]
-offset_left = 724.0
-offset_top = 231.0
-offset_right = 999.0
-offset_bottom = 425.0
-color = Color(0, 0, 0, 1)
+[node name="PlayerCharacter" parent="GameState2" unique_id=895493741 instance=ExtResource("1_qktu3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 
-[node name="text" type="CanvasLayer" parent="GameState/item_description" unique_id=196957051]
-layer = 2
+[node name="bucket" type="AnimatableBody3D" parent="GameState2" unique_id=777969826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
 
-[node name="Label" type="Label" parent="GameState/item_description/text" unique_id=2066200433]
-offset_left = 741.0
-offset_top = 249.0
-offset_right = 986.0
-offset_bottom = 406.0
-autowrap_mode = 2
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/bucket" unique_id=1093149243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("8_i1bym")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/bucket" unique_id=580681856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="knife" type="AnimatableBody3D" parent="GameState2" unique_id=1455133350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "A flower, it's red"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/knife" unique_id=1473746974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("12_c2pks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/knife" unique_id=1964298469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="shovel" type="AnimatableBody3D" parent="GameState2" unique_id=1047789902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "A flower, it's purple"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/shovel" unique_id=1734418061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("13_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/shovel" unique_id=344996002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D" type="Area3D" parent="GameState2" unique_id=1243647419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4294577, 0.49815226, -14.95961)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/Area3D" unique_id=602739981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4438477, 0.5288696, 0)
+shape = SubResource("BoxShape3D_t02xj")
+
+[node name="Marker3D" type="Marker3D" parent="GameState2/Area3D" unique_id=111896617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.910054, 0, 14.768112)
+
+[node name="shed" type="Area3D" parent="GameState2" unique_id=1708364638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2991085, 0.014832616, -10.313309)
+script = ExtResource("15_nfuak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/shed" unique_id=1337149461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122011185, 0.522522, 0.3114047)
+shape = SubResource("BoxShape3D_14kd1")
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/shed" unique_id=146419806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1625643, 0.42530155)
+texture = ExtResource("15_6djn3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GameState2" unique_id=190592181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.978775)
+script = ExtResource("17_0i24u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D" unique_id=286597691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002975464, 1.5545188, 0)
+shape = SubResource("BoxShape3D_nfuak")
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/StaticBody3D" unique_id=952138958]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
+texture = ExtResource("16_frdpu")
+
+[node name="Test NPC" parent="GameState2" unique_id=387924167 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -11.558365)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="GameState2" unique_id=797305596]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D2" unique_id=1758417849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -3.481079)
+shape = SubResource("BoxShape3D_3c6e5")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="GameState2" unique_id=656977387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.837679, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D3" unique_id=1168219083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -3.5127563)
+shape = SubResource("BoxShape3D_de8fr")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="GameState2" unique_id=2007491565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.576643, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D4" unique_id=1778138675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -3.5254211)
+shape = SubResource("BoxShape3D_c08rl")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="GameState2" unique_id=1016984239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.229829, 0, -14.922852)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D5" unique_id=1347530727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3301725, 1.1140151, 0.92045593)
+shape = SubResource("BoxShape3D_wy6go")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="GameState2" unique_id=1578214117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.587634, 0, -14.922852)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D9" unique_id=959882368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3823395, 1.0512879, 0.9706421)
+shape = SubResource("BoxShape3D_u1tvc")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="GameState2" unique_id=615537314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.305196, 0.52757573, 7.9889984)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D6" unique_id=2005948855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.384766, 0.5614624, 0)
+shape = SubResource("BoxShape3D_outm6")
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
 visible = false
@@ -234,12 +392,12 @@ multimesh = SubResource("MultiMesh_020")
 [node name="GrassMesh_021" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1953554211]
 multimesh = SubResource("MultiMesh_021")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=316142318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
-script = ExtResource("14_14kd1")
+[node name="fade" type="CanvasLayer" parent="." unique_id=1107835553]
+layer = 20
+script = ExtResource("22_de8fr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=573864369]
-shape = SubResource("BoxShape3D_t02xj")
-
-[node name="Marker3D" type="Marker3D" parent="Area3D" unique_id=1379632844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+[node name="ColorRect" type="ColorRect" parent="fade" unique_id=1868029441]
+modulate = Color(0, 0, 0, 0)
+visibility_layer = 524288
+offset_right = 1290.0
+offset_bottom = 729.0
