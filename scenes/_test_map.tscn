@@ -18,7 +18,10 @@
 [ext_resource type="Script" uid="uid://ckmqki8dexg6c" path="res://scripts/item_area.gd" id="15_nfuak"]
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
 [ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
+[ext_resource type="Texture2D" uid="uid://3xleqti7i218" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_002.png" id="17_u1tvc"]
+[ext_resource type="Script" uid="uid://dgadctd63xm5g" path="res://scripts/shed.gd" id="18_outm6"]
 [ext_resource type="PackedScene" uid="uid://cswshokw6jhcm" path="res://scenes/test_npc.tscn" id="19_0i24u"]
+[ext_resource type="Script" uid="uid://fo8p4b4w6quc" path="res://scripts/tutorial_faun.gd" id="19_48ac3"]
 [ext_resource type="Script" uid="uid://dilln0tshmqfj" path="res://scripts/item_description.gd" id="20_f3ura"]
 [ext_resource type="Script" uid="uid://itcodfm1hv4e" path="res://scripts/camera_controller.gd" id="21_camctrl"]
 [ext_resource type="Script" uid="uid://d1h088btyd6bc" path="res://scripts/fade.gd" id="22_de8fr"]
@@ -256,6 +259,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 
 [node name="bucket" type="AnimatableBody3D" parent="GameState2" unique_id=777969826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
+collision_layer = 17
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
@@ -269,8 +273,25 @@ texture = ExtResource("8_i1bym")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
+[node name="key" type="AnimatableBody3D" parent="GameState2" unique_id=76630073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
+collision_layer = 17
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="GameState2/key" unique_id=1555785738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("17_u1tvc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/key" unique_id=701619497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
 [node name="knife" type="AnimatableBody3D" parent="GameState2" unique_id=1455133350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
+collision_layer = 17
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "A flower, it's red"
@@ -285,6 +306,7 @@ shape = SubResource("BoxShape3D_yh4bu")
 
 [node name="shovel" type="AnimatableBody3D" parent="GameState2" unique_id=1047789902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
+collision_layer = 17
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "A flower, it's purple"
@@ -310,7 +332,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.910054, 0, 14.768112)
 
 [node name="shed" type="Area3D" parent="GameState2" unique_id=1708364638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2991085, 0.014832616, -10.313309)
-script = ExtResource("15_nfuak")
+script = ExtResource("18_outm6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/shed" unique_id=1337149461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122011185, 0.522522, 0.3114047)
@@ -334,6 +356,7 @@ texture = ExtResource("16_frdpu")
 
 [node name="Test NPC" parent="GameState2" unique_id=387924167 instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -11.558365)
+script = ExtResource("19_48ac3")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="GameState2" unique_id=797305596]
 

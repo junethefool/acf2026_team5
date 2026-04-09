@@ -58,9 +58,8 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_herhr"]
 radius = 1.6030273
 
-[node name="PlayerCharacter" type="CharacterBody3D" unique_id=895493741 node_paths=PackedStringArray("animated_sprite") groups=["player"]]
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=895493741 groups=["player"]]
 script = ExtResource("1_herhr")
-animated_sprite = NodePath("AnimatedSprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1426323853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7401893, 0)

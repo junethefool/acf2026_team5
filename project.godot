@@ -50,6 +50,12 @@ directories/dtl_directory={
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
+variables={
+"game_state": "0",
+"key": "0",
+"key_on_the_floor": "0",
+"shed_missing": "1"
+}
 
 [display]
 

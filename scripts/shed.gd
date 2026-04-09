@@ -2,7 +2,7 @@ extends Area3D
 
 signal items_received
 var needed_item_list = ["bucket", "knife", "shovel"]
-@export var present_item_list: Array = []
+var present_item_list: Array = []
 var difference = []
 @export var filled: bool = false
 
@@ -23,7 +23,9 @@ func _ready2():
 		if difference.is_empty():
 			filled = true
 			items_received.emit()
-
+			Dialogic.VAR.shed_missing = "0"
+		else:
+			Dialogic.VAR.shed_missing = "1"
 func _on_body_entered(body):
 	if not body is AnimatableBody3D:
 		pass
@@ -35,9 +37,9 @@ func _on_body_entered(body):
 		if difference.is_empty():
 			filled = true
 			items_received.emit()
-			Dialogic.VAR.missing = 1
+			Dialogic.VAR.shed_missing = "0"
 		else:
-			Dialogic.VAR.missing = 1
+			Dialogic.VAR.shed_missing = "1"
 func _on_body_exited(body):
 	if not body is AnimatableBody3D:
 		pass
@@ -47,4 +49,6 @@ func _on_body_exited(body):
 		for item in present_item_list:
 			difference.erase(item)
 		if !difference.is_empty():
-			filled = false
+			Dialogic.VAR.shed_missing = "1"
+		else:
+			Dialogic.VAR.shed_missing = "0"
