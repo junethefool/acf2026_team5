@@ -354,7 +354,7 @@ shape = SubResource("BoxShape3D_nfuak")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
 texture = ExtResource("16_frdpu")
 
-[node name="Test NPC" parent="GameState2" unique_id=387924167 instance=ExtResource("19_0i24u")]
+[node name="Faun" parent="GameState2" unique_id=387924167 instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -11.558365)
 script = ExtResource("19_48ac3")
 

@@ -1,5 +1,4 @@
 extends AnimatableBody3D
-class_name NPC
 
 @onready var interactable: Interactable = $Interactable
 
@@ -15,11 +14,11 @@ func ready2():
 
 func _on_body_entered(body):
 	if str(body.name) == "key":
-		Dialogic.VAR.key_on_the_floor = "1"
+		Dialogic.VAR.key_on_the_floor = 1
 		
 func _on_body_exited(body):
 	if str(body.name) == "key":
-		Dialogic.VAR.key_on_the_floor = "0"
+		Dialogic.VAR.key_on_the_floor = 0
 		
 func on_interact():
 	print("you did it, dumbass")
@@ -28,10 +27,9 @@ func on_interact():
 		if str(item.name) == "key":
 			key_here = true
 	if key_here == false:
-		Dialogic.VAR.key = "0"
-	
+		Dialogic.VAR.key = 0
 	else:
-		Dialogic.VAR.key = "1"
+		Dialogic.VAR.key = 1
 		
 	Dialogic.start("tutorial")
 	

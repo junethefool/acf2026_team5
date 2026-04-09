@@ -1,19 +1,19 @@
-if {game_state} == "0":
+if {game_state} == 0.0:
 	Faun: Intro text
 	Faun: task
-	set {game_state} = "1"
+	set {game_state} = 0
 	[end_timeline]
-elif {game_state} == "1":
-	if {shed_missing} == "1":
+elif {game_state} == 0.0:
+	if {shed_missing} == 0.0:
 		Faun: Not all items present
-	elif {shed_missing} == "0":
-		if {key} == "1":
+	elif {shed_missing} == 0.0:
+		if {key} == 0.0:
 			Faun: All items present and key in inventory
-			set {game_state} = "2"
-		elif {key} == "0":
-			if {key_on_the_floor} == "0":
+			set {game_state} = 0
+		elif {key} == 0.0:
+			if {key_on_the_floor} == 0.0:
 				Faun: All items present, but no key
-			elif {key_on_the_floor} == "1":
+			elif {key_on_the_floor} == 0.0:
 				Faun: Key in range
-elif {game_state} == "2":
+elif {game_state} == 0.0:
 	Done
