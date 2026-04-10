@@ -13,7 +13,7 @@ func on_interact():
 
 func _process(delta: float) -> void:
 	if global_position.distance_to(berries.global_position) < 25 and berries.disabled == false:
-		Dialogic.VAR.game_state = 6
+		Dialogic.VAR.game_state = 5
 		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
 		var duration = 0.5
 		var wait = 0.5

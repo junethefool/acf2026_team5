@@ -1,0 +1,35 @@
+if {game_state} == 2.0:
+	Faun: Hint
+elif {game_state} == 3.0:
+	Faun: Hint 2
+elif {game_state} == 4.0:
+	Faun: Hint 3
+elif {game_state} == 5.0:
+	if {went_and_returned} == 0.0:
+		Faun: I'll go get the knife
+		[signal arg="leaving"]
+	if {went_and_returned} == 1.0:
+		Faun: no knife
+		set {game_state} = 6.0
+elif {game_state} == 6.0:
+	if {has_knife} == 0.0:
+		Faun: why no knife I don't understand
+	elif {has_knife} == 1.0:
+		if {materials_gathered} == 0.0:
+			Faun: my knife
+			Faun: now get the rest
+		elif {materials_gathered} == 0.0:
+			Faun: my knife
+			Faun: lemme carve that fiddle
+			[signal arg="give fiddle"]
+			set {game_state} = 7.0
+elif {game_state} == 7.0:
+	if {crow_invited}  ==  1.0 and {seelie_invited}  ==  1.0 and {unicorn_invited}  ==  1.0:
+		Faun: let's go
+		[signal arg="party"]
+		set {game_state} = 8.0
+	else:
+		Faun: invite everybody
+elif {game_state} == 8.0:
+	Faun: thank you so much
+	[signal arg="end game"]

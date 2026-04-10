@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpw2bg47ylr2f"]
 
 [ext_resource type="PackedScene" uid="uid://ct2620hn7k85s" path="res://scenes/_test_map.tscn" id="1_kc8py"]
-[ext_resource type="Script" path="res://scripts/root_scene.gd" id="2_root"]
+[ext_resource type="Script" uid="uid://d0etmbku6ng5n" path="res://scripts/root_scene.gd" id="2_root"]
 [ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="3_pause"]
 
 [node name="Root" type="Node3D" unique_id=420735112]
@@ -9,4 +9,4 @@ script = ExtResource("2_root")
 
 [node name="TestMap" parent="." unique_id=1183922978 instance=ExtResource("1_kc8py")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_pause")]
+[node name="PauseMenu" parent="." unique_id=760584567 instance=ExtResource("3_pause")]

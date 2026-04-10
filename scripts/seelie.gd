@@ -2,7 +2,7 @@ extends AnimatableBody3D
 
 @onready var interactable: Interactable = $Interactable
 @export var crow: AnimatableBody3D
-@export var berries: AnimatableBody3D
+
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)

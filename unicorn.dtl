@@ -1,0 +1,10 @@
+if {game_state} < 7.0:
+	Unicorn: have my hair
+	[signal arg="give hair"]
+elif {game_state} == 7.0:
+	if {unicorn_invited} == 0.0:
+		Unicorn: ooh invite
+	elif {unicorn_invited} == 1.0:
+		Unicorn: thanks for the invite
+elif {game_state} == 8.0:
+	Unicorn: now this is a party

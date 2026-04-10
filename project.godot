@@ -45,11 +45,13 @@ directories/dtl_directory={
 "crow": "res://crow.dtl",
 "crow seelie education and task": "res://Dialogic timelines/crow seelie education and task.dtl",
 "crow the nest": "res://Dialogic timelines/crow the nest.dtl",
+"faun": "res://faun.dtl",
 "flower observation": "res://Dialogic timelines/flower observation.dtl",
 "seelie": "res://seelie.dtl",
 "seelie and crow": "res://seelie and crow.dtl",
 "test_timeline": "res://dialogue/timelines/test_timeline.dtl",
-"tutorial": "res://Dialogic timelines/tutorial.dtl"
+"tutorial": "res://Dialogic timelines/tutorial.dtl",
+"unicorn": "res://unicorn.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
@@ -59,10 +61,14 @@ variables={
 "crow_intervened": 0.0,
 "crow_invited": 0.0,
 "game_state": 0.0,
+"has_knife": 0.0,
 "key": 0.0,
 "key_on_the_floor": 0.0,
+"materials_gathered": 0.0,
 "seelie_invited": 0.0,
-"shed_missing": 1.0
+"shed_missing": 1.0,
+"unicorn_invited": 0.0,
+"went_and_returned": 0.0
 }
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
