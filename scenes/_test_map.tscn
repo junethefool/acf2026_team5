@@ -9,10 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://cnuk0s7p7hxvc" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_021.png" id="5_g021"]
 [ext_resource type="Script" uid="uid://c82thejrpr4yg" path="res://scripts/grass_foliage.gd" id="6_gfoliage"]
 [ext_resource type="Script" uid="uid://d4a1dtj5a4v1i" path="res://scripts/pickupable.gd" id="7_s0ejd"]
+[ext_resource type="Script" uid="uid://5w68ek55ppql" path="res://scripts/Faun.gd" id="8_27gnj"]
 [ext_resource type="Texture2D" uid="uid://df2o5lhxwlld6" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_001.png" id="8_i1bym"]
+[ext_resource type="Script" uid="uid://ht8yd6iukeo2" path="res://scripts/flower.gd" id="9_cqnah"]
 [ext_resource type="PackedScene" uid="uid://xg0bnkixvf10" path="res://scenes/tile_grid.tscn" id="9_tilegrid"]
+[ext_resource type="Texture2D" uid="uid://cdal8qknp4ome" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_052.png" id="12_1pqbu"]
 [ext_resource type="Texture2D" uid="uid://ceva67sddytnq" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_062.png" id="12_c2pks"]
 [ext_resource type="Texture2D" uid="uid://c4o2wcy47nswh" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_003.png" id="13_14kd1"]
+[ext_resource type="Texture2D" uid="uid://142n6wiwjhp4" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_026.png" id="13_fyrel"]
 [ext_resource type="Script" uid="uid://bndrx8ep7gjqo" path="res://scripts/room_transition.gd" id="14_14kd1"]
 [ext_resource type="Texture2D" uid="uid://cs3qjcepjg488" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_029.png" id="15_6djn3"]
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
@@ -24,6 +28,17 @@
 [ext_resource type="Script" uid="uid://dilln0tshmqfj" path="res://scripts/item_description.gd" id="20_f3ura"]
 [ext_resource type="Script" uid="uid://itcodfm1hv4e" path="res://scripts/camera_controller.gd" id="21_camctrl"]
 [ext_resource type="Script" uid="uid://d1h088btyd6bc" path="res://scripts/fade.gd" id="22_de8fr"]
+[ext_resource type="Texture2D" uid="uid://ckyl8c7o3u7hv" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_060.png" id="23_bpbmj"]
+[ext_resource type="Texture2D" uid="uid://bjwud6cxhgqwn" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_047.png" id="24_g5i5s"]
+[ext_resource type="Texture2D" uid="uid://bj0xs3wor7p7i" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_022.png" id="25_bjern"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k7rwd"]
+load_path = "res://.godot/imported/Test NPC.png-0fe82004d50a90c281fc9289ba28d9e4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckmgs"]
+load_path = "res://.godot/imported/foliagePack_002.png-78ea723f7d31d2de46d9c693670434d0.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hl8co"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
 size = Vector3(0.2536621, 0.4482422, 0.12207031)
@@ -125,7 +140,7 @@ mesh = SubResource("GrassQuad_021")
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
-[node name="Map_Main" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
+[node name="Map_Flower" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
 grid_id = "main"
 grid_size = Vector2i(20, 10)
 earth_height_min = -0.1
@@ -142,6 +157,36 @@ winter_scale_max = 1.1
 [node name="Map_Tutorial" parent="." unique_id=2118198780 instance=ExtResource("9_tilegrid")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 141.78238)
 grid_id = "tutorial"
+grid_size = Vector2i(20, 10)
+earth_height_min = -0.1
+earth_height_max = 0.0
+grass_scene = ExtResource("2_3kc36")
+spring_offset_min = -0.1
+spring_offset_max = 0.15
+spring_scale_max = 1.1
+snow_scene = ExtResource("2_yh4bu")
+winter_offset_min = -0.2
+winter_offset_max = 0.2
+winter_scale_max = 1.1
+
+[node name="Map_Seelie" parent="." unique_id=579311129 instance=ExtResource("9_tilegrid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.028, 0, 0)
+grid_id = "main"
+grid_size = Vector2i(20, 10)
+earth_height_min = -0.1
+earth_height_max = 0.0
+grass_scene = ExtResource("2_3kc36")
+spring_offset_min = -0.1
+spring_offset_max = 0.15
+spring_scale_max = 1.1
+snow_scene = ExtResource("2_yh4bu")
+winter_offset_min = -0.2
+winter_offset_max = 0.2
+winter_scale_max = 1.1
+
+[node name="Map_Unicorn" parent="." unique_id=852264150 instance=ExtResource("9_tilegrid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -309.3255)
+grid_id = "main"
 grid_size = Vector2i(20, 10)
 earth_height_min = -0.1
 earth_height_max = 0.0
@@ -179,88 +224,144 @@ offset_right = 986.0
 offset_bottom = 406.0
 autowrap_mode = 2
 
-[node name="GameState" type="Node3D" parent="." unique_id=1688615954]
+[node name="Flower_Room" type="Node3D" parent="." unique_id=1688615954]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameState" unique_id=1099606343]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Flower_Room" unique_id=1099606343]
 transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
 
-[node name="blue_flower" type="AnimatableBody3D" parent="GameState" unique_id=792436011]
+[node name="Bear" parent="Flower_Room" unique_id=1584754386 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.929062, 0, -4.6616497)
+script = ExtResource("19_48ac3")
+
+[node name="faun_position" type="Marker3D" parent="Flower_Room/Bear" unique_id=217818543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4228983)
+
+[node name="Faun" parent="Flower_Room" unique_id=1948926471 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -0.43641567)
+script = ExtResource("8_27gnj")
+
+[node name="Sprite3D" parent="Flower_Room/Faun" index="1" unique_id=311256161]
+texture = SubResource("CompressedTexture2D_k7rwd")
+
+[node name="crow_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1063380994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6659374, 0, 0.3327775)
+
+[node name="seelie_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=858857853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0981297, 0, 1.2608943)
+
+[node name="unicorn_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=414103847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.815921, 0, -0.10282946)
+
+[node name="player_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1950135033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2256198, 0, -1.5729918)
+
+[node name="faun_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1763105785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.220478, 0, -3.5152326)
+
+[node name="Flower" parent="Flower_Room" unique_id=103881187 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1935432, 0, -4.5501213)
+script = ExtResource("9_cqnah")
+allgrownup = ExtResource("8_i1bym")
+
+[node name="Sprite3D" parent="Flower_Room/Flower" index="1" unique_id=311256161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5051166, 0)
+texture = SubResource("CompressedTexture2D_ckmgs")
+
+[node name="CollisionShape3D" parent="Flower_Room/Flower/NPC Talk Range" parent_id_path=PackedInt32Array(103881187, 1441785651) index="0" unique_id=1438277917]
+shape = SubResource("BoxShape3D_hl8co")
+
+[node name="moss" type="AnimatableBody3D" parent="Flower_Room" unique_id=792436011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.855544, 0.0103832185, 2.8482647)
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
 "
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState/blue_flower" unique_id=640682332]
+[node name="Sprite3D" type="Sprite3D" parent="Flower_Room/moss" unique_id=640682332]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
-texture = ExtResource("8_i1bym")
+texture = ExtResource("12_1pqbu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/blue_flower" unique_id=1914504963]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/moss" unique_id=1914504963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="Area3D" type="Area3D" parent="GameState" unique_id=316142318]
+[node name="twig" type="AnimatableBody3D" parent="Flower_Room" unique_id=2052852314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01587, 0.0103832185, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Flower_Room/twig" unique_id=76915954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993275, 0.30555335, 0.9212284)
+texture = ExtResource("13_fyrel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/twig" unique_id=424186423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D" type="Area3D" parent="Flower_Room" unique_id=316142318]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
 script = ExtResource("14_14kd1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/Area3D" unique_id=573864369]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/Area3D" unique_id=573864369]
 shape = SubResource("BoxShape3D_t02xj")
 
-[node name="Marker3D" type="Marker3D" parent="GameState/Area3D" unique_id=1379632844]
+[node name="Marker3D" type="Marker3D" parent="Flower_Room/Area3D" unique_id=1379632844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="GameState" unique_id=1809930570]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Flower_Room" unique_id=1809930570]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D2" unique_id=2004924449]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D2" unique_id=2004924449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -6.4923706)
 shape = SubResource("BoxShape3D_3c6e5")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="GameState" unique_id=997150256]
+[node name="StaticBody3D3" type="StaticBody3D" parent="Flower_Room" unique_id=997150256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D3" unique_id=158328377]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D3" unique_id=158328377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
 shape = SubResource("BoxShape3D_de8fr")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="GameState" unique_id=664803452]
+[node name="StaticBody3D4" type="StaticBody3D" parent="Flower_Room" unique_id=664803452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D4" unique_id=1581809441]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D4" unique_id=1581809441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
 shape = SubResource("BoxShape3D_c08rl")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="GameState" unique_id=1059053669]
+[node name="StaticBody3D5" type="StaticBody3D" parent="Flower_Room" unique_id=1059053669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D5" unique_id=894161015]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D5" unique_id=894161015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
 shape = SubResource("BoxShape3D_wy6go")
 
-[node name="StaticBody3D9" type="StaticBody3D" parent="GameState" unique_id=1473335944]
+[node name="StaticBody3D9" type="StaticBody3D" parent="Flower_Room" unique_id=1473335944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D9" unique_id=430877369]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D9" unique_id=430877369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
 shape = SubResource("BoxShape3D_u1tvc")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="GameState" unique_id=1746694195]
+[node name="StaticBody3D6" type="StaticBody3D" parent="Flower_Room" unique_id=1746694195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState/StaticBody3D6" unique_id=179179993]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D6" unique_id=179179993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
 shape = SubResource("BoxShape3D_outm6")
 
-[node name="GameState2" type="Node3D" parent="." unique_id=890754198]
+[node name="Tutorial_Room" type="Node3D" parent="." unique_id=890754198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.7812)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameState2" unique_id=990801972]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Tutorial_Room" unique_id=990801972]
 transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
 
-[node name="PlayerCharacter" parent="GameState2" unique_id=895493741 instance=ExtResource("1_qktu3")]
+[node name="PlayerCharacter" parent="Tutorial_Room" unique_id=895493741 instance=ExtResource("1_qktu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5930023, 0.036790848, 0)
 
-[node name="bucket" type="AnimatableBody3D" parent="GameState2" unique_id=777969826]
+[node name="bucket" type="AnimatableBody3D" parent="Tutorial_Room" unique_id=777969826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 collision_layer = 17
 sync_to_physics = false
@@ -268,15 +369,15 @@ script = ExtResource("7_s0ejd")
 description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
 "
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/bucket" unique_id=1093149243]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/bucket" unique_id=1093149243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("8_i1bym")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/bucket" unique_id=580681856]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/bucket" unique_id=580681856]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="key" type="AnimatableBody3D" parent="GameState2" unique_id=76630073]
+[node name="key" type="AnimatableBody3D" parent="Tutorial_Room" unique_id=76630073]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9135256, 0.0103832185, 0)
 collision_layer = 17
 sync_to_physics = false
@@ -284,125 +385,290 @@ script = ExtResource("7_s0ejd")
 description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
 "
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/key" unique_id=1555785738]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/key" unique_id=1555785738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("17_u1tvc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/key" unique_id=701619497]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/key" unique_id=701619497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="knife" type="AnimatableBody3D" parent="GameState2" unique_id=1455133350]
+[node name="knife" type="AnimatableBody3D" parent="Tutorial_Room" unique_id=1455133350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.377523, 0.035243154, 0)
 collision_layer = 17
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "A flower, it's red"
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/knife" unique_id=1473746974]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/knife" unique_id=1473746974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("12_c2pks")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/knife" unique_id=1964298469]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/knife" unique_id=1964298469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="shovel" type="AnimatableBody3D" parent="GameState2" unique_id=1047789902]
+[node name="shovel" type="AnimatableBody3D" parent="Tutorial_Room" unique_id=1047789902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92453, 0.014832616, 0)
 collision_layer = 17
 sync_to_physics = false
 script = ExtResource("7_s0ejd")
 description = "A flower, it's purple"
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/shovel" unique_id=1734418061]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/shovel" unique_id=1734418061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
 texture = ExtResource("13_14kd1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/shovel" unique_id=344996002]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/shovel" unique_id=344996002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="Area3D" type="Area3D" parent="GameState2" unique_id=1243647419]
+[node name="Area3D" type="Area3D" parent="Tutorial_Room" unique_id=1243647419]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4294577, 0.49815226, -10.091873)
 script = ExtResource("14_14kd1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/Area3D" unique_id=602739981]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/Area3D" unique_id=602739981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4438477, 0.5288696, 0)
 shape = SubResource("BoxShape3D_t02xj")
 
-[node name="Marker3D" type="Marker3D" parent="GameState2/Area3D" unique_id=111896617]
+[node name="Marker3D" type="Marker3D" parent="Tutorial_Room/Area3D" unique_id=111896617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.910054, 0, 14.768112)
 
-[node name="shed" type="Area3D" parent="GameState2" unique_id=1708364638]
+[node name="shed" type="Area3D" parent="Tutorial_Room" unique_id=1708364638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2991085, 0.014832616, -8.590225)
 script = ExtResource("18_outm6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/shed" unique_id=1337149461]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/shed" unique_id=1337149461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122011185, 0.522522, 0.3114047)
 shape = SubResource("BoxShape3D_14kd1")
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/shed" unique_id=146419806]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/shed" unique_id=146419806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1625643, 0.42530155)
 texture = ExtResource("15_6djn3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="GameState2" unique_id=190592181]
+[node name="StaticBody3D" type="StaticBody3D" parent="Tutorial_Room" unique_id=190592181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107693434, -10.071075)
 script = ExtResource("17_0i24u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D" unique_id=286597691]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D" unique_id=286597691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002975464, 1.5545188, 0)
 shape = SubResource("BoxShape3D_nfuak")
 
-[node name="Sprite3D" type="Sprite3D" parent="GameState2/StaticBody3D" unique_id=952138958]
+[node name="Sprite3D" type="Sprite3D" parent="Tutorial_Room/StaticBody3D" unique_id=952138958]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.1254122, 0)
 texture = ExtResource("16_frdpu")
 
-[node name="Faun" parent="GameState2" unique_id=387924167 instance=ExtResource("19_0i24u")]
+[node name="Faun" parent="Tutorial_Room" unique_id=387924167 instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -8.435272)
 script = ExtResource("19_48ac3")
 
-[node name="Marker3D" type="Marker3D" parent="GameState2/Faun" unique_id=814295928]
+[node name="Marker3D" type="Marker3D" parent="Tutorial_Room/Faun" unique_id=814295928]
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="GameState2" unique_id=797305596]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Tutorial_Room" unique_id=797305596]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D2" unique_id=1758417849]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D2" unique_id=1758417849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -3.481079)
 shape = SubResource("BoxShape3D_3c6e5")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="GameState2" unique_id=656977387]
+[node name="StaticBody3D3" type="StaticBody3D" parent="Tutorial_Room" unique_id=656977387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.437668, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D3" unique_id=1168219083]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D3" unique_id=1168219083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
 shape = SubResource("BoxShape3D_de8fr")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="GameState2" unique_id=2007491565]
+[node name="StaticBody3D4" type="StaticBody3D" parent="Tutorial_Room" unique_id=2007491565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.835108, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D4" unique_id=1778138675]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D4" unique_id=1778138675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
 shape = SubResource("BoxShape3D_c08rl")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="GameState2" unique_id=1016984239]
+[node name="StaticBody3D5" type="StaticBody3D" parent="Tutorial_Room" unique_id=1016984239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.229829, 0, -11.993607)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D5" unique_id=1347530727]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D5" unique_id=1347530727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
 shape = SubResource("BoxShape3D_wy6go")
 
-[node name="StaticBody3D9" type="StaticBody3D" parent="GameState2" unique_id=1578214117]
+[node name="StaticBody3D9" type="StaticBody3D" parent="Tutorial_Room" unique_id=1578214117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.587634, 0, -11.950531)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D9" unique_id=959882368]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D9" unique_id=959882368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
 shape = SubResource("BoxShape3D_u1tvc")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="GameState2" unique_id=615537314]
+[node name="StaticBody3D6" type="StaticBody3D" parent="Tutorial_Room" unique_id=615537314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.305196, 0.52757573, 1.9366302)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GameState2/StaticBody3D6" unique_id=2005948855]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D6" unique_id=2005948855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
 shape = SubResource("BoxShape3D_outm6")
+
+[node name="Seelie_Room" type="Node3D" parent="." unique_id=589508618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.028, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Seelie_Room" unique_id=2121343374]
+transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
+
+[node name="mirror_shard" type="AnimatableBody3D" parent="Seelie_Room" unique_id=239371230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.855545, 0.0103832185, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Seelie_Room/mirror_shard" unique_id=1118254341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("23_bpbmj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/mirror_shard" unique_id=513448222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="mud" type="AnimatableBody3D" parent="Seelie_Room" unique_id=1082933129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4633636, 0.0103832185, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Seelie_Room/mud" unique_id=1430149720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+texture = ExtResource("24_g5i5s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/mud" unique_id=217924156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D" type="Area3D" parent="Seelie_Room" unique_id=443739774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/Area3D" unique_id=2064294148]
+shape = SubResource("BoxShape3D_t02xj")
+
+[node name="Marker3D" type="Marker3D" parent="Seelie_Room/Area3D" unique_id=559461568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Seelie_Room" unique_id=312451147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D2" unique_id=191553496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -6.4923706)
+shape = SubResource("BoxShape3D_3c6e5")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Seelie_Room" unique_id=684603312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D3" unique_id=69205516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
+shape = SubResource("BoxShape3D_de8fr")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Seelie_Room" unique_id=341558619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D4" unique_id=483334363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
+shape = SubResource("BoxShape3D_c08rl")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Seelie_Room" unique_id=1404261673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D5" unique_id=75182464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
+shape = SubResource("BoxShape3D_wy6go")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Seelie_Room" unique_id=254639201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D9" unique_id=1260457794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
+shape = SubResource("BoxShape3D_u1tvc")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Seelie_Room" unique_id=101612920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D6" unique_id=1814156193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
+shape = SubResource("BoxShape3D_outm6")
+
+[node name="Unicorn_Room" type="Node3D" parent="." unique_id=648008439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -309.3255)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Unicorn_Room" unique_id=895326636]
+transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
+
+[node name="wood" type="AnimatableBody3D" parent="Unicorn_Room" unique_id=492973200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.684371, 0.0103832185, 2.8482666)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Unicorn_Room/wood" unique_id=1462327812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2756824, 0.30555335, 0)
+texture = ExtResource("25_bjern")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/wood" unique_id=1207699171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D" type="Area3D" parent="Unicorn_Room" unique_id=2086226549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/Area3D" unique_id=148854194]
+shape = SubResource("BoxShape3D_t02xj")
+
+[node name="Marker3D" type="Marker3D" parent="Unicorn_Room/Area3D" unique_id=1020805166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Unicorn_Room" unique_id=220418131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D2" unique_id=162093954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -6.4923706)
+shape = SubResource("BoxShape3D_3c6e5")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Unicorn_Room" unique_id=1760240035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D3" unique_id=437546457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
+shape = SubResource("BoxShape3D_de8fr")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Unicorn_Room" unique_id=2023362032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D4" unique_id=392492575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
+shape = SubResource("BoxShape3D_c08rl")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Unicorn_Room" unique_id=1827714138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D5" unique_id=1748770002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
+shape = SubResource("BoxShape3D_wy6go")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="Unicorn_Room" unique_id=1199763904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D9" unique_id=1717357255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
+shape = SubResource("BoxShape3D_u1tvc")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Unicorn_Room" unique_id=990140223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D6" unique_id=1738427418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
+shape = SubResource("BoxShape3D_outm6")
+
+[node name="unicorn" parent="Unicorn_Room" unique_id=886984471 instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -0.41427612)
+script = ExtResource("19_48ac3")
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
 visible = false
@@ -429,3 +695,7 @@ modulate = Color(0, 0, 0, 0)
 visibility_layer = 524288
 offset_right = 1290.0
 offset_bottom = 729.0
+
+[editable path="Flower_Room/Bear"]
+[editable path="Flower_Room/Faun"]
+[editable path="Flower_Room/Flower"]

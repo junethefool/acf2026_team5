@@ -19,8 +19,9 @@ func on_dialogic_signal(message):
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
 		crow.global_position = $next_to_seelie.global_position
-		Dialogic.start("seelie")
 		await get_tree().create_timer(wait + duration).timeout
+		Dialogic.start("seelie")
+		
 	elif message == "crow takes berries":
 		#get_tree().get_first_node_in_group("player").inventory.push_front(berries)
 		
@@ -30,5 +31,5 @@ func on_dialogic_signal(message):
 		await get_tree().create_timer(duration).timeout
 		crow.global_position = $final_position.global_position
 		get_tree().get_first_node_in_group("player").global_position = $player_position.global_position
-		Dialogic.start("crow")
 		await get_tree().create_timer(wait + duration).timeout
+		Dialogic.start("crow")

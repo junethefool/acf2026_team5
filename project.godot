@@ -67,6 +67,7 @@ variables={
 "materials_gathered": 0.0,
 "seelie_invited": 0.0,
 "shed_missing": 1.0,
+"thanks_done": 0.0,
 "unicorn_invited": 0.0,
 "went_and_returned": 0.0
 }

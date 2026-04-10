@@ -2,6 +2,7 @@ extends AnimatableBody3D
 
 @onready var interactable: Interactable = $Interactable
 @export var berries: AnimatableBody3D
+@export var faun:AnimatableBody3D
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
 		berries.queue_free()
+		faun.global_position = $faun_position.global_position
 		interactable.Interact.disconnect(on_interact)
 		queue_free()
 		await get_tree().create_timer(wait + duration).timeout

@@ -27,9 +27,17 @@ elif {game_state} == 7.0:
 	if {crow_invited}  ==  1.0 and {seelie_invited}  ==  1.0 and {unicorn_invited}  ==  1.0:
 		Faun: let's go
 		[signal arg="party"]
+		[signal arg="dance"]
+		Faun: dance everyone
+		[signal arg="dance end"]
 		set {game_state} = 8.0
 	else:
 		Faun: invite everybody
 elif {game_state} == 8.0:
-	Faun: thank you so much
-	[signal arg="end game"]
+	if {thanks_done} == 0.0:
+		Faun: thank you so much
+	Faun: are you done
+	- yes
+		[signal arg="end game"]
+	- no
+		Faun: I'll wait
