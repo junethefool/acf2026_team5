@@ -42,19 +42,59 @@ directories/dtl_directory={
 "Unicorn first meeting": "res://Dialogic timelines/Unicorn first meeting.dtl",
 "Unicorn invitation": "res://Dialogic timelines/Unicorn invitation.dtl",
 "bear asleep": "res://Dialogic timelines/bear asleep.dtl",
+"crow": "res://crow.dtl",
 "crow seelie education and task": "res://Dialogic timelines/crow seelie education and task.dtl",
 "crow the nest": "res://Dialogic timelines/crow the nest.dtl",
 "flower observation": "res://Dialogic timelines/flower observation.dtl",
+"seelie": "res://seelie.dtl",
+"seelie and crow": "res://seelie and crow.dtl",
 "test_timeline": "res://dialogue/timelines/test_timeline.dtl",
 "tutorial": "res://Dialogic timelines/tutorial.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
 variables={
+"all_things_gathered": 0.0,
+"crow_educated": 0.0,
+"crow_intervened": 0.0,
+"crow_invited": 0.0,
 "game_state": 0.0,
 "key": 0.0,
 "key_on_the_floor": 0.0,
+"seelie_invited": 0.0,
 "shed_missing": 1.0
+}
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
 }
 
 [display]

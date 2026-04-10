@@ -1,5 +1,4 @@
 extends AnimatableBody3D
-class_name NPC
 
 @onready var interactable: Interactable = $Interactable
 @export var berries: AnimatableBody3D

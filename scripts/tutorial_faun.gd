@@ -4,6 +4,7 @@ extends AnimatableBody3D
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	call_deferred("ready2")
 	
 func ready2():
@@ -33,3 +34,16 @@ func on_interact():
 		
 	Dialogic.start("tutorial")
 	
+func _on_dialogic_signal(message):
+	if message == "tutorial done":
+		var body = get_tree().get_first_node_in_group("player")
+		var statesave = body.state
+		body.state = 6
+		var fade = get_tree().get_first_node_in_group("fade")
+		var duration = 0.5
+		var wait = 0.5
+		fade.fade(duration,wait)
+		await get_tree().create_timer(duration).timeout
+		body.global_position = $Marker3D.global_position
+		await get_tree().create_timer(wait + duration).timeout
+		body.state = statesave

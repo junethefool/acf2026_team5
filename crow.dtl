@@ -1,0 +1,23 @@
+if {game_state} == 3.0:
+	if {crow_educated} == 0.0:
+		<Empty Text Event>
+	elif {crow_educated} == 1.0:
+		if {all_things_gathered} == 0.0:
+			<Empty Text Event>
+		elif {all_things_gathered} == 1.0:
+			<Empty Text Event>
+			set {game_state} = 4.0
+			[signal arg="give berries"]
+elif {game_state} >= 4.0 and {game_state} < 6.0:
+	<Empty Text Event>
+	elif {game_state} >= 6.0:
+		if :
+		<Empty Text Event>
+		set {game_state} = 7.0
+		[signal arg="give knife"]
+elif {game_state} >= 7.0 and {game_state} < 8.0:
+	if {crow_invited} == 0.0:
+		<Empty Text Event>
+	elif {crow_invited} == 1.0:
+		<Empty Text Event>
+elif {game_state} == 8.0:

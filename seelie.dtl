@@ -1,0 +1,19 @@
+if {game_state} == 2.0:
+	if {crow_intervened} == 0.0:
+		<Empty Text Event>
+		[signal arg="crow"]
+		set {crow_intervened} = 1.0
+	elif {crow_intervened} == 1.0:
+		<Empty Text Event>
+		set {game_state} = 3.0
+		[signal arg="crow takes berries"]
+elif {game_state} >= 3.0:
+	if {game_state} < 7.0:
+		<Empty Text Event>
+	elif {game_state} >= 7.0 and {game_state} < 8.0:
+		elif {seelie_invited} == 0.0:
+			<Empty Text Event>
+		elif {seelie_invited} == 1.0:
+			<Empty Text Event>
+	elif {game_state} == 8.0:
+		<Empty Text Event>
