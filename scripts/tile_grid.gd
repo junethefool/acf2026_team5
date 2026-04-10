@@ -1,13 +1,15 @@
+@tool
 extends Node3D
 
 @export_category("Map Basics")
+@export var grid_id: String = ""
 @export var grid_size: Vector2i = Vector2i(50, 50)
 @export var earth_scene: PackedScene
 @export var earth_height_min: float = 0.0
 @export var earth_height_max: float = 0.5
 
 @export_category("Spring (grass) visual parameters")
-@export var snow_scene: PackedScene
+@export var grass_scene: PackedScene
 @export var randomize_grass_rotation: bool = true
 @export var spring_offset_min: float = 0.0
 @export var spring_offset_max: float = 1.0
@@ -15,18 +17,22 @@ extends Node3D
 @export var spring_scale_max: float = 1.2
 
 @export_category("Winter (snow) visual parameters")
-@export var grass_scene: PackedScene
+@export var snow_scene: PackedScene
 @export var randomize_snow_rotation: bool = true
 @export var winter_offset_min: float = 0.0
 @export var winter_offset_max: float = 1.0
 @export var winter_scale_min: float = 0.8
 @export var winter_scale_max: float = 1.2
 
-
-@export_category("other parameters")
+@export_category("Other parameters")
 @export var tween_duration: float = 2.0
 @export var noise_frequency: float = 0.08
 @export var collision_y_offset: float = 0.0
+
+@export_category("Editor Tools")
+@export_tool_button("Randomize Snow") var _btn_randomize_snow = _randomize_snow
+@export_tool_button("Randomize Grass") var _btn_randomize_grass = _randomize_grass
+@export_tool_button("Regenerate Grid") var _btn_regenerate = _regenerate
 
 
 var _earth_mm: MultiMesh
@@ -36,8 +42,10 @@ var _snow_mm: MultiMesh
 var _earth_heights: PackedFloat32Array
 var _current_spring: PackedFloat32Array
 var _target_spring: PackedFloat32Array
+var _base_spring: PackedFloat32Array
 var _current_winter: PackedFloat32Array
 var _target_winter: PackedFloat32Array
+var _base_winter: PackedFloat32Array
 var _snow_rotations: PackedFloat32Array
 var _grass_rotations: PackedFloat32Array
 
@@ -46,10 +54,18 @@ var _world_z: PackedFloat32Array
 
 var _is_animating: bool = false
 var _total_tiles: int = 0
+var _gen_x: int = 0
+var _gen_z: int = 0
+var _snow_level_offset: float = 0.0
+var _spring_level_offset: float = 0.0
 
 
 func _ready() -> void:
+	_clear_generated_children()
 	_total_tiles = grid_size.x * grid_size.y
+
+	if not earth_scene or not grass_scene or not snow_scene:
+		return
 
 	var earth_mesh := _extract_mesh(earth_scene)
 	var grass_mesh := _extract_mesh(grass_scene)
@@ -57,7 +73,22 @@ func _ready() -> void:
 
 	_setup_multimeshes(earth_mesh, grass_mesh, snow_mesh)
 	_generate_grid()
-	#_setup_collision()
+
+	if not Engine.is_editor_hint():
+		GameManager.register_grid(self)
+
+
+func _exit_tree() -> void:
+	if not Engine.is_editor_hint():
+		GameManager.unregister_grid(self)
+
+
+func _clear_generated_children() -> void:
+	for child_name in ["EarthTiles", "GrassTiles", "SnowTiles"]:
+		var existing := get_node_or_null(child_name)
+		if existing:
+			remove_child(existing)
+			existing.free()
 
 
 func _extract_mesh(scene: PackedScene) -> Mesh:
@@ -104,10 +135,14 @@ func _generate_grid() -> void:
 	_current_spring.resize(_total_tiles)
 	_target_spring = PackedFloat32Array()
 	_target_spring.resize(_total_tiles)
+	_base_spring = PackedFloat32Array()
+	_base_spring.resize(_total_tiles)
 	_current_winter = PackedFloat32Array()
 	_current_winter.resize(_total_tiles)
 	_target_winter = PackedFloat32Array()
 	_target_winter.resize(_total_tiles)
+	_base_winter = PackedFloat32Array()
+	_base_winter.resize(_total_tiles)
 	_world_x = PackedFloat32Array()
 	_world_x.resize(_total_tiles)
 	_world_z = PackedFloat32Array()
@@ -129,12 +164,15 @@ func _generate_grid() -> void:
 	winter_noise.seed = randi()
 	winter_noise.frequency = noise_frequency
 
-	var half_x := grid_size.x / 2.0
-	var half_z := grid_size.y / 2.0
+	_gen_x = grid_size.x
+	_gen_z = grid_size.y
 
-	for x in grid_size.x:
-		for z in grid_size.y:
-			var i := x * grid_size.y + z
+	var half_x := _gen_x / 2.0
+	var half_z := _gen_z / 2.0
+
+	for x in _gen_x:
+		for z in _gen_z:
+			var i := x * _gen_z + z
 			var wx := x - half_x + 0.5
 			var wz := z - half_z + 0.5
 			_world_x[i] = wx
@@ -146,8 +184,10 @@ func _generate_grid() -> void:
 			var sv := remap(spring_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
 			var wv := remap(winter_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
 
+			_base_spring[i] = sv
 			_current_spring[i] = sv
 			_target_spring[i] = sv
+			_base_winter[i] = wv
 			_current_winter[i] = wv
 			_target_winter[i] = wv
 
@@ -159,14 +199,20 @@ func _generate_grid() -> void:
 			_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, wv, winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
 
 
-func restore_state(spring_vals: PackedFloat32Array, winter_vals: PackedFloat32Array) -> void:
+func restore_state(spring_vals: PackedFloat32Array, winter_vals: PackedFloat32Array, snow_offset: float = 0.0, spring_offset: float = 0.0) -> void:
+	_snow_level_offset = snow_offset
+	_spring_level_offset = spring_offset
 	for i in _total_tiles:
-		_current_spring[i] = spring_vals[i]
-		_target_spring[i] = spring_vals[i]
-		_current_winter[i] = winter_vals[i]
-		_target_winter[i] = winter_vals[i]
-		_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, spring_vals[i], spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, _grass_rotations[i]))
-		_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, winter_vals[i], winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
+		_base_spring[i] = spring_vals[i]
+		_base_winter[i] = winter_vals[i]
+		var sv := clampf(spring_vals[i] + spring_offset, 0.0, 1.0)
+		var wv := clampf(winter_vals[i] + snow_offset, 0.0, 1.0)
+		_current_spring[i] = sv
+		_target_spring[i] = sv
+		_current_winter[i] = wv
+		_target_winter[i] = wv
+		_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, sv, spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, _grass_rotations[i]))
+		_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, wv, winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
 
 
 func _compute_earth_transform(i: int) -> Transform3D:
@@ -203,7 +249,11 @@ func _setup_collision() -> void:
 	static_body.position = Vector3(0.5, 0.0, 0.5)
 
 
+# --- Runtime-only systems ---
+
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	if not _is_animating:
 		return
 
@@ -245,36 +295,100 @@ func _process(delta: float) -> void:
 
 
 func set_spring_value(x: int, z: int, value: float) -> void:
-	var i := x * grid_size.y + z
+	var i := x * _gen_z + z
 	_target_spring[i] = clampf(value, 0.0, 1.0)
 	if _target_spring[i] != _current_spring[i]:
 		_is_animating = true
 
 
 func set_winter_value(x: int, z: int, value: float) -> void:
-	var i := x * grid_size.y + z
+	var i := x * _gen_z + z
 	_target_winter[i] = clampf(value, 0.0, 1.0)
 	if _target_winter[i] != _current_winter[i]:
 		_is_animating = true
 
 
+func set_snow_level(offset: float) -> void:
+	_snow_level_offset = offset
+	for i in _total_tiles:
+		_target_winter[i] = clampf(_base_winter[i] + offset, 0.0, 1.0)
+		if _target_winter[i] != _current_winter[i]:
+			_is_animating = true
+
+
+func set_spring_level(offset: float) -> void:
+	_spring_level_offset = offset
+	for i in _total_tiles:
+		_target_spring[i] = clampf(_base_spring[i] + offset, 0.0, 1.0)
+		if _target_spring[i] != _current_spring[i]:
+			_is_animating = true
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	if Engine.is_editor_hint():
+		return
 	if event.is_action_pressed("randomize_tiles"):
 		randomize_all()
 
 
+# --- Editor button callbacks ---
+
+func _randomize_snow() -> void:
+	if _total_tiles == 0:
+		return
+	var noise := FastNoiseLite.new()
+	noise.seed = randi()
+	noise.frequency = noise_frequency
+	for x in _gen_x:
+		for z in _gen_z:
+			var i := x * _gen_z + z
+			var wv := remap(noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
+			_base_winter[i] = wv
+			_current_winter[i] = wv
+			_target_winter[i] = wv
+			_snow_mm.set_instance_transform(i, _compute_overlay_transform(
+				i, wv,
+				winter_offset_min, winter_offset_max,
+				winter_scale_min, winter_scale_max,
+				_snow_rotations[i]
+			))
+
+
+func _randomize_grass() -> void:
+	if _total_tiles == 0:
+		return
+	var noise := FastNoiseLite.new()
+	noise.seed = randi()
+	noise.frequency = noise_frequency
+	for x in _gen_x:
+		for z in _gen_z:
+			var i := x * _gen_z + z
+			var sv := remap(noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
+			_base_spring[i] = sv
+			_current_spring[i] = sv
+			_target_spring[i] = sv
+			_grass_mm.set_instance_transform(i, _compute_overlay_transform(
+				i, sv,
+				spring_offset_min, spring_offset_max,
+				spring_scale_min, spring_scale_max,
+				_grass_rotations[i]
+			))
+
+
+func _regenerate() -> void:
+	_clear_generated_children()
+	_total_tiles = grid_size.x * grid_size.y
+	if not earth_scene or not grass_scene or not snow_scene:
+		return
+	var earth_mesh := _extract_mesh(earth_scene)
+	var grass_mesh := _extract_mesh(grass_scene)
+	var snow_mesh := _extract_mesh(snow_scene)
+	_setup_multimeshes(earth_mesh, grass_mesh, snow_mesh)
+	_generate_grid()
+
+
 func randomize_all() -> void:
-	var spring_noise := FastNoiseLite.new()
-	spring_noise.seed = randi()
-	spring_noise.frequency = noise_frequency
-
-	var winter_noise := FastNoiseLite.new()
-	winter_noise.seed = randi()
-	winter_noise.frequency = noise_frequency
-
-	for x in grid_size.x:
-		for z in grid_size.y:
-			var sv := remap(spring_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
-			var wv := remap(winter_noise.get_noise_2d(float(x), float(z)), -1.0, 1.0, 0.0, 1.0)
-			set_spring_value(x, z, sv)
-			set_winter_value(x, z, wv)
+	_randomize_snow()
+	_randomize_grass()
+	if not Engine.is_editor_hint():
+		_is_animating = true

@@ -126,14 +126,31 @@ mesh = SubResource("GrassQuad_021")
 
 [node name="TestMap" type="Node3D" unique_id=1183922978]
 
-[node name="TileGrid" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
+[node name="Map_Main" parent="." unique_id=1957596777 instance=ExtResource("9_tilegrid")]
+grid_id = "main"
+grid_size = Vector2i(20, 10)
 earth_height_min = -0.1
 earth_height_max = 0.0
-snow_scene = ExtResource("2_yh4bu")
+grass_scene = ExtResource("2_3kc36")
 spring_offset_min = -0.1
 spring_offset_max = 0.15
 spring_scale_max = 1.1
+snow_scene = ExtResource("2_yh4bu")
+winter_offset_min = -0.2
+winter_offset_max = 0.2
+winter_scale_max = 1.1
+
+[node name="Map_Tutorial" parent="." unique_id=2118198780 instance=ExtResource("9_tilegrid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 141.78238)
+grid_id = "tutorial"
+grid_size = Vector2i(20, 10)
+earth_height_min = -0.1
+earth_height_max = 0.0
 grass_scene = ExtResource("2_3kc36")
+spring_offset_min = -0.1
+spring_offset_max = 0.15
+spring_scale_max = 1.1
+snow_scene = ExtResource("2_yh4bu")
 winter_offset_min = -0.2
 winter_offset_max = 0.2
 winter_scale_max = 1.1
@@ -164,6 +181,7 @@ offset_bottom = 406.0
 autowrap_mode = 2
 
 [node name="GameState" type="Node3D" parent="." unique_id=1688615954]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameState" unique_id=1099606343]
 transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
