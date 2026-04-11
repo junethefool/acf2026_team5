@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bktf518hbhgkw" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_020.png" id="4_g020"]
 [ext_resource type="Texture2D" uid="uid://cnuk0s7p7hxvc" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_021.png" id="5_g021"]
 [ext_resource type="Script" uid="uid://c82thejrpr4yg" path="res://scripts/grass_foliage.gd" id="6_gfoliage"]
+[ext_resource type="Script" uid="uid://slnx2d0osj0r" path="res://scripts/bear.gd" id="7_bpbmj"]
 [ext_resource type="Script" uid="uid://d4a1dtj5a4v1i" path="res://scripts/pickupable.gd" id="7_s0ejd"]
 [ext_resource type="Script" uid="uid://5w68ek55ppql" path="res://scripts/Faun.gd" id="8_27gnj"]
 [ext_resource type="Texture2D" uid="uid://df2o5lhxwlld6" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_001.png" id="8_i1bym"]
@@ -20,7 +21,6 @@
 [ext_resource type="Script" uid="uid://bndrx8ep7gjqo" path="res://scripts/room_transition.gd" id="14_14kd1"]
 [ext_resource type="Texture2D" uid="uid://cs3qjcepjg488" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_029.png" id="15_6djn3"]
 [ext_resource type="Texture2D" uid="uid://dd8lv1v6spb5t" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_058.png" id="16_frdpu"]
-[ext_resource type="Script" uid="uid://bkjdl46olqqxh" path="res://scripts/wall.gd" id="17_0i24u"]
 [ext_resource type="Texture2D" uid="uid://3xleqti7i218" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_002.png" id="17_u1tvc"]
 [ext_resource type="Script" uid="uid://dgadctd63xm5g" path="res://scripts/shed.gd" id="18_outm6"]
 [ext_resource type="PackedScene" uid="uid://cswshokw6jhcm" path="res://scenes/test_npc.tscn" id="19_0i24u"]
@@ -31,6 +31,21 @@
 [ext_resource type="Texture2D" uid="uid://ckyl8c7o3u7hv" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_060.png" id="23_bpbmj"]
 [ext_resource type="Texture2D" uid="uid://bjwud6cxhgqwn" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_047.png" id="24_g5i5s"]
 [ext_resource type="Texture2D" uid="uid://bj0xs3wor7p7i" path="res://_downloaded_assets/kenney_foliage_package/foliagePack_022.png" id="25_bjern"]
+[ext_resource type="Script" uid="uid://4d3jkxsdkbcq" path="res://scripts/seelie.gd" id="25_bpbmj"]
+[ext_resource type="Script" uid="uid://d2l2b67u33m2m" path="res://scripts/crow.gd" id="26_g5i5s"]
+[ext_resource type="Script" uid="uid://m8glplpbvgwo" path="res://scripts/unicorn.gd" id="28_bjern"]
+[ext_resource type="Texture2D" uid="uid://pm0uc6olbvee" path="res://icon.svg" id="29_k7rwd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hl8co"]
+load_path = "res://.godot/imported/foliagePack_058.png-275475d50c80bceb5de4ff0e88f9dcfa.s3tc.ctex"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ib5cf"]
+height = 0.5
+radius = 1.7412109
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c03xv"]
+height = 0.5
+radius = 2.3149414
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k7rwd"]
 load_path = "res://.godot/imported/Test NPC.png-0fe82004d50a90c281fc9289ba28d9e4.s3tc.ctex"
@@ -43,32 +58,101 @@ load_path = "res://.godot/imported/foliagePack_002.png-78ea723f7d31d2de46d9c6936
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh4bu"]
 size = Vector3(0.2536621, 0.4482422, 0.12207031)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fksaa"]
+size = Vector3(0.2536621, 0.4482422, 0.12207031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pu2vr"]
 size = Vector3(3.8876953, 2.0577393, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3c6e5"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugrdk"]
 size = Vector3(23.866226, 1, 18.007935)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_de8fr"]
-size = Vector3(1, 2.1834717, 10.9930725)
+[sub_resource type="BoxShape3D" id="BoxShape3D_d8eqi"]
+size = Vector3(1, 2.1834717, 7.4969673)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c08rl"]
-size = Vector3(1, 2.0976563, 10.952469)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrhws"]
+size = Vector3(1, 2.0976563, 9.881672)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wy6go"]
-size = Vector3(8.462402, 2.0723877, 3.04187)
+[sub_resource type="BoxShape3D" id="BoxShape3D_hpr4b"]
+size = Vector3(13.050903, 2.0723877, 3.04187)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u1tvc"]
-size = Vector3(8.248276, 2.0474243, 2.9412842)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpgxq"]
+size = Vector3(4.01025, 2.0474243, 2.9412842)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_outm6"]
-size = Vector3(20.698486, 2.1229248, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_rs3rf"]
+size = Vector3(19.215637, 2.1229248, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4ekl"]
+size = Vector3(1.0805664, 2.0577393, 2.7156982)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln0dv"]
+size = Vector3(3.8876953, 2.0577393, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_14kd1"]
 size = Vector3(3.5927734, 2.045044, 3.5604248)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfuak"]
 size = Vector3(3.8898163, 2.5466309, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fu2ad"]
+size = Vector3(23.866226, 1, 18.007935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_348hm"]
+size = Vector3(1, 2.1834717, 10.959549)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ik23w"]
+size = Vector3(1, 2.0976563, 10.952469)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qscix"]
+size = Vector3(8.462402, 2.0723877, 3.04187)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7lxx"]
+size = Vector3(8.248276, 2.0474243, 2.9412842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bd86h"]
+size = Vector3(20.698486, 2.1229248, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcfop"]
+size = Vector3(1.4477539, 2.2048645, 2.8062744)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efryf"]
+size = Vector3(23.866226, 1, 18.007935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3ytw"]
+size = Vector3(1, 2.1834717, 9.476671)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1owkl"]
+size = Vector3(1, 2.0976563, 7.0843086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bdxof"]
+size = Vector3(19.105103, 2.0723877, 0.84991455)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4q334"]
+size = Vector3(20.698486, 2.1229248, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hl5la"]
+load_path = "res://.godot/imported/foliagePack_018.png-47233c2c740180140ee04d6d89d6f904.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lclc3"]
+load_path = "res://.godot/imported/foliagePack_060.png-bdcf88f40e869d946a3a8e0b9f4b240e.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t02xj"]
+size = Vector3(4.897827, 2.0577393, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c6e5"]
+size = Vector3(23.866226, 1, 18.007935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_de8fr"]
+size = Vector3(1, 2.1834717, 10.959549)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c08rl"]
+size = Vector3(1, 2.0976563, 10.3826065)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy6go"]
+size = Vector3(19.543823, 2.0723877, 3.04187)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_outm6"]
+size = Vector3(14.7469635, 2.1229248, 1)
 
 [sub_resource type="StandardMaterial3D" id="GrassMat_018"]
 transparency = 2
@@ -229,37 +313,59 @@ autowrap_mode = 2
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Flower_Room" unique_id=1099606343]
 transform = Transform3D(0.8183937, 0.42658135, -0.38504565, -0.1662501, 0.81714535, 0.55193704, 0.5500843, -0.3876879, 0.73966575, -0.8, 8.077, 0)
 
-[node name="Bear" parent="Flower_Room" unique_id=1584754386 instance=ExtResource("19_0i24u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.929062, 0, -4.6616497)
-script = ExtResource("19_48ac3")
+[node name="Bear" parent="Flower_Room" unique_id=1584754386 node_paths=PackedStringArray("berries", "faun") instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.632308, 0, -4.2337375)
+script = ExtResource("7_bpbmj")
+berries = NodePath("../berries")
+faun = NodePath("../Faun")
+
+[node name="Sprite3D" parent="Flower_Room/Bear" index="1" unique_id=311256161]
+texture = SubResource("CompressedTexture2D_hl8co")
+
+[node name="CollisionShape3D" parent="Flower_Room/Bear" index="2" unique_id=169475026]
+shape = SubResource("CylinderShape3D_ib5cf")
+
+[node name="CollisionShape3D" parent="Flower_Room/Bear/NPC Talk Range" parent_id_path=PackedInt32Array(1584754386, 1441785651) index="0" unique_id=1438277917]
+shape = SubResource("CylinderShape3D_c03xv")
 
 [node name="faun_position" type="Marker3D" parent="Flower_Room/Bear" unique_id=217818543]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4228983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1533399, 0, -3.2935681)
+top_level = true
 
-[node name="Faun" parent="Flower_Room" unique_id=1948926471 instance=ExtResource("19_0i24u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -0.43641567)
+[node name="Faun" parent="Flower_Room" unique_id=1948926471 node_paths=PackedStringArray("fiddle", "crow", "seelie", "unicorn", "player") instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3354633, 0, 0.07656288)
 script = ExtResource("8_27gnj")
+fiddle = NodePath("../fiddle")
+crow = NodePath("../../Seelie_Room/crow")
+seelie = NodePath("../../Seelie_Room/seelie")
+unicorn = NodePath("../../Unicorn_Room/unicorn")
+player = NodePath("../../Tutorial_Room/PlayerCharacter")
 
 [node name="Sprite3D" parent="Flower_Room/Faun" index="1" unique_id=311256161]
 texture = SubResource("CompressedTexture2D_k7rwd")
 
 [node name="crow_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1063380994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6659374, 0, 0.3327775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7800884, 0, -1.3509126)
+top_level = true
 
 [node name="seelie_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=858857853]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0981297, 0, 1.2608943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3478961, 0, -0.42279577)
+top_level = true
 
 [node name="unicorn_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=414103847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.815921, 0, -0.10282946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3698952, 0, -1.7865195)
+top_level = true
 
 [node name="player_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1950135033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2256198, 0, -1.5729918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22040606, 0, -3.256682)
+top_level = true
 
 [node name="faun_position" type="Marker3D" parent="Flower_Room/Faun" unique_id=1763105785]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.220478, 0, -3.5152326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22554779, 0, -5.1989226)
+top_level = true
 
 [node name="Flower" parent="Flower_Room" unique_id=103881187 instance=ExtResource("19_0i24u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1935432, 0, -4.5501213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1935432, 0, -3.6230998)
 script = ExtResource("9_cqnah")
 allgrownup = ExtResource("8_i1bym")
 
@@ -298,59 +404,120 @@ texture = ExtResource("13_fyrel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/twig" unique_id=424186423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
-shape = SubResource("BoxShape3D_yh4bu")
+shape = SubResource("BoxShape3D_fksaa")
 
-[node name="Area3D" type="Area3D" parent="Flower_Room" unique_id=316142318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+[node name="Area3D" type="Area3D" parent="Flower_Room" unique_id=316142318 groups=["room_transitions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5795927, 0, -5.620161)
 script = ExtResource("14_14kd1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/Area3D" unique_id=573864369]
-shape = SubResource("BoxShape3D_t02xj")
+shape = SubResource("BoxShape3D_pu2vr")
 
 [node name="Marker3D" type="Marker3D" parent="Flower_Room/Area3D" unique_id=1379632844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5050974, 0, -305.91736)
+top_level = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Flower_Room" unique_id=1809930570]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D2" unique_id=2004924449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -6.4923706)
-shape = SubResource("BoxShape3D_3c6e5")
+shape = SubResource("BoxShape3D_ugrdk")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Flower_Room" unique_id=997150256]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D3" unique_id=158328377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
-shape = SubResource("BoxShape3D_de8fr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3332167, 1.0690665, -2.3298817)
+shape = SubResource("BoxShape3D_d8eqi")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Flower_Room" unique_id=664803452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D4" unique_id=1581809441]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
-shape = SubResource("BoxShape3D_c08rl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66622543, 1.0512812, -4.056921)
+shape = SubResource("BoxShape3D_rrhws")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Flower_Room" unique_id=1059053669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D5" unique_id=894161015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
-shape = SubResource("BoxShape3D_wy6go")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.323886, 1.1140151, 1.78304)
+shape = SubResource("BoxShape3D_hpr4b")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="Flower_Room" unique_id=1473335944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D9" unique_id=430877369]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
-shape = SubResource("BoxShape3D_u1tvc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.630999, 1.0512879, 2.1959085)
+shape = SubResource("BoxShape3D_kpgxq")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Flower_Room" unique_id=1746694195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/StaticBody3D6" unique_id=179179993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
-shape = SubResource("BoxShape3D_outm6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.326874, 0.5614624, -1.1229992)
+shape = SubResource("BoxShape3D_rs3rf")
+
+[node name="fiddle" type="AnimatableBody3D" parent="Flower_Room" unique_id=995390528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.855544, 53.047356, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Flower_Room/fiddle" unique_id=78811273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+visible = false
+texture = ExtResource("12_1pqbu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/fiddle" unique_id=279118115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="berries" type="AnimatableBody3D" parent="Flower_Room" unique_id=1384147677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.855544, 53.047356, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Flower_Room/berries" unique_id=435112055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+visible = false
+texture = ExtResource("12_1pqbu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/berries" unique_id=1368337912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
+
+[node name="Area3D2" type="Area3D" parent="Flower_Room" unique_id=1549576233 groups=["room_transitions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.341109, 0, -3.7984512)
+script = ExtResource("14_14kd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/Area3D2" unique_id=2067913324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46655273, 0.9331064, 0.44964576)
+shape = SubResource("BoxShape3D_y4ekl")
+
+[node name="Marker3D" type="Marker3D" parent="Flower_Room/Area3D2" unique_id=1690610450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -132.13077, 0, -3.2679737)
+top_level = true
+
+[node name="hair" type="AnimatableBody3D" parent="Flower_Room" unique_id=2077166225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.855544, 53.047356, 2.8482647)
+sync_to_physics = false
+script = ExtResource("7_s0ejd")
+description = "Shovel: A dirt-encrusted shovel good for digging large holes. Maybe used for planting trees? I wonder if he used when building this shack. 
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="Flower_Room/hair" unique_id=833108868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026993394, 0.30555335, 0)
+visible = false
+texture = ExtResource("12_1pqbu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flower_Room/hair" unique_id=975031808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
+shape = SubResource("BoxShape3D_yh4bu")
 
 [node name="Tutorial_Room" type="Node3D" parent="." unique_id=890754198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.7812)
@@ -423,16 +590,17 @@ texture = ExtResource("13_14kd1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="Area3D" type="Area3D" parent="Tutorial_Room" unique_id=1243647419]
+[node name="Area3D" type="Area3D" parent="Tutorial_Room" unique_id=1243647419 groups=["room_transitions"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4294577, 0.49815226, -10.091873)
 script = ExtResource("14_14kd1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/Area3D" unique_id=602739981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4438477, 0.5288696, 0)
-shape = SubResource("BoxShape3D_t02xj")
+shape = SubResource("BoxShape3D_ln0dv")
 
 [node name="Marker3D" type="Marker3D" parent="Tutorial_Room/Area3D" unique_id=111896617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.910054, 0, 14.768112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.339512, 0.49815226, 150.45744)
+top_level = true
 
 [node name="shed" type="Area3D" parent="Tutorial_Room" unique_id=1708364638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2991085, 0.014832616, -8.590225)
@@ -448,7 +616,6 @@ texture = ExtResource("15_6djn3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Tutorial_Room" unique_id=190592181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.107693434, -10.071075)
-script = ExtResource("17_0i24u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D" unique_id=286597691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0002975464, 1.5545188, 0)
@@ -463,47 +630,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -8.435272)
 script = ExtResource("19_48ac3")
 
 [node name="Marker3D" type="Marker3D" parent="Tutorial_Room/Faun" unique_id=814295928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, 1.9546089)
+top_level = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Tutorial_Room" unique_id=797305596]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D2" unique_id=1758417849]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -3.481079)
-shape = SubResource("BoxShape3D_3c6e5")
+shape = SubResource("BoxShape3D_fu2ad")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Tutorial_Room" unique_id=656977387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.437668, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D3" unique_id=1168219083]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
-shape = SubResource("BoxShape3D_de8fr")
+shape = SubResource("BoxShape3D_348hm")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Tutorial_Room" unique_id=2007491565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.835108, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D4" unique_id=1778138675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
-shape = SubResource("BoxShape3D_c08rl")
+shape = SubResource("BoxShape3D_ik23w")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Tutorial_Room" unique_id=1016984239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.229829, 0, -11.993607)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D5" unique_id=1347530727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
-shape = SubResource("BoxShape3D_wy6go")
+shape = SubResource("BoxShape3D_qscix")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="Tutorial_Room" unique_id=1578214117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.587634, 0, -11.950531)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D9" unique_id=959882368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
-shape = SubResource("BoxShape3D_u1tvc")
+shape = SubResource("BoxShape3D_c7lxx")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Tutorial_Room" unique_id=615537314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.305196, 0.52757573, 1.9366302)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial_Room/StaticBody3D6" unique_id=2005948855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
-shape = SubResource("BoxShape3D_outm6")
+shape = SubResource("BoxShape3D_bd86h")
 
 [node name="Seelie_Room" type="Node3D" parent="." unique_id=589508618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.028, 0, 0)
@@ -541,57 +710,82 @@ texture = ExtResource("24_g5i5s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="Area3D" type="Area3D" parent="Seelie_Room" unique_id=443739774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+[node name="Area3D" type="Area3D" parent="Seelie_Room" unique_id=443739774 groups=["room_transitions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.902695, 0, -5.2532387)
 script = ExtResource("14_14kd1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/Area3D" unique_id=2064294148]
-shape = SubResource("BoxShape3D_t02xj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2351074, 1.0245209, 1.1692505)
+shape = SubResource("BoxShape3D_mcfop")
 
 [node name="Marker3D" type="Marker3D" parent="Seelie_Room/Area3D" unique_id=559461568]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8564014, 0, -4.5673776)
+top_level = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Seelie_Room" unique_id=312451147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D2" unique_id=191553496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9239731, -0.5119672, -6.4923706)
-shape = SubResource("BoxShape3D_3c6e5")
+shape = SubResource("BoxShape3D_efryf")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Seelie_Room" unique_id=684603312]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D3" unique_id=69205516]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
-shape = SubResource("BoxShape3D_de8fr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732544, 1.0690665, -4.2495937)
+shape = SubResource("BoxShape3D_q3ytw")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Seelie_Room" unique_id=341558619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D4" unique_id=483334363]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
-shape = SubResource("BoxShape3D_c08rl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90065, 1.0512812, -3.0311222)
+shape = SubResource("BoxShape3D_1owkl")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Seelie_Room" unique_id=1404261673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D5" unique_id=75182464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
-shape = SubResource("BoxShape3D_wy6go")
-
-[node name="StaticBody3D9" type="StaticBody3D" parent="Seelie_Room" unique_id=254639201]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D9" unique_id=1260457794]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
-shape = SubResource("BoxShape3D_u1tvc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.350983, 1.1140151, 2.6177673)
+shape = SubResource("BoxShape3D_bdxof")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Seelie_Room" unique_id=101612920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097092, 0.52757573, 5.0920815)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Seelie_Room/StaticBody3D6" unique_id=1814156193]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
-shape = SubResource("BoxShape3D_outm6")
+shape = SubResource("BoxShape3D_4q334")
+
+[node name="seelie" parent="Seelie_Room" unique_id=518310563 node_paths=PackedStringArray("crow") instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8579254, 0, 0.4565382)
+script = ExtResource("25_bpbmj")
+crow = NodePath("../crow")
+
+[node name="Sprite3D" parent="Seelie_Room/seelie" index="1" unique_id=311256161]
+texture = SubResource("CompressedTexture2D_hl5la")
+
+[node name="next_to_seelie" type="Marker3D" parent="Seelie_Room/seelie" unique_id=736591809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -137.93712, 0, 1.707108)
+top_level = true
+
+[node name="final_position" type="Marker3D" parent="Seelie_Room/seelie" unique_id=1331959420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.33037, 0, -4.249293)
+top_level = true
+
+[node name="player_position" type="Marker3D" parent="Seelie_Room/seelie" unique_id=105810746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.08734, 0, -4.0383635)
+top_level = true
+
+[node name="crow" parent="Seelie_Room" unique_id=1990790556 node_paths=PackedStringArray("berries", "knife", "player") instance=ExtResource("19_0i24u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.55919, 0, -18.333933)
+script = ExtResource("26_g5i5s")
+berries = NodePath("../../Flower_Room/berries")
+knife = NodePath("../../Tutorial_Room/knife")
+player = NodePath("../../Tutorial_Room/PlayerCharacter")
+
+[node name="Sprite3D" parent="Seelie_Room/crow" index="1" unique_id=311256161]
+texture = SubResource("CompressedTexture2D_lclc3")
 
 [node name="Unicorn_Room" type="Node3D" parent="." unique_id=648008439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -309.3255)
@@ -607,22 +801,24 @@ description = "Shovel: A dirt-encrusted shovel good for digging large holes. May
 "
 
 [node name="Sprite3D" type="Sprite3D" parent="Unicorn_Room/wood" unique_id=1462327812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2756824, 0.30555335, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07312679, 0.30555335, 0.26397705)
 texture = ExtResource("25_bjern")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/wood" unique_id=1207699171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3110461, 0)
 shape = SubResource("BoxShape3D_yh4bu")
 
-[node name="Area3D" type="Area3D" parent="Unicorn_Room" unique_id=2086226549]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.808009, 0, 0)
+[node name="Area3D" type="Area3D" parent="Unicorn_Room" unique_id=2086226549 groups=["room_transitions"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9336257, 1.1869178, 5.4892273)
 script = ExtResource("14_14kd1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/Area3D" unique_id=148854194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7687378, 0, 0)
 shape = SubResource("BoxShape3D_t02xj")
 
 [node name="Marker3D" type="Marker3D" parent="Unicorn_Room/Area3D" unique_id=1020805166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.926119, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.790164, 0, -2.5017352)
+top_level = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Unicorn_Room" unique_id=220418131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20810749, 0, 4.024044)
@@ -635,40 +831,39 @@ shape = SubResource("BoxShape3D_3c6e5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.22956, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D3" unique_id=437546457]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47732925, 1.0690665, -4.0611725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2345648, 1.0690665, -4.061157)
 shape = SubResource("BoxShape3D_de8fr")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Unicorn_Room" unique_id=2023362032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.043216, 0, 4.024044)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D4" unique_id=392492575]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075366974, 1.0512812, -4.060257)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2334938, 1.0512812, -4.3451843)
 shape = SubResource("BoxShape3D_c08rl")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Unicorn_Room" unique_id=1827714138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.021721, 0, -7.9695625)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D5" unique_id=1748770002]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0296354, 1.1140151, 0.92045593)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.570346, 1.1140151, 0.9204407)
 shape = SubResource("BoxShape3D_wy6go")
-
-[node name="StaticBody3D9" type="StaticBody3D" parent="Unicorn_Room" unique_id=1199763904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7957416, 0, -7.926487)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D9" unique_id=1717357255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5119858, 1.0512879, 0.9706421)
-shape = SubResource("BoxShape3D_u1tvc")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Unicorn_Room" unique_id=990140223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.097088, 0.52757573, 5.9606743)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Unicorn_Room/StaticBody3D6" unique_id=1738427418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.222778, 0.5614624, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9350815, 0.5614624, -0.5297241)
 shape = SubResource("BoxShape3D_outm6")
 
-[node name="unicorn" parent="Unicorn_Room" unique_id=886984471 instance=ExtResource("19_0i24u")]
+[node name="unicorn" parent="Unicorn_Room" unique_id=886984471 node_paths=PackedStringArray("player", "hair") instance=ExtResource("19_0i24u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0703943, 0, -0.41427612)
-script = ExtResource("19_48ac3")
+script = ExtResource("28_bjern")
+player = NodePath("../../Tutorial_Room/PlayerCharacter")
+hair = NodePath("../../Flower_Room/hair")
+
+[node name="Sprite3D" parent="Unicorn_Room/unicorn" index="1" unique_id=311256161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07889676, 0, 0)
+texture = ExtResource("29_k7rwd")
 
 [node name="GrassFoliage" type="Node3D" parent="." unique_id=1960283604]
 visible = false
@@ -686,9 +881,10 @@ multimesh = SubResource("MultiMesh_020")
 [node name="GrassMesh_021" type="MultiMeshInstance3D" parent="GrassFoliage" unique_id=1953554211]
 multimesh = SubResource("MultiMesh_021")
 
-[node name="fade" type="CanvasLayer" parent="." unique_id=1107835553]
+[node name="fade" type="CanvasLayer" parent="." unique_id=1107835553 node_paths=PackedStringArray("player")]
 layer = 20
 script = ExtResource("22_de8fr")
+player = NodePath("../Tutorial_Room/PlayerCharacter")
 
 [node name="ColorRect" type="ColorRect" parent="fade" unique_id=1868029441]
 modulate = Color(0, 0, 0, 0)
@@ -699,3 +895,6 @@ offset_bottom = 729.0
 [editable path="Flower_Room/Bear"]
 [editable path="Flower_Room/Faun"]
 [editable path="Flower_Room/Flower"]
+[editable path="Seelie_Room/seelie"]
+[editable path="Seelie_Room/crow"]
+[editable path="Unicorn_Room/unicorn"]

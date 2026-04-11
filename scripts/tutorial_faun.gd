@@ -42,5 +42,6 @@ func _on_dialogic_signal(message):
 		var wait = 0.5
 		fade.fade(duration,wait)
 		await get_tree().create_timer(duration).timeout
+		body.inventory = body.inventory.filter(func(initem): return initem.name != "key")
 		body.global_position = $Marker3D.global_position
 		await get_tree().create_timer(wait + duration).timeout

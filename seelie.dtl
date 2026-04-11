@@ -13,6 +13,7 @@ elif {game_state} >= 3.0:
 	elif {game_state} >= 7.0 and {game_state} < 8.0:
 		elif {seelie_invited} == 0.0:
 			ooh an invite
+			set {seelie_invited} = 1.0
 		elif {seelie_invited} == 1.0:
 			thanks for the invite
 	elif {game_state} == 8.0:

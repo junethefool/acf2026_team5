@@ -7,6 +7,9 @@ extends AnimatableBody3D
 @export var unicorn: AnimatableBody3D
 @export var player: CharacterBody3D
 var gone = false
+var needed_item_list = ["hair", "knife", "wood"]
+var present_item_list: Array = []
+var difference = []
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
@@ -16,7 +19,16 @@ func _ready() -> void:
 
 func on_interact():
 	print("you did it, dumbass")
-	Dialogic.start("flower observation")
+	if Dialogic.VAR.game_state == 6:
+		difference = needed_item_list.duplicate()
+		for item in player.inventory:
+			difference.erase(item)
+		if difference.is_empty():
+			Dialogic.VAR.materials_gathered = 1
+		else:
+			Dialogic.VAR.materials_gathered = 0
+	
+	Dialogic.start("faun")
 	
 func on_dialogic_signal(message):
 	if message == "give fiddle":
@@ -25,19 +37,22 @@ func on_dialogic_signal(message):
 				child.visible = false
 			if child is CollisionShape3D:
 				child.disabled = true
+		for item in needed_item_list:
+			player.inventory = player.inventory.filter(func(initem): return initem.name != item)
 		player.inventory.push_front(fiddle)
 	elif message == "leaving":
 		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
 		var duration = 0.5
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
-		for child in get_children():
+		for child in find_children("*"):
 			if child is Sprite3D:
 				child.visible = false
 			if child is CollisionShape3D:
 				child.disabled = true
 		gone = true
-		Dialogic.VAR.went_and_returned = 1
+		interactable.can_interact = false
+		
 		await get_tree().create_timer(wait + duration).timeout
 	elif message == "party":
 		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
@@ -50,14 +65,15 @@ func on_dialogic_signal(message):
 		player.global_position = $player_position.global_position
 		global_position = $faun_position.global_position
 		await get_tree().create_timer(wait + duration).timeout
-		Dialogic.start("faun")
 		
-
+	elif message == "dance end":
+		Dialogic.start("faun")
 func _on_room_transition():
 	if gone == true:
-		for child in get_children():
+		for child in find_children("*"):
 			if child is Sprite3D:
 				child.visible = true
 			if child is CollisionShape3D:
 				child.disabled = false
 		gone = false
+		Dialogic.VAR.went_and_returned = 1

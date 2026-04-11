@@ -9,12 +9,10 @@ elif {game_state} == 1.0:
 	elif {shed_missing} == 0.0:
 		if {key} == 1.0:
 			Faun: All items present and key in inventory
-			set {game_state} = 0
+			set {game_state} = 2.0
+			[signal arg="tutorial done"]
 		elif {key} == 0.0:
 			if {key_on_the_floor} == 0.0:
 				Faun: All items present, but no key
 			elif {key_on_the_floor} == 1.0:
 				Faun: Key in range
-elif {game_state} == 2.0:
-	Done
-	[signal arg="tutorial done"]

@@ -4,6 +4,7 @@ if {game_state} < 7.0:
 elif {game_state} == 7.0:
 	if {unicorn_invited} == 0.0:
 		Unicorn: ooh invite
+		set {unicorn_invited} = 1.0
 	elif {unicorn_invited} == 1.0:
 		Unicorn: thanks for the invite
 elif {game_state} == 8.0:

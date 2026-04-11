@@ -2,6 +2,7 @@ if {game_state} == 3.0:
 	if {crow_educated} == 0.0:
 		Crow: be careful with the seelie
 		Crow: gimme stuff
+		set {crow_educated} = 1.0
 	elif {crow_educated} == 1.0:
 		if {all_things_gathered} == 0.0:
 			Crow: not everything here

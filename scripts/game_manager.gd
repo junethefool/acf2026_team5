@@ -102,7 +102,7 @@ func save_game():
 		push_error("GameManager: GameState node not found")
 		return false
 
-	var player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	if player and player.has_method("prepare_save"):
 		player.prepare_save()
 

@@ -9,7 +9,7 @@ height = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a1j51"]
 height = 0.5
-radius = 1.5
+radius = 1.1186523
 
 [node name="Test NPC" type="AnimatableBody3D" unique_id=1584754386]
 
