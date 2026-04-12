@@ -15,7 +15,7 @@ func on_interact():
 	Dialogic.start("bear asleep")
 
 func _process(delta: float) -> void:
-	if global_position.distance_to(berries.global_position) < 25 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
+	if global_position.distance_to(berries.global_position) < 5 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
 		awake = true
 		berry.emit()
 		

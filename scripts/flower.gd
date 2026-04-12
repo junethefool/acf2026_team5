@@ -16,4 +16,4 @@ func on_dialogic_signal(message):
 		for child in get_children():
 			if child is Sprite3D:
 				child.texture = allgrownup
-		
+		GameManager.adjust_all_grids_spring(1)

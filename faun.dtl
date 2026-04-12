@@ -18,7 +18,7 @@ elif {game_state} == 6.0:
 		if {materials_gathered} == 0.0:
 			Faun: my knife
 			Faun: now get the rest
-		elif {materials_gathered} == 0.0:
+		elif {materials_gathered} == 1.0:
 			Faun: my knife
 			Faun: lemme carve that fiddle
 			[signal arg="give fiddle"]
@@ -29,8 +29,8 @@ elif {game_state} == 7.0:
 		[signal arg="party"]
 		[signal arg="dance"]
 		Faun: dance everyone
-		[signal arg="dance end"]
 		set {game_state} = 8.0
+		[signal arg="dance end"]
 	else:
 		Faun: invite everybody
 elif {game_state} == 8.0:

@@ -17,7 +17,6 @@ func on_interact():
 	if Dialogic.VAR.game_state == 3:
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:
-			difference.erase(item)
 			difference = difference.filter(func(initem): return initem != str(item.name))
 		if difference.is_empty():
 			Dialogic.VAR.all_things_gathered = 1
@@ -42,5 +41,6 @@ func on_dialogic_signal(message):
 			if child is CollisionShape3D:
 				child.disabled = true
 		player.inventory.push_front(knife)
+		Dialogic.VAR.has_knife = 1
 	elif message == "take knife":
 		player.inventory.erase(knife)

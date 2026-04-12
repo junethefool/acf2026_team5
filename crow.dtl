@@ -14,7 +14,6 @@ elif {game_state} >= 4.0 and {game_state} < 6.0:
 	Crow: we're even now
 elif {game_state} == 6.0:
 	Crow: you can borrow MY knife
-	set {game_state} = 7.0
 	[signal arg="give knife"]
 elif {game_state} >= 7.0 and {game_state} < 8.0:
 	if {crow_invited} == 0.0:

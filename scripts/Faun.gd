@@ -22,7 +22,7 @@ func on_interact():
 	if Dialogic.VAR.game_state == 6:
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:
-			difference.erase(item)
+			difference = difference.filter(func(initem): return initem != str(item.name))
 		if difference.is_empty():
 			Dialogic.VAR.materials_gathered = 1
 		else:
