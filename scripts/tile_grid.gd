@@ -39,15 +39,15 @@ var _earth_mm: MultiMesh
 var _grass_mm: MultiMesh
 var _snow_mm: MultiMesh
 
-var _earth_heights: PackedFloat32Array
+@export_storage var _earth_heights: PackedFloat32Array
 var _current_spring: PackedFloat32Array
 var _target_spring: PackedFloat32Array
-var _base_spring: PackedFloat32Array
+@export_storage var _base_spring: PackedFloat32Array
 var _current_winter: PackedFloat32Array
 var _target_winter: PackedFloat32Array
-var _base_winter: PackedFloat32Array
-var _snow_rotations: PackedFloat32Array
-var _grass_rotations: PackedFloat32Array
+@export_storage var _base_winter: PackedFloat32Array
+@export_storage var _snow_rotations: PackedFloat32Array
+@export_storage var _grass_rotations: PackedFloat32Array
 
 var _world_x: PackedFloat32Array
 var _world_z: PackedFloat32Array
@@ -72,7 +72,10 @@ func _ready() -> void:
 	var snow_mesh := _extract_mesh(snow_scene)
 
 	_setup_multimeshes(earth_mesh, grass_mesh, snow_mesh)
-	_generate_grid()
+	if not Engine.is_editor_hint() and _base_spring.size() == _total_tiles:
+		_restore_grid()
+	else:
+		_generate_grid()
 
 	if not Engine.is_editor_hint():
 		GameManager.register_grid(self)
@@ -126,6 +129,30 @@ func _create_multimesh(mesh: Mesh, node_name: String) -> MultiMesh:
 	add_child(mmi)
 
 	return mm
+
+
+func _restore_grid() -> void:
+	_gen_x = grid_size.x
+	_gen_z = grid_size.y
+	_world_x = PackedFloat32Array()
+	_world_x.resize(_total_tiles)
+	_world_z = PackedFloat32Array()
+	_world_z.resize(_total_tiles)
+	var half_x := _gen_x / 2.0
+	var half_z := _gen_z / 2.0
+	for x in _gen_x:
+		for z in _gen_z:
+			var i := x * _gen_z + z
+			_world_x[i] = x - half_x + 0.5
+			_world_z[i] = z - half_z + 0.5
+	_current_spring = _base_spring.duplicate()
+	_target_spring = _base_spring.duplicate()
+	_current_winter = _base_winter.duplicate()
+	_target_winter = _base_winter.duplicate()
+	for i in _total_tiles:
+		_earth_mm.set_instance_transform(i, _compute_earth_transform(i))
+		_grass_mm.set_instance_transform(i, _compute_overlay_transform(i, _base_spring[i], spring_offset_min, spring_offset_max, spring_scale_min, spring_scale_max, _grass_rotations[i]))
+		_snow_mm.set_instance_transform(i, _compute_overlay_transform(i, _base_winter[i], winter_offset_min, winter_offset_max, winter_scale_min, winter_scale_max, _snow_rotations[i]))
 
 
 func _generate_grid() -> void:

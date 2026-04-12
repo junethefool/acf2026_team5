@@ -18,6 +18,23 @@ func register_grid(grid: Node) -> void:
 	if _tile_grids.has(grid.grid_id):
 		push_warning("GameManager: Duplicate grid_id '%s' — overwriting" % grid.grid_id)
 	_tile_grids[grid.grid_id] = grid
+	_maybe_restore_tile_state(grid)
+
+
+func _maybe_restore_tile_state(grid: Node) -> void:
+	if not FileAccess.file_exists(TILE_SAVE_PATH):
+		return
+	var file := FileAccess.open(TILE_SAVE_PATH, FileAccess.READ)
+	var data = file.get_var()
+	file.close()
+	if not data is Dictionary:
+		return
+	var entry = data.get(grid.grid_id)
+	if not entry:
+		return
+	var snow_offset: float = entry.get("snow_offset", 0.0) if is_loading else 0.0
+	var spring_offset: float = entry.get("spring_offset", 0.0) if is_loading else 0.0
+	grid.restore_state(entry["spring"], entry["winter"], snow_offset, spring_offset)
 
 
 func unregister_grid(grid: Node) -> void:
@@ -168,7 +185,6 @@ func apply_load(test_map: Node):
 
 	is_loading = false
 	print("GameManager: Game loaded from " + SAVE_PATH)
-	_apply_tile_state(test_map)
 
 func _apply_tile_state(test_map: Node) -> void:
 	if not FileAccess.file_exists(TILE_SAVE_PATH):
