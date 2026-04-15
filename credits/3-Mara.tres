@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CreditEntryResource" format=3 uid="uid://bur4uen022bna"]
+
+[ext_resource type="Script" uid="uid://cfg1d1r5altem" path="res://addons/credit_manager/CreditEntry.gd" id="1_jl0ao"]
+
+[resource]
+script = ExtResource("1_jl0ao")
+asset_name = "Mara"
+category = 2

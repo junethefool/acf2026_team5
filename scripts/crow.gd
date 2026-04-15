@@ -43,6 +43,7 @@ func on_dialogic_signal(message):
 				child.disabled = true
 		player.inventory.push_front(berries)
 	elif message == "give knife":
+		knife.description = "A spottlessly gleaming knife used for carving wood. Faunus must put a lot of effort into keeping it in perfect condition. He will make a beautiful fiddle using this."
 		for child in knife.get_children():
 			if child is Sprite3D:
 				child.visible = false
