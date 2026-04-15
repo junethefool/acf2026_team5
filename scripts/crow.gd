@@ -7,6 +7,10 @@ extends AnimatableBody3D
 var needed_item_list = ["moss", "mirror_shard", "twig", "mud"]
 var present_item_list: Array = []
 var difference = []
+var dictionary = {	"moss": "something soft",
+					"mirror_shard": "something shiny",
+					"twig": "something twiggy",
+					"mud" : "something sticky"}
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
@@ -18,6 +22,10 @@ func on_interact():
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:
 			difference = difference.filter(func(initem): return initem != str(item.name))
+		ListsForDialogic.crow_missing = difference.duplicate()
+		for index in ListsForDialogic.crow_missing.size():
+			ListsForDialogic.crow_missing[index] = dictionary.get(ListsForDialogic.crow_missing[index])
+		ListsForDialogic.crow_size = ListsForDialogic.crow_missing.size()
 		if difference.is_empty():
 			Dialogic.VAR.all_things_gathered = 1
 			for item in needed_item_list:

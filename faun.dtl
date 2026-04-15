@@ -38,6 +38,7 @@ elif {game_state} == 8.0:
 		Faun: thank you so much
 	Faun: are you done
 	- yes
-		[signal arg="end game"]
+		set {game_state} = 9.0
+		[signal arg="finale"]
 	- no
 		Faun: I'll wait

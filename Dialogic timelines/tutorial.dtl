@@ -4,15 +4,25 @@ if {game_state} == 0.0:
 	set {game_state} = 1.0
 	[end_timeline]
 elif {game_state} == 1.0:
-	if {shed_missing} == 1.0:
-		Faun: Not all items present
-	elif {shed_missing} == 0.0:
-		if {key} == 1.0:
-			Faun: All items present and key in inventory
-			set {game_state} = 2.0
-			[signal arg="tutorial done"]
-		elif {key} == 0.0:
-			if {key_on_the_floor} == 0.0:
-				Faun: All items present, but no key
-			elif {key_on_the_floor} == 1.0:
-				Faun: Key in range
+	if {all_items} == 0.0:
+		if {ListsForDialogic.tutorial_size} == 1.0:
+			Faun: you're missing {ListsForDialogic.tutorial_missing[0]}
+		elif {ListsForDialogic.tutorial_size} == 2.0:
+			Faun: you're missing {ListsForDialogic.tutorial_missing[0]} and {ListsForDialogic.tutorial_missing[1]}
+		elif {ListsForDialogic.tutorial_size} == 3.0:
+			you're missing {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]} and {ListsForDialogic.tutorial_missing[2]}
+		elif {ListsForDialogic.tutorial_size} == 4.0:
+			you're missing {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]}, {ListsForDialogic.tutorial_missing[2]} and {ListsForDialogic.tutorial_missing[3]}
+	else:
+		if {shed_missing} == 1.0:
+			Faun: Place items under the shed
+		elif {shed_missing} == 0.0:
+			if {key} == 1.0:
+				Faun: All items present and key in inventory
+				set {game_state} = 2.0
+				[signal arg="tutorial done"]
+			elif {key} == 0.0:
+				if {key_on_the_floor} == 0.0:
+					Faun: All items present, but no key
+				elif {key_on_the_floor} == 1.0:
+					Faun: Key in range

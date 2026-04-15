@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dialogic="*uid://ds2q0uclmolvu"
 GameManager="*res://scripts/game_manager.gd"
+ListsForDialogic="*uid://icgpky4rr0g7"
 
 [dialogic]
 
@@ -56,6 +57,7 @@ directories/dtl_directory={
 layout/style_directory={}
 glossary/default_case_sensitive=true
 variables={
+"all_items": 0.0,
 "all_things_gathered": 0.0,
 "crow_educated": 0.0,
 "crow_intervened": 0.0,

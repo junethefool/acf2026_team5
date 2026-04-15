@@ -23,6 +23,8 @@ func on_interact():
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:
 			difference = difference.filter(func(initem): return initem != str(item.name))
+		ListsForDialogic.faun_missing = difference.duplicate()
+		ListsForDialogic.faun_size = ListsForDialogic.faun_missing.size()
 		if difference.is_empty():
 			Dialogic.VAR.materials_gathered = 1
 		else:

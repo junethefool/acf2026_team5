@@ -1,6 +1,10 @@
 extends AnimatableBody3D
 
 @onready var interactable: Interactable = $Interactable
+var needed_item_list = ["shovel", "key", "bucket", "knife"]
+var present_item_list: Array = []
+var difference = []
+@export var player: CharacterBody3D
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
@@ -23,6 +27,14 @@ func _on_body_exited(body):
 		
 func on_interact():
 	print("you did it, dumbass")
+	difference = needed_item_list.duplicate()
+	for item in player.inventory:
+		difference = difference.filter(func(initem): return initem != str(item.name))
+	if Dialogic.VAR.all_items == 0:
+		ListsForDialogic.tutorial_missing = difference.duplicate()
+		ListsForDialogic.tutorial_size = ListsForDialogic.tutorial_missing.size()
+		if difference.is_empty():
+			Dialogic.VAR.all_items = 1
 	var key_here = false
 	for item in get_tree().get_first_node_in_group("player").inventory:
 		if str(item.name) == "key":
