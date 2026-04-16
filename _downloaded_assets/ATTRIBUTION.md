@@ -4,6 +4,8 @@
 ### Art
 [Arithetonberry]()  
 [Scatterhert]()  
+
+### Additional Art
 [Mara]()  
 
 ### Game Design
@@ -14,8 +16,13 @@ Louis
 [Mara]() 
 [Luna]()
 
+### Sound
+[Luna]()
+
 ### Writing
 [CassandraCassandra]()
+
+### Additional Writing
 Louis
 
 

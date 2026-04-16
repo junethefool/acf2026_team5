@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="CreditEntryResource" format=3 uid="uid://b6fsahqgkaqal"]
-
-[ext_resource type="Script" uid="uid://cfg1d1r5altem" path="res://addons/credit_manager/CreditEntry.gd" id="1_6ikcj"]
-
-[resource]
-script = ExtResource("1_6ikcj")
-asset_name = "Scatterheart"
-category = 2
