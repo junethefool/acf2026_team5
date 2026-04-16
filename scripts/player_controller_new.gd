@@ -4,8 +4,6 @@ extends CharacterBody3D
 
 @export var animated_sprite: AnimatedSprite3D
 
-var _camera_controller: Node
-
 enum {neutral,pick_up,hold,place_down,inventory_stationary, inventory_rotating,wait}
 var state = neutral
 

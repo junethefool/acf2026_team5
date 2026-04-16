@@ -13,7 +13,7 @@ func ready2():
 	background.visible = false
 	text.visible = false
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player.state == 4:
 		text.get_child(0).text = player.inventory[0].description
 		text.visible = true

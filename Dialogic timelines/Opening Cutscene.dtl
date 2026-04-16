@@ -1,0 +1,16 @@
+Faun: Hello, little one! It’s good to see you’ve finally awoken.
+You: …Where am I?
+Faun: On the outskirts of the forest of course. You don’t remember?
+You: Remember…?
+Faun: Your duty little one. It is up to you to ensure that the First Flower of Spring awakens, heralding the beginning of springtime.
+Faun: If it fails to awaken and bloom properly, spring will not come to pass at all. The cyclic harmony of all the seasons will fall out of balance!
+You: Oh… of course, I remember these duties now! I will do my best. However, my memory seems to be a bit foggy in some places? I don’t mean to seem rude sir, but why can’t I remember my name?
+Faun: I promise all will be revealed in due time little one. It might not make sense to you right now, but please trust me when I say that it is truly in your best interest for your true name to be left to oblivion for the time being.
+Faun: But certainly, I have been rude in not introducing myself properly when your recent awakening has you in a disoriented state. Please, you may call me Faunus. I am the guardian of this forest and your guide.
+Faunus: You need not feel alone in the undertaking of your duties, even if the majority of the tasks will rest on your efforts. Please, let me explain a few key details you will find necessary in aiding you.
+Faunus: In order to awaken Spring, you will need to know a few things\: Items can be found on the ground. Press E to pick them up. Press E again to put them down instantly or press F to stash items in your inventory.
+Faunus: You can open/close your inventory at any time by pressing F. The item in the front of your inventory can be take out of the inventory by pressing E.
+You: Ah, I see…
+Faunus: I’ve been doing some fieldwork. Would you mind helping an old goat and his weary bones tidy up a bit? All you need to do is find my carving knife, bucket & shovel.
+Faunus: …Oh and keep your eyes out for a key as well. My vision isn’t quite what it used to be heh hehhhh~
+set {game_state} = 1.0

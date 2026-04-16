@@ -186,7 +186,7 @@ func apply_load(test_map: Node):
 	is_loading = false
 	print("GameManager: Game loaded from " + SAVE_PATH)
 
-func _apply_tile_state(test_map: Node) -> void:
+func _apply_tile_state(_test_map: Node) -> void:
 	if not FileAccess.file_exists(TILE_SAVE_PATH):
 		return
 	var file := FileAccess.open(TILE_SAVE_PATH, FileAccess.READ)

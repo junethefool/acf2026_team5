@@ -1,7 +1,6 @@
-extends AnimatableBody3D
+extends NPC
 
-@onready var interactable: Interactable = $Interactable
-var needed_item_list = ["shovel", "key", "bucket", "knife"]
+var needed_item_list = ["shovel", "knife", "bucket", "key"]
 var present_item_list: Array = []
 var difference = []
 @export var player: CharacterBody3D
@@ -26,7 +25,6 @@ func _on_body_exited(body):
 		Dialogic.VAR.key_on_the_floor = 0
 		
 func on_interact():
-	print("you did it, dumbass")
 	difference = needed_item_list.duplicate()
 	for item in player.inventory:
 		difference = difference.filter(func(initem): return initem != str(item.name))

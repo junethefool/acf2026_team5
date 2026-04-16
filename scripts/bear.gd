@@ -1,6 +1,5 @@
-extends AnimatableBody3D
+extends NPC
 
-@onready var interactable: Interactable = $Interactable
 @export var berries: AnimatableBody3D
 @export var faun:AnimatableBody3D
 signal berry
@@ -14,7 +13,7 @@ func on_interact():
 	print("you did it, dumbass")
 	Dialogic.start("bear asleep")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if global_position.distance_to(berries.global_position) < 5 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
 		awake = true
 		berry.emit()

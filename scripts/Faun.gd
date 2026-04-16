@@ -1,6 +1,5 @@
-extends AnimatableBody3D
+extends NPC
 
-@onready var interactable: Interactable = $Interactable
 @export var fiddle: AnimatableBody3D
 @export var crow: AnimatableBody3D
 @export var seelie: AnimatableBody3D
@@ -18,7 +17,6 @@ func _ready() -> void:
 		room_transition.room_transition.connect(_on_room_transition)
 
 func on_interact():
-	print("you did it, dumbass")
 	if Dialogic.VAR.game_state == 6:
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:

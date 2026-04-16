@@ -1,28 +1,32 @@
 if {game_state} == 0.0:
-	Faun: Intro text
-	Faun: task
-	set {game_state} = 1.0
-	[end_timeline]
+	jump Opening Cutscene/
 elif {game_state} == 1.0:
 	if {all_items} == 0.0:
 		if {ListsForDialogic.tutorial_size} == 1.0:
-			Faun: you're missing {ListsForDialogic.tutorial_missing[0]}
+			Faunus: Ah! You’ve managed to find a few of my items already. You’re already doing well and learning quickly, little one. But you’re still missing the {ListsForDialogic.tutorial_missing[0]}, Come back when you’ve finished!
 		elif {ListsForDialogic.tutorial_size} == 2.0:
-			Faun: you're missing {ListsForDialogic.tutorial_missing[0]} and {ListsForDialogic.tutorial_missing[1]}
+			Faunus: Ah! You’ve managed to find a few of my items already. You’re already doing well and learning quickly, little one. But you’re still missing the {ListsForDialogic.tutorial_missing[0]} and {ListsForDialogic.tutorial_missing[1]}, Come back when you’ve finished!
 		elif {ListsForDialogic.tutorial_size} == 3.0:
-			you're missing {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]} and {ListsForDialogic.tutorial_missing[2]}
+			Faunus: Ah! You’ve managed to find a few of my items already. You’re already doing well and learning quickly, little one. But you’re still missing the {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]} and {ListsForDialogic.tutorial_missing[2]}, Come back when you’ve finished!
 		elif {ListsForDialogic.tutorial_size} == 4.0:
-			you're missing {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]}, {ListsForDialogic.tutorial_missing[2]} and {ListsForDialogic.tutorial_missing[3]}
+			Faunus: Come back when you've found the {ListsForDialogic.tutorial_missing[0]}, {ListsForDialogic.tutorial_missing[1]}, {ListsForDialogic.tutorial_missing[2]} and {ListsForDialogic.tutorial_missing[3]}
 	else:
 		if {shed_missing} == 1.0:
-			Faun: Place items under the shed
+			Faunus: Perfect! You have a sharp eye and an industrious spirit little one; you were well chosen for these duties!
+			Faunus: Can you please place the carving knife, bucket and shovel by that shack over there for me, dear one? Come back when you’ve finished!
 		elif {shed_missing} == 0.0:
 			if {key} == 1.0:
-				Faun: All items present and key in inventory
+				Faunus: Perfect, perfectly done! And oh, what’s that! You managed to find the key even. \
+				Yes, you’re exactly who we’ve been waiting for.
+				Faunus: Now then, see that gate over there? Go unlock it & it will lead you out into the forest proper.
+				Faunus: I have high hopes for you, little one. If you ever need help or guidance, even out in the forest, I’ll be around for you. Don’t be shy about coming to me to ask anything!
+				You: Thank you, Faunus sir.
+				Faunus: Ah, so polite! An admirable quality in general to be sure, but you might want to be careful in these woods in how freely you offer your thanks. Gratitude can be seen as an admission of debt to some of the dwellers of the forest.
+				Faunus: Remember\: not everything is as it seems. I wish you luck on your journey brave one; now go forth and explore!
 				set {game_state} = 2.0
 				[signal arg="tutorial done"]
 			elif {key} == 0.0:
 				if {key_on_the_floor} == 0.0:
-					Faun: All items present, but no key
+					Faunus: All items present, but no key
 				elif {key_on_the_floor} == 1.0:
-					Faun: Key in range
+					Faunus: Key in range

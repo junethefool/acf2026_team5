@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cswshokw6jhcm"]
 
-[ext_resource type="Texture2D" uid="uid://db1ae6rf5yjmf" path="res://sprites/Test NPC.png" id="1_upkiv"]
+[ext_resource type="Texture2D" uid="uid://db1ae6rf5yjmf" path="res://sprites/npcs/Test NPC.png" id="1_upkiv"]
 [ext_resource type="PackedScene" uid="uid://km41lmd0dfng" path="res://scenes/interactable.tscn" id="2_5e1og"]
 [ext_resource type="PackedScene" uid="uid://el1anl5aaefs" path="res://scenes/npc_talk_range.tscn" id="3_a1j51"]
 
@@ -11,7 +11,7 @@ height = 0.5
 height = 0.5
 radius = 0.4584961
 
-[node name="Test NPC" type="AnimatableBody3D" unique_id=1584754386]
+[node name="Base NPC" type="AnimatableBody3D" unique_id=1584754386]
 
 [node name="Interactable" parent="." unique_id=503572523 node_paths=PackedStringArray("interaction_range") instance=ExtResource("2_5e1og")]
 interaction_range = NodePath("../NPC Talk Range")
