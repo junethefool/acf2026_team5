@@ -1,6 +1,6 @@
 if {game_state} == 2.0:
 	Faun: Hint
-elif {all_items} == 3.0:
+elif {game_state} == 3.0:
 	Faun: Hint 2
 elif {game_state} == 4.0:
 	Faun: Hint 3

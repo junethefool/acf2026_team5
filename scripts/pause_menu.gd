@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var saved_label: Label = $CenterContainer/PanelContainer/VBoxContainer/SavedLabel
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	resume_button.pressed.connect(_on_resume)
 	save_button.pressed.connect(_on_save)
@@ -17,7 +18,7 @@ func _ready():
 	exit_button.pressed.connect(_on_exit)
 	saved_label.visible = false
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("pause"):
 		if visible:
 			_on_resume()
