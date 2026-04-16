@@ -55,3 +55,13 @@ func _on_dialogic_signal(message):
 		body.inventory = body.inventory.filter(func(initem): return initem.name != "key")
 		body.global_position = $Marker3D.global_position
 		await get_tree().create_timer(wait + duration).timeout
+	if message == "finale":
+		var fade = get_tree().get_first_node_in_group("fade")
+		var duration = 0.5
+		var wait = 0.5
+		fade.fade(duration,wait)
+		await get_tree().create_timer(duration).timeout
+		player.global_position = $finale_player.global_position
+		global_position = $finale_player.global_position
+		await get_tree().create_timer(wait + duration).timeout
+		Dialogic.start("faun")
