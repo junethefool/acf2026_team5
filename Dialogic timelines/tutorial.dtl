@@ -16,8 +16,7 @@ elif {game_state} == 1.0:
 			Faunus: Can you please place the carving knife, bucket and shovel by that shack over there for me, dear one? Come back when you’ve finished!
 		elif {shed_missing} == 0.0:
 			if {key} == 1.0:
-				Faunus: Perfect, perfectly done! And oh, what’s that! You managed to find the key even. \
-				Yes, you’re exactly who we’ve been waiting for.
+				Faunus: Perfect, perfectly done! And oh, what’s that! You managed to find the key even. Yes, you’re exactly who we’ve been waiting for.
 				Faunus: Now then, see that gate over there? Go unlock it & it will lead you out into the forest proper.
 				Faunus: I have high hopes for you, little one. If you ever need help or guidance, even out in the forest, I’ll be around for you. Don’t be shy about coming to me to ask anything!
 				You: Thank you, Faunus sir.
