@@ -1,57 +1,57 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://7ull72auu55n"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="Script" uid="uid://dc2mf5o0ty6p0" path="res://scripts/pause_menu.gd" id="1_pause"]
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1211560111]
 process_mode = 3
 script = ExtResource("1_pause")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=481581614]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=369845672]
 custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1181648053]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1519970696]
 layout_mode = 2
 text = "Paused"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=242417706]
 custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
 text = "Resume"
 
-[node name="SaveButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="SaveButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1895634784]
 custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
 text = "Save Game"
 
-[node name="LoadButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="LoadButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=496581211]
 custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
 text = "Load Game"
 
-[node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1292645183]
 custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
 text = "Main Menu"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ExitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=637768679]
 custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
 text = "Exit"
 
-[node name="SavedLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+[node name="SavedLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1342170050]
 layout_mode = 2
 text = "Saved!"
 horizontal_alignment = 1

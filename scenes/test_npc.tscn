@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cswshokw6jhcm"]
 
-[ext_resource type="Texture2D" uid="uid://db1ae6rf5yjmf" path="res://sprites/Test NPC.png" id="1_upkiv"]
+[ext_resource type="Texture2D" uid="uid://db1ae6rf5yjmf" path="res://sprites/npcs/Test NPC.png" id="1_upkiv"]
 [ext_resource type="PackedScene" uid="uid://km41lmd0dfng" path="res://scenes/interactable.tscn" id="2_5e1og"]
 [ext_resource type="PackedScene" uid="uid://el1anl5aaefs" path="res://scenes/npc_talk_range.tscn" id="3_a1j51"]
 

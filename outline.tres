@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://sd6mfvhm3lvl"]
 
 [ext_resource type="Shader" uid="uid://chpokpag6fuo8" path="res://scenes/twigshader.gdshader" id="1_m7ugv"]
-[ext_resource type="Texture2D" uid="uid://b0tihtti6q5wd" path="res://sprites/twigs.png" id="2_tsi5g"]
+[ext_resource type="Texture2D" uid="uid://b0tihtti6q5wd" path="res://sprites/items/twigs.png" id="2_tsi5g"]
 
 [resource]
 render_priority = 0
