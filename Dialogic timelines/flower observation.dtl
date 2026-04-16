@@ -1,6 +1,6 @@
 if {game_state} < 5.0:
 	this flower needs light
-elif {game_state} == 8:
+elif {game_state} >= 8.0:
 	It's all grown up
 else:
 	It still needs something
