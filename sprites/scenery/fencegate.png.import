@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbppd6lmtdnn5"
-path.s3tc="res://.godot/imported/bush3.png-ba898706fb2edaa1f3002c71b1841f37.s3tc.ctex"
+uid="uid://brmxe8j0h3fb7"
+path.s3tc="res://.godot/imported/fencegate.png-d1fd7afdaa42b91fbeb3c6fe2867cb59.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/scenery/bush3.png"
-dest_files=["res://.godot/imported/bush3.png-ba898706fb2edaa1f3002c71b1841f37.s3tc.ctex"]
+source_file="res://sprites/scenery/fencegate.png"
+dest_files=["res://.godot/imported/fencegate.png-d1fd7afdaa42b91fbeb3c6fe2867cb59.s3tc.ctex"]
 
 [params]
 

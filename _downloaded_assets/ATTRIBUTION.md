@@ -2,8 +2,8 @@
 ## Collaborators
 
 ### Art
-[Arithetonberry]()  
-[Scatterhert]()  
+[Ari Ganahl](https://ariganahl.itch.io/)  
+[Scatterhert](https://scatterhearts.tumblr.com/)  
 
 ### Additional Art
 [Mara]()  
@@ -14,13 +14,13 @@ Louis
 ### Programming
 Louis
 [Mara]() 
-[Luna]()
+Lstrike
 
 ### Sound
-[Luna]()
+Lstrike
 
 ### Writing
-[CassandraCassandra]()
+CassandraCassandra
 
 ### Additional Writing
 Louis
