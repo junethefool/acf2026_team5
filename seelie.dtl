@@ -1,12 +1,17 @@
 if {game_state} == 2.0:
-	if {crow_intervened} == 0.0:
-		Seelie: take our berries
-		[signal arg="crow"]
-		set {crow_intervened} = 1.0
-	elif {crow_intervened} == 1.0:
-		Crow: no don't take the berries
-		set {game_state} = 3.0
-		[signal arg="crow takes berries"]
+	if {first_talk} == false:
+		Seelie: come over here
+		set {first_talk} = true
+		[signal arg="come here"]
+	else:
+		if {crow_intervened} == 0.0:
+			Seelie: take our berries
+			[signal arg="crow"]
+			set {crow_intervened} = 1.0
+		elif {crow_intervened} == 1.0:
+			Crow: no don't take the berries
+			set {game_state} = 3.0
+			[signal arg="crow takes berries"]
 elif {game_state} >= 3.0:
 	if {game_state} < 7.0:
 		Seelie: We'll get you one day
