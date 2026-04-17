@@ -13,7 +13,7 @@ func _ready():
 	_camera.current = true
 	var env := Environment.new()
 	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color(0.043, 0.039, 0.064, 1)
+	env.background_color = Color(0.835, 0.929, 1.0, 1.0)
 	_camera.environment = env
 	add_child(_camera)
 	call_deferred("_find_player")
