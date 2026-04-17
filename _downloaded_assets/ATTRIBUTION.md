@@ -13,11 +13,12 @@ Louis
 
 ### Programming
 Louis
+[Lstrike](https://lstrikecreates.com/)
 [Mara]() 
-Lstrike
+
 
 ### Sound
-Lstrike
+[Lstrike](https://lstrikecreates.com/)
 
 ### Writing
 CassandraCassandra
