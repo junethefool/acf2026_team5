@@ -2,6 +2,7 @@ extends NPC
 
 @export var berries: AnimatableBody3D
 @export var faun:AnimatableBody3D
+@export var player: CharacterBody3D
 signal berry
 var awake = false
 
@@ -26,6 +27,8 @@ func on_berry():
 		await get_tree().create_timer(duration).timeout
 		berries.queue_free()
 		faun.global_position = $faun_position.global_position
+		player.global_position = $player_position.global_position
+		Dialogic.start("faun")
 		interactable.Interact.disconnect(on_interact)
 		queue_free()
 		await get_tree().create_timer(wait + duration).timeout

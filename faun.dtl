@@ -1,12 +1,57 @@
 if {game_state} == 2.0:
-	Faun: Hint
+	if {dialogue} == 0.0:
+		Faunus: Ah! Check out the crocus blossom
+		Faunus: Interacting with a flower directly will tell you what it needs
+		Faunus: Explore the map little one, but remember
+		Faunus: not every problem will come with a solution that’s immediately apparent
+		Faunus: Stay alert and curious, little one, and I am sure you will find every solution that you need
+		set {dialogue} = 1.0
+	elif {dialogue} == 1.0:
+		Faunus: Looks like the bear is deep in hibernation and blocking the sun
+		Faunus: Have you tried looking around to find them something to eat?
+		Faunus: Bears get very hungry and lethargic in their hibernation
+		Faunus: It might help if you look around for something they’d enjoy eating
+		Faunus: That ought to wake em up
 elif {game_state} == 3.0:
-	Faun: Hint 2
+	Faunus: Nesting material huh?
+	Faunus: If you explore the map and keep a keen eye out
+	Faunus: you’re sure to find everything you need in due time
+	Faunus: Chin up little one
+	Faunus: I know you’re up for the task
 elif {game_state} == 4.0:
-	Faun: Hint 3
+	Faunus: Put the berries close to the bear and hope they aren't too groggy.
+	Faunus: I'm sure they'll find somewhere else to go
 elif {game_state} == 5.0:
 	if {went_and_returned} == 0.0:
-		Faun: I'll go get the knife
+		This flower has more than enough sunlight now
+		However, it still doesn’t seem ready to wake up
+		Faunus: Seems like the flower is a bit more demanding than we might have hoped
+		Faunus: From my experience I think a little musical performance might be just what this flower needs to fully waken
+		Faunus: What a gift and delight music is!
+		Faunus: Of course, you will need an instrument first
+		Faunus: Lucky for you little one, I can make any instrument with the right materials
+		Faunus: How about a fiddle?
+		Faunus: I believe it would suit you quite well
+		Faunus: Yes, yes! It would suit you perfectly indeed!
+		You: I’m not so sure…
+		You: I don’t want to let the forest down
+		You: but I wouldn’t exactly call myself much of a musician
+		Faunus: on’t you worry about that, little one
+		Faunus: You have done so well in your duties and been so brave
+		Faunus: Don’t lose faith in yourself now!
+		Faunus: Just let the spirit of spring flow through you
+		Faunus: and I am confident you will give a performance for the ages
+		Faunus: Just don't give up hope
+		Faunus: All you need to do is find a suitable piece of carving wood
+		Faunus: and something to use for the strings while I collect my carving knife
+		Faunus: I see a new area of the forest has opened now that the bear has awoken from its slumber
+		Faunus: Why don’t you try looking out there?
+		Faunus: The forest provides for those who have provided for it, don't you know?
+		Faunus: I will see you again very soon, little one
+		Faunus: Keep your spirit as unwavering and pure
+		as it has remained throughout all of your duties I know you cannot help but do
+		Faunus: You have nothing to fear
+		Faunus: See you soon!
 		[signal arg="leaving"]
 	if {went_and_returned} == 1.0:
 		Faun: no knife

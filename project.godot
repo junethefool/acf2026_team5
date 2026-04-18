@@ -66,6 +66,7 @@ variables={
 "crow_educated": 0.0,
 "crow_intervened": 0.0,
 "crow_invited": 0.0,
+"dialogue": 0.0,
 "first_talk": false,
 "game_state": 0.0,
 "has_knife": 0.0,
