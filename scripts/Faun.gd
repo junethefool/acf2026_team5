@@ -5,6 +5,7 @@ extends NPC
 @export var seelie: AnimatableBody3D
 @export var unicorn: AnimatableBody3D
 @export var player: CharacterBody3D
+@export var credits: Control
 var gone = false
 var needed_item_list = ["hair", "knife", "wood"]
 var present_item_list: Array = []
@@ -68,6 +69,10 @@ func on_dialogic_signal(message):
 		
 	elif message == "dance end":
 		Dialogic.start("faun")
+	elif message == "end":
+		player.state = 6
+		await get_tree().get_first_node_in_group("fade").fade_out(0.5)
+		credits.visible = true
 func _on_room_transition():
 	if gone == true:
 		for child in find_children("*"):

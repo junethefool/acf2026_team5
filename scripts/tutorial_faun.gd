@@ -62,6 +62,6 @@ func _on_dialogic_signal(message):
 		fade.fade(duration,wait)
 		await get_tree().create_timer(duration).timeout
 		player.global_position = $finale_player.global_position
-		global_position = $finale_player.global_position
+		global_position = $finale_faun.global_position
 		await get_tree().create_timer(wait + duration).timeout
 		Dialogic.start("faun")

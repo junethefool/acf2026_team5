@@ -44,3 +44,4 @@ elif {game_state} == 8.0:
 		Faun: I'll wait
 elif {game_state} == 9.0:
 	wanna be my successor
+	[signal arg="end"]
