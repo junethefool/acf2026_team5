@@ -17,29 +17,27 @@ if {game_state} == 3.0:
 		You: Mr. Crow. I owe you a favor. We have a deal!
 		Crow: Perfect, perfect! Yer an agreeable one, aren’t ya kid?
 		Crow: I have a good feeling about you and your capabilities in gathering all the materials necessary for me
-		Crow: I need\: \
-		something soft\
-		something shiny\
-		something twiggy \
-		and something sticky
+		Crow: I need something soft,\
+		something shiny,\
+		something twiggy,\
+		and something sticky.
 		Crow: Come back to  me when you’ve gathered them all, and you’ll have yer berries
 		Crow: That’s a promise!
 		set {crow_educated} = 1.0
 	elif {crow_educated} == 1.0:
 		if {all_things_gathered} == 0.0:
 			if {ListsForDialogic.crow_size} == 1.0:
-				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]}, Come back when you’ve finished!
+				Faunus: You’ve done well so far kid, but you’re still missing something... Right! You still gotta find me {ListsForDialogic.crow_missing[0]}, Come back when you’ve finished!
 			elif {ListsForDialogic.crow_size} == 2.0:
-				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]} and {ListsForDialogic.crow_missing[1]}, Come back when you’ve finished!
+				Faunus: You’ve done well so far kid, but you’re still missing something... Right! You still gotta find me {ListsForDialogic.crow_missing[0]} and {ListsForDialogic.crow_missing[1]}, Come back when you’ve finished!
 			elif {ListsForDialogic.crow_size} == 3.0:
-				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]}, {ListsForDialogic.crow_missing[1]} and {ListsForDialogic.crow_missing[2]}, Come back when you’ve finished!
+				Faunus: You’ve done well so far kid, but you’re still missing something... Right! You still gotta find me {ListsForDialogic.crow_missing[0]}, {ListsForDialogic.crow_missing[1]} and {ListsForDialogic.crow_missing[2]}, Come back when you’ve finished!
 			elif {ListsForDialogic.crow_size} == 4.0:
-				Crow: I need\: \\
-				something soft\\
-				something shiny\\
-				something twiggy \\
-				and something sticky
-				Crow: Come back to  me when you’ve gathered them all, and you’ll have yer berries
+				Crow: I need something soft,\
+				something shiny,\
+				something twiggy,\
+				and something sticky.
+				Crow: Come back to me when you’ve gathered them all, and you’ll have yer berries
 				Crow: That’s a promise!
 		else:
 			Crow: Good going! I’m impressed kid
@@ -131,5 +129,5 @@ elif {game_state} >= 7.0 and {game_state} < 8.0:
 		Crow: I can’t wait to see how this finally goes down
 elif {game_state} == 8.0:
 	Crow: Splendid performance kid
-	Crow:  Almost enough to make us even
+	Crow: Almost enough to make us even
 	Crow: Almost
