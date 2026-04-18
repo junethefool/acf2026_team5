@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djmsh7wp24oiv"
+path="res://.godot/imported/Forest Exploration (Gamejam).wav-37f53efa657992bd2b37df4780b95783.sample"
+
+[deps]
+
+source_file="res://audio/music/Forest Exploration (Gamejam).wav"
+dest_files=["res://.godot/imported/Forest Exploration (Gamejam).wav-37f53efa657992bd2b37df4780b95783.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
