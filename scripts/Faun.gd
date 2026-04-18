@@ -68,6 +68,11 @@ func on_dialogic_signal(message):
 		await get_tree().create_timer(wait + duration).timeout
 		
 	elif message == "dance end":
+		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
+		var duration = 0.5
+		var wait = 0.5
+		await get_tree().create_timer(duration).timeout
+		await get_tree().create_timer(wait + duration).timeout
 		Dialogic.start("faun")
 	elif message == "end":
 		player.state = 6
