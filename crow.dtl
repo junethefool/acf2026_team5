@@ -1,26 +1,135 @@
 if {game_state} == 3.0:
 	if {crow_educated} == 0.0:
-		Crow: be careful with the seelie
-		Crow: gimme stuff
+		Crow: You were lucky I was there kid
+		Crow: Do you even understand how close you came to losing your soul and remaining their pet for eternity?
+		You: Well no… They didn’t seem so bad…
+		You: …just looking for new dance partners—
+		Crow: You have a lot to learn, kid
+		Crow: The fae never give for free and are quite liberal in what they decide is an equivalent exchange if ya don’t make one yourself
+		You: Oh wow… I had no idea
+		You: Thank you so much for your help Mr. Crow!
+		Crow: Don’t thank me yet kid
+		Crow: You’re lucky I am not of the Fair Folk, or your soul would be mine now ~keh keh kehh~
+		Crow: ’ll tell you what\: I’m gathering materials for my nest
+		Crow: If you can find me what I need, I’ll give ya the berries in exchange
+		Crow: I WAS the one to make  the deal after all , you’re welcome
+		You: Alright… I guess I would have been lost—worse than lost—without you
+		You: Mr. Crow. I owe you a favor. We have a deal!
+		Crow: Perfect, perfect! Yer an agreeable one, aren’t ya kid?
+		Crow: I have a good feeling about you and your capabilities in gathering all the materials necessary for me
+		Crow: I need\: \
+		something soft\
+		something shiny\
+		something twiggy \
+		and something sticky
+		Crow: Come back to  me when you’ve gathered them all, and you’ll have yer berries
+		Crow: That’s a promise!
 		set {crow_educated} = 1.0
 	elif {crow_educated} == 1.0:
 		if {all_things_gathered} == 0.0:
-			Crow: not everything here
-		elif {all_things_gathered} == 1.0:
-			Crow: all here, have these berries
+			if {ListsForDialogic.crow_size} == 1.0:
+				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]}, Come back when you’ve finished!
+			elif {ListsForDialogic.crow_size} == 2.0:
+				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]} and {ListsForDialogic.crow_missing[1]}, Come back when you’ve finished!
+			elif {ListsForDialogic.crow_size} == 3.0:
+				Faunus: You’ve done well so far kid, but you’re still missing something [insert]. You still gotta find me {ListsForDialogic.crow_missing[0]}, {ListsForDialogic.crow_missing[1]} and {ListsForDialogic.crow_missing[2]}, Come back when you’ve finished!
+			elif {ListsForDialogic.crow_size} == 4.0:
+				Crow: I need\: \\
+				something soft\\
+				something shiny\\
+				something twiggy \\
+				and something sticky
+				Crow: Come back to  me when you’ve gathered them all, and you’ll have yer berries
+				Crow: That’s a promise!
+		else:
+			Crow: Good going! I’m impressed kid
+			Crow: you almost have an eye as sharp as a crow’s ~keh keh keh~
+			Crow: Of course, yours could never be quite so keen as to see all that us corvids can
+			Crow: but for a mortal, you contain more of the spirit of the crow than even most kinds of the Fair Folk…
+			Crow: In fact, for a mortal, I can see the spirits of so many creatures and flora of this forest swirling through you
+			Crow: If I didn’t know any better than to recognize the distinctive mortal stench wafting off of you
+			Crow: I’d have half a mind to question if you’re even mortal at all
+			Crow: Or what you even are
+			Crow: The only other being I’ve ever seen who contains such a swirl of various forest spirits within...
+			Crow: Well, I’d best end that thought there
+			Crow: Still, no use poking my beak where it doesn’t concern me
+			You: Hold on a second!
+			You: Maybe not you Mr. Crow, but it very much concerns me!
+			You: What’s wrong with me?
+			You: I’m mortal?
+			You: I’m technically not mortal?
+			You: I have all these spirits in my body and no one can see them but you a-a-an—?
+			Crow: Sorry, can’t tell ya who the other fella I know is who has all of these flora and fauna swirling around inside of themself similarly to you
+			Crow: Although he’s far more embodied than you are
+			Crow: Then again, I wouldn’t think to blame a sapling for not yet having the strength of an ancient oak
+			Crow: Well alrighty then, before I truly say too much
+			Crow: time for me to fulfill my end of the bargain
+			Crow: Here’s your berries, as promised!
+			Crow: Best of luck getting through your duties without getting caught up in any more fae mischief, kid
+			Crow: I’m not always gonna be around to save your backside if you get sloppy in your engagements and negotiations ~keh keh keh~
 			set {game_state} = 4.0
 			[signal arg="give berries"]
 elif {game_state} >= 4.0 and {game_state} < 6.0:
 	Crow: we're even now
 elif {game_state} == 6.0:
-	Crow: you can borrow MY knife
+	Crow: Hey there kid. Hope those berries were tasty
+	Crow: Do you think they woulda been worth the cost of yer soul? ~keh keh~
+	You: They weren’t exactly for me
+	You: but I think the bear found them quite tasty
+	You: Thank you again for your help Mr. Crow
+	You: Did you happen to see a carving knife around?
+	You: Faunus thought he left it by the shack, but he can’t find it
+	You: It’s pretty important!
+	Crow: Maybe I have
+	Crow: Maybe I haven’t
+	Crow: What’s it to you that the old goat wants it?
+	You: I need to play a melody to awaken the first flower of spring, and well…
+	You: I don’t exactly have an instrument
+	You: Faunus said he would make me a fiddle
+	You: but he needs his knife for that
+	You: I know how much you love shiny things
+	You: so I thought you would be the best bird to ask about finding it
+	Crow: I may have found a shiny knife lying around
+	Crow: Nobody was claiming it
+	Crow: You know how it is, kid
+	Crow: finders keepers
+	You: It’s really important to him though
+	You: And it’s really important to the entire forest that he carve me a fiddle
+	You: or spring will never come to the forest
+	Crow: That surely matters for your sake too, doesn’t it?
+	Crow: Alright, calm down kid
+	Crow: Tell you what
+	Crow: I’ll let you borrow MY knife for this purpose
+	Crow: as long as you bring it back to me once you’re done
+	Crow: of course alongside an invitation to this performance I am so generously sponsoring
+	You: I can do that!
+	You: Thank you so much, Mr. Crow!
+	You: Of course you can watch the performance
+	You: I don’t know how good I’ll really be however
+	You: I’m not much of a musician
+	Crow: Maybe not, but you’ve been full of surprises
+	Crow: Even yer presence is something I haven’t felt in this forest in a long while
+	Crow: I think you really might be what that old goat has been looking for all these years
+	You: What are you saying?
+	Crow: Well really, that’s between you an’ him
+	Crow: I just want to watch how it all plays out from a crow’s eye view
+	Crow: I’ll give ya this kid
+	Crow: yer interesting enough to make parting with something so lovingly polished and shined not too bad of a deal
+	Crow: Here ya go
+	Crow: Let me know when it’s showtime
+	Crow: I bet it’ll be a performance for the ages, nerves and all ~keh keh keh~
 	[signal arg="give knife"]
 elif {game_state} >= 7.0 and {game_state} < 8.0:
 	if {crow_invited} == 0.0:
-		Crow: I'll have my knife back now
-		[signal arg="take knife"]
+		Crow: So it’s finally show time, kid?
+		You: It is. Faunus is just finishing building the fiddle for me to play while I collect you for the performance
+		Crow: Glad to hear yer nerves aren’t getting the best of ya at least ~keh keh~
+		Crow: I’ll see you soon, kid
+		Crow: I can’t wait to see how this finally goes down
 		set {crow_invited} = 1.0
 	elif {crow_invited} == 1.0:
-		Crow: thanks for the invite
+		Crow: I can’t wait to see how this finally goes down
 elif {game_state} == 8.0:
-	Crow: You still owe me one
+	Crow: Splendid performance kid
+	Crow:  Almost enough to make us even
+	Crow: Almost

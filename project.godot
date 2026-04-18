@@ -24,6 +24,7 @@ ListsForDialogic="*uid://icgpky4rr0g7"
 [dialogic]
 
 directories/dch_directory={
+"Acacia": "res://Acacia.dch",
 "Bear": "res://Dialogic characters/Bear.dch",
 "Crow": "res://Dialogic characters/Crow.dch",
 "Faun": "res://Dialogic characters/Faun.dch",
@@ -109,6 +110,8 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 
