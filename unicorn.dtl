@@ -1,11 +1,73 @@
 if {game_state} < 7.0:
-	Unicorn: have my hair
+	Unicorn: Once again, it has reached that necessary time where you of pure heart have laboured hard and long to find your way back to my glade
+	Unicorn: Just as lost and innocent as ever
+	Unicorn: I suppose as always you will refuse any offer to rest a moment, despite your weariness
+	You: I’m sorry and don’t mean to cause offense, but have we met before?
+	Unicorn: *sigh* Yes, and at the same time, no
+	Unicorn: I always forget that to the non-eternal, every experience is a new one for you
+	Unicorn: For me, we have been meeting like this since time became a concept
+	You: You mean I’ve done this all before and forgotten?
+	You: How long have I been alive?
+	You: What am I?
+	Unicorn: Well, I suppose you would not necessarily consider yourself to be the same person as the other yous
+	Unicorn:  Perhaps you are all correct in your assertions that this you is the only you that has existed
+	Unicorn:  But you all come searching for the same thing in different forms, and I provide it for you every time
+	Unicorn: Your lifespans are too short to understand the eternality of the cycles you view as precious and unique to you and you alone
+	You: I’m not sure I understand…
+	Unicorn: I don’t suppose it truly is for you to understand, pure heart
+	Unicorn: Pay it no mind. I will speak in the way you are accustomed to
+	Unicorn: You may call me Amalthea
+	Amalthea: You must awaken the first flower of spring, no?
+	Amalthea: What is it you seek this time for your purpose?
+	You: Um, well… I need to play a song to awaken the flower… this time?
+	You: But I don’t have an instrument… or much skill to speak of
+	You: I’m searching for something to use as strings for the fiddle Faunus is making for me
+	Amalthea: Faunus… that’s the name he responds to this time
+	Amalthea: Yes, I understand, child
+	Amalthea: Did you know of the kinds of magical properties my hairs are imbued with?
+	You: I wasn’t told anything about such things
+	You: I’m sorry to be so ignorant
+	Amalthea:  Ignorant, sure, but there is nothing special about the level of your ignorance
+	Amalthea: No more than the rest. I will tell you
+	Amalthea: Did you know that consuming my hairs will cure any malady?
+	Amalthea: Or that the strands are unbreakable?
+	Amalthea: Or how an instrument strung with the hairs of a unicorn will play the most beautiful of melodies
+	Amalthea: perfectly in tune with the player’s heart, no matter their technical prowess?
+	You: I had no idea…
+	Amalthea: Of course you did not. But it is no matter
+	Amalthea: Spring must arrive once again as it always must
+	Amalthea: Cycles cannot be broken or truly changed, even if the minor details rearrange themselves
+	Amalthea: Here, partake of these hairs I’ve plucked from my tail to use for your fiddle
+	Obtained Unicorn Hair
+	You: Oh wow, thank you so much, Lady Amalthea
+	You:  I know I must pay you back somehow however?
+	Amalthea: All you need do is find me again when your performance is to begin
+	Amalthea: As always when a new pure heart, lost inside, finally makes their way to me, I must bear witness to the cycle as it resets
+	You: That does sound very important
+	You: Of course! I promise I will come find you again and invite you to the performance before it begins
+	You: You have my word
+	Amalthea: I know I do, pure heart. It will be as it has always been
+	Amalthea: Go now. You still have a bit more labour to finish before your duty can be fulfilled
+	Amalthea: You shouldn’t keep him waiting, you know
+	Amalthea: You have found me once with this memory of yours and will find me again just as has always been when it’s time
 	[signal arg="give hair"]
 elif {game_state} == 7.0:
 	if {unicorn_invited} == 0.0:
-		Unicorn: ooh invite
+		Amalthea: Hello again, pure heart
+		Amalthea: I can tell it is once again time for your performance and the renewal of the cycle of spring. Am I not wrong?
+		You: As always, you are correct, Lady Amalthea
+		You: Faunus is almost finished constructing the fiddle, and it will fall on me soon to play the tune
+		You: Please accept my formal invitation to join and continue to bear witness
+		Amalthea: Naturally, I accept. I can sense you are still nervous, pure heart
+		Amalthea: As it has always been and always will be
+		Amalthea: There is no other outcome
+		You: Thank you for your kind words
+		You: I could not help but believe you, even if I tried to doubt
+		Amalthea:  Of course you cannot
+		Amalthea: I will see you soon, pure heart
 		set {unicorn_invited} = 1.0
 	elif {unicorn_invited} == 1.0:
-		Unicorn: thanks for the invite
+		Amalthea: I will see you soon, pure heart
 elif {game_state} == 8.0:
-	Unicorn: now this is a party
+	Amalthea: I know you have more important things to do than idle chatter
+	Amalthea: there will be plenty of time for it later

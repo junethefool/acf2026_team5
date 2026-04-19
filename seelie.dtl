@@ -1,25 +1,101 @@
 if {game_state} == 2.0:
 	if {first_talk} == false:
-		Seelie: come over here
+		Seelie: Ooh come here come here Acacia! Looks like we have a new friend~
 		set {first_talk} = true
 		[signal arg="come here"]
 	else:
 		if {crow_intervened} == 0.0:
-			Seelie: take our berries
+			Acacia: Oh! A new lost soul! A new plaything! Lucky us! Now what’s your name, pet?
+			You:  I can’t remember…
+			Seelie: A clever one I see!
+			Seelie: ~tricky trickyyyy~
+			You: Huh?
+			Acacia: Very clever one we have, Eulalia
+			Acacia: Mortal, why don’t you join us in a dance?
+			Seelie: Oh yes, clever mortal! You must, you must!!
+			Seelie: Come! Come join us in our dance!
+			You: That sounds like fun…
+			You: but I really don’t have the time right now
+			You: I’m looking for some… berries?
+			Seelie: Oh Acacia, didn’t we find some berries right
+			Acacia: here! Come mortal
+			Acacia: we will give you the berries you seek and then you will join us in celebratory dance!
+			Acacia: You must
+			Seelie: You must join us and welcome the arrival of Spring properly!
+			Seelie: Come now, mortal. What say you?
+			You: That sounds goo—
 			[signal arg="crow"]
 			set {crow_intervened} = 1.0
 		elif {crow_intervened} == 1.0:
-			Crow: no don't take the berries
+			Crow: Ladies, this little one is new here
+			Crow: you wouldn’t be taking advantage of that, would you?
+			Crow: Let me handle the negotiation
+			The crow whispers to you
+			Crow: Follow my lead if your soul is precious to you
+			You: Uh, oka—
+			Crow: I found this beautiful ribbon earlier today when scavenging to build my nest
+			Crow: It is quite pleasing to the eyes and would make a beautiful hair accessory
+			Crow: I can offer it as yours in exchange for the berries
+			Crow: Do we have a deal?
+			Acacia: Hmm… I much prefer the dancing deal we were about to make with our new plaything before you got involved to spoil our fun…
+			Seelie: Oh, what a beautiful silken shining thing it is!
+			Seelie: Yes, this will look beautiful in my hair!
+			Seelie: Acacia, if you could braid/plait it into my hair for me…
+			Seelie: Oh! All the others of the Spring Court will be so envious at the ball!
+			Seelie: Yes, this deal pleases me greatly, Crow!
+			Crow: Perfect! So we have a fair deal then?
+			The crow gave the Seelie duo the shiny ribbon in exchange for the berries
+			Crow: Now please excuse me and my little friend here
+			Crow: They promised to help me with my nest, isn’t that right?
+			You: Uh… did I?
+			Crow: Ahem
+			You: Oh, yes absolutely
 			set {game_state} = 3.0
 			[signal arg="crow takes berries"]
 elif {game_state} >= 3.0:
 	if {game_state} < 7.0:
-		Seelie: We'll get you one day
+		Seelie: Please dance with us, mortal
 	elif {game_state} >= 7.0 and {game_state} < 8.0:
 		elif {seelie_invited} == 0.0:
-			ooh an invite
+			Seelie: Clever mortal! Were you truly not going to tell us? Were you?
+			You: Apologies, but tell you what?
+			Acacia: The dance! The dance, mortal
+			Acacia: You were not planning on dancing without us certainly?
+			You: The dance?
+			You: Oh! Well, it’s not really a dance
+			You: I’m going to be playing a tune to awaken the crocus of spring and—
+			Seelie: Yes, yes, so a dance then
+			Seelie: You would not forget us in this, would you, mortal?
+			Acacia: You did promise us a dance
+			Acacia: You would not forget such promises now, would you, pet?
+			You: I don’t recall making any such promises to dance with you, but of course, I don’t mean to offend
+			You: I will be performing with a fiddle, but please come, both of you
+			You: I will enjoy watching your dancing
+			Seelie: As we will surely enjoy your tune
+			Seelie: Oh, this is so exciting Acacia! A new song, isn’t it wonderful?
+			Acacia: Certainly, Eulalia
+			Acacia: I still wish our little pet would take up the dance with us
+			Acacia: but a fine melody will very much suffice
+			You: I will be performing it soon!
+			You: If you both head toward the first flower of spring
+			You: I will be there shortly to start the performance
+			Acacia: Wonderful indeed, pet
+			Acacia: I hope it is not a performance to disappoint
+			Acacia:  Bringing revelry is certainly always a more pleasing outcome than sowing disappointment, you know
+			You: I will be doing my best
+			You: I mean, no matter what else, I must if I want spring to awaken
+			Seelie: Pay Acacia no mind, clever mortal
+			Seelie:  She is just hungry for a new fascination and not so high in patience
+			Seelie: I am sure your performance will not disappoint us
+			Seelie: Goodbye goodbye for now
+			Acacia:  We will be seeing you soon, pet
 			set {seelie_invited} = 1.0
 		elif {seelie_invited} == 1.0:
-			thanks for the invite
+			Acacia: We will be seeing you soon, pet
 	elif {game_state} == 8.0:
-		bye
+		Acacia: What a wonderful tune mortal
+		Acacia: Surely it would have left your body wanting to move
+		Acacia: Why don't you join me for a nice waltz
+		Acacia: The old goat could give us a rythm
+		Seelie: Oh Acacia, you're ruining the atmosphere with your obsession
+		Seelie: Clever mortal, that was a wonderful performance indeed

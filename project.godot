@@ -25,6 +25,7 @@ ListsForDialogic="*uid://icgpky4rr0g7"
 
 directories/dch_directory={
 "Acacia": "res://Dialogic characters/Acacia.dch",
+"Amalthea": "res://Amalthea.dch",
 "Bear": "res://Dialogic characters/Bear.dch",
 "Crow": "res://Dialogic characters/Crow.dch",
 "Faun": "res://Dialogic characters/Faun.dch",
