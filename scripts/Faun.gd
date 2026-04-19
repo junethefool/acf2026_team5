@@ -9,6 +9,7 @@ extends NPC
 @export var hair: AnimatableBody3D
 @export var wood: AnimatableBody3D
 @export var flute_sprite: CompressedTexture2D
+@export var music_player: AudioStreamPlayer
 
 var old_sprite: CompressedTexture2D 
 var gone = false
@@ -76,6 +77,7 @@ func on_dialogic_signal(message):
 		await get_tree().create_timer(wait + duration).timeout
 	
 	elif message == "dance":
+		music_player.stop()
 		player.state = 6
 		player.fiddle_time = true
 	elif message == "dance end":

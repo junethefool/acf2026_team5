@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c436crj5lyv0f"
+
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
@@ -25,7 +29,7 @@ ListsForDialogic="*uid://icgpky4rr0g7"
 
 directories/dch_directory={
 "Acacia": "res://Dialogic characters/Acacia.dch",
-"Amalthea": "res://Amalthea.dch",
+"Amalthea": "res://Dialogic characters/Amalthea.dch",
 "Bear": "res://Dialogic characters/Bear.dch",
 "Crow": "res://Dialogic characters/Crow.dch",
 "Faun": "res://Dialogic characters/Faun.dch",
@@ -48,16 +52,16 @@ directories/dtl_directory={
 "Unicorn first meeting": "res://Dialogic timelines/Unicorn first meeting.dtl",
 "Unicorn invitation": "res://Dialogic timelines/Unicorn invitation.dtl",
 "bear asleep": "res://Dialogic timelines/bear asleep.dtl",
-"crow": "res://crow.dtl",
+"crow": "res://Dialogic timelines/crow.dtl",
 "crow seelie education and task": "res://Dialogic timelines/crow seelie education and task.dtl",
 "crow the nest": "res://Dialogic timelines/crow the nest.dtl",
-"faun": "res://faun.dtl",
+"faun": "res://Dialogic timelines/faun.dtl",
 "flower observation": "res://Dialogic timelines/flower observation.dtl",
-"seelie": "res://seelie.dtl",
-"seelie and crow": "res://seelie and crow.dtl",
+"seelie": "res://Dialogic timelines/seelie.dtl",
+"seelie and crow": "res://Dialogic timelines/seelie and crow.dtl",
 "test_timeline": "res://dialogue/timelines/test_timeline.dtl",
 "tutorial": "res://Dialogic timelines/tutorial.dtl",
-"unicorn": "res://unicorn.dtl"
+"unicorn": "res://Dialogic timelines/unicorn.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true

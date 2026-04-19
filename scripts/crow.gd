@@ -1,6 +1,5 @@
-extends AnimatableBody3D
+extends NPC
 
-@onready var interactable: Interactable = $Interactable
 @export var berries: AnimatableBody3D
 @export var knife: AnimatableBody3D
 @export var player: CharacterBody3D
@@ -17,7 +16,6 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(on_dialogic_signal)
 
 func on_interact():
-	print("you did it, dumbass")
 	if Dialogic.VAR.game_state == 3:
 		difference = needed_item_list.duplicate()
 		for item in player.inventory:
