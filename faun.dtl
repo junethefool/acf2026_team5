@@ -54,39 +54,136 @@ elif {game_state} == 5.0:
 		Faunus: See you soon!
 		[signal arg="leaving"]
 	if {went_and_returned} == 1.0:
-		Faun: no knife
+		Faunus: You did well, little one! And what are these?
+		Faunus: Strands of Amalthea’s hair?
+		Faunus: To have even her blessing like this…
+		Faunus: You truly are exactly who I hoped you would be
+		Faunus: Don’t worry about your playing ability
+		Faunus: It is carved even in the bedrock below this forest that you have always been meant to play this tune and awaken this springtime
+		Faunus: However…
+		Faunus: I seem to have misplaced my carving knife
+		Faunus: I could have sworn it was by the shack, but I cannot find it anywhere
+		Faunus: Maybe it’s my old age
+		Faunus: My memory is not what it used to be
+		Faunus: but I still cannot believe I have become so forgetful…
+		Faunus: I was supposed to have at least a bit more time than this to keep such faculties…
+		Faunus: it’s hard to accept…
+		You: Wait a second, Faunus sir
+		You: I know someone with an eye for shiny things
+		You: Maybe he knows where your carving knife could be
+		Faunus: In that case, please dear one, could you go try to fetch it for me?
+		Faunus: I know it’s one more task you did not ask for, but that is the forest for you
+		Faunus: always evading predicability and scoffing at the timing of lesser creatures’ plans
+		Faunus: ~heh heh~
+		Faunus: Beautiful isn’t it?
 		set {game_state} = 6.0
 elif {game_state} == 6.0:
 	if {has_knife} == 0.0:
-		Faun: why no knife I don't understand
+		Faunus can’t make anything out of the collected materials until he has his carving knife
+		Better go find Mr. Crow
 	elif {has_knife} == 1.0:
-		if {materials_gathered} == 0.0:
-			Faun: my knife
-			Faun: now get the rest
-		elif {materials_gathered} == 1.0:
-			Faun: my knife
-			Faun: lemme carve that fiddle
-			[signal arg="give fiddle"]
-			set {game_state} = 7.0
+		Faunus: Thank you so much dear one for returning my carving knife to me
+		Faunus: That bird loves to act the trickster
+		Faunus: You think he would be a bit nicer to an old goat
+		Faunus: but his nature is his nature
+		Faunus: I cannot fault him for this any more than I could fault that of any of us belonging to the forest
+		You: I had to promise he’d get it back
+		You: You might have to bargain with him for it later…
+		You: And he wants to watch as well
+		You: He said something strange about wanting to see if I’m truly what you’ve been looking for
+		Faunus: ~heh heh~ Of course he did
+		Faunus: Saying such things is in his nature
+		Faunus: It is a blessing to live long enough to know the hearts of old friends so thoroughly
+		Faunus: Ah well, I should start building you your fiddle before I get too lost in my memories
+		Faunus: Go on and fetch everyone to enjoy your performance and witness the true awakening of spring
+		Faunus: It won’t take me long to carve this instrument to resonate with the purity and simplicity curled up inside your heart ready to sprout
+		We’re almost there, brave one
+		[signal arg="take fiddle materials"]
+		set {game_state} = 7.0
 elif {game_state} == 7.0:
 	if {crow_invited}  ==  1.0 and {seelie_invited}  ==  1.0 and {unicorn_invited}  ==  1.0:
-		Faun: let's go
+		Faunus: Wonderful job gathering everyone for the performance, little one
+		Faunus: Everyone’s here and with perfect timing too! I just finished constructing the fiddle for you to play
+		Faunus: All that’s left now is for you to play it, awaken the crocus and springtime with it
+		Faunus: After seeing how well you have done in all of your duties so far brave one
+		Faunus: I have full faith you will complete your final task with perfect gravitas
+		Faunus: Spring is counting on you, little one
+		Faunus: You need not worry you will let it down now
+		Faunus: Now go on to the flower and play for it
+		Faunus: Coming from your heart, it will not fail
+		Obtained the Fiddle
+		[signal arg=""give fiddle"]
+		Faunus: It is time now, I'll follow your lead
 		[signal arg="party"]
 		[signal arg="dance"]
-		Faun: dance everyone
+		Faunus: dance everyone
 		set {game_state} = 8.0
 		[signal arg="dance end"]
 	else:
-		Faun: invite everybody
+		Faunus seems to be completely engrossed in his craft
+		You’d best focus on collecting the forest inhabitants right now
 elif {game_state} == 8.0:
 	if {thanks_done} == 0.0:
-		Faun: thank you so much
-	Faun: are you done
+		Faunus: Congratulations, brave one! You performed your duties perfectly
+		Faunus: Springtime has come, and it’s all thanks to your hard work and dedication
+		You: Thank you, sir. I’m glad to have not let the forest down
+		Faunus: Do you still have some something to discuss with the others or could I talk to you somewhere quiet?
+		set {thanks_done} = 1.0
+		- yes
+			set {game_state} = 9.0
+			[signal arg="finale"]
+		- no
+			Faun: I'll wait
+	Faun: can i talk to you now?
 	- yes
 		set {game_state} = 9.0
 		[signal arg="finale"]
 	- no
 		Faun: I'll wait
 elif {game_state} == 9.0:
-	wanna be my successor
+	Faunus: Thank you for lending me your time, when you should be celebrating
+	Faunus: Know I wouldn't keep you if it was not important
+	You: Of course not, so what is it you wanted to talk about sir?
+	Faunus: The spirit of the forest runs through your veins just as much as it does mine, little one
+	Faunus: For a lost founding kept in slumber for so long
+	Faunus: it’s clear that you are the successor the forest has chosen for me
+	Faunus: after all this time I’ve been waiting and searching
+	You: Hold on, your successor?
+	Faunus:  promised you at the beginning that I would reveal all in due time
+	Faunus: and that time has come
+	Faunus: You see, I am quite old
+	Faunus: Of course, I still have a couple hundred years left to perform my duties as the guardian of the forest
+	Faunus: before I fully return to the essence of the forest
+	Faunus: but as you can see, I need assistance performing my duties…
+	Faunus: and more importantly, I need a successor to take on as an apprentice
+	Faunus: as it is no quick feat to learn how to be a proper steward of this land
+	You: You truly want me to become your apprentice and the next guardian, sir?
+	You: But I’m just a mortal who cannot even remember their own name
+	You: How could I possibly ever take your place?
+	Faunus:  Ah yes… perhaps once you were simply a mortal
+	Faunus: but your long hibernation slumbering in this forest
+	Faunus: like a bulb that takes time to sprout out shoots and blooms has transformed you into something greater
+	Faunus:  Perhaps this was always your destiny
+	Faunus: Amalthea’s presence and blessing is not one bestowed to just anyone
+	Faunus: Your base mortal nature makes you empathetic to all the creatures of the forest in a way most born here are not
+	Faunus: but your lifespan is no longer as brief a flicker as that of a true mortal
+	Faunus: and neither is the spirit beating and swirling inside of you
+	You: …
+	You: I don’t think I can do this without you, Faunus sir
+	You: How could I ever be so worthy?
+	Faunus: Do not worry brave one!
+	Faunus: As I said, there is still proper time left for me to mentor you bit by bit
+	Faunus: These duties will not fall on you all at once
+	Faunus: I simply have one question for you
+	Faunus: do you love this forest truly in all of its complexities?
+	You: I do
+	You: After performing my spring awakening duties and becoming familiar with all the flora of this forest as well as its inhabitants
+	You: It has become dear to me
+	Faunus: You see now, brave one?
+	Faunus: It was always meant to be you
+	Faunus: This is your calling, duty and pleasure
+	Faunus: Your worthiness shines so brightly
+	Faunus: it is clear you are the only one meant to be the next guardian
+	Faunus: Do not doubt your capabilities!
+	<Empty Text Event>
 	[signal arg="end"]

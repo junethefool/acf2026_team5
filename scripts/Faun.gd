@@ -6,6 +6,8 @@ extends NPC
 @export var unicorn: AnimatableBody3D
 @export var player: CharacterBody3D
 @export var credits: Control
+@export var hair: AnimatableBody3D
+@export var wood: AnimatableBody3D
 var gone = false
 var needed_item_list = ["hair", "knife", "wood"]
 var present_item_list: Array = []
@@ -32,7 +34,7 @@ func on_interact():
 	Dialogic.start("faun")
 	
 func on_dialogic_signal(message):
-	if message == "give fiddle":
+	if message == "take fiddle materials":
 		for child in fiddle.get_children():
 			if child is Sprite3D:
 				child.visible = false
@@ -40,6 +42,7 @@ func on_dialogic_signal(message):
 				child.disabled = true
 		for item in needed_item_list:
 			player.inventory = player.inventory.filter(func(initem): return initem.name != item)
+	elif message == "give fiddle":
 		player.inventory.push_front(fiddle)
 	elif message == "leaving":
 		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
@@ -79,7 +82,7 @@ func on_dialogic_signal(message):
 		await get_tree().get_first_node_in_group("fade").fade_out(0.5)
 		credits.visible = true
 func _on_room_transition():
-	if gone == true:
+	if gone == true and player.inventory.find(hair) != -1 and player.inventory.find(wood) != -1:
 		for child in find_children("*"):
 			if child is Sprite3D:
 				child.visible = true

@@ -72,6 +72,7 @@ variables={
 "has_knife": 0.0,
 "key": 0.0,
 "key_on_the_floor": 0.0,
+"knife_talk": false,
 "materials_gathered": 0.0,
 "seelie_invited": 0.0,
 "shed_missing": 1.0,

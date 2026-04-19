@@ -1,6 +1,7 @@
 if {game_state} < 5.0:
 	this flower needs light
 elif {game_state} >= 8.0:
-	It's all grown up
+	This flower has more than enough sunlight now
 else:
-	It still needs something
+	This flower has more than enough sunlight now
+	However, it still doesn’t seem ready to wake up
