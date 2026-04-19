@@ -13,12 +13,13 @@ func on_interact():
 	
 func on_dialogic_signal(message):
 	if message == "dance end":
-		var duration = 0.5
+		var duration = 2
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
 		for child in get_children():
 			if child is Sprite3D:
 				child.texture = allgrownup
+				global_position.y += 1
 		GameManager.adjust_all_grids_spring(1)
 		GameManager.adjust_all_grids_snow(-1)
 		await get_tree().create_timer(wait + duration).timeout

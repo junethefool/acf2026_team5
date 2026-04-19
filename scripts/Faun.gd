@@ -8,6 +8,9 @@ extends NPC
 @export var credits: Control
 @export var hair: AnimatableBody3D
 @export var wood: AnimatableBody3D
+@export var flute_sprite: CompressedTexture2D
+
+var old_sprite: CompressedTexture2D 
 var gone = false
 var needed_item_list = ["hair", "knife", "wood"]
 var present_item_list: Array = []
@@ -63,19 +66,29 @@ func on_dialogic_signal(message):
 		var duration = 0.5
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
+		old_sprite = $Sprite3D.texture
+		$Sprite3D.texture = flute_sprite
 		crow.global_position = $crow_position.global_position
 		seelie.global_position = $seelie_position.global_position
 		unicorn.global_position = $unicorn_position.global_position
 		player.global_position = $player_position.global_position
 		global_position = $faun_position.global_position
 		await get_tree().create_timer(wait + duration).timeout
-		
+	
+	elif message == "dance":
+		player.state = 6
+		player.fiddle_time = true
 	elif message == "dance end":
-		get_tree().get_first_node_in_group("fade").fade(0.5,0.5)
-		var duration = 0.5
+		get_tree().get_first_node_in_group("fade").get_node("ColorRect").modulate = Color(1.0, 1.0, 1.0, 0.0)
+		get_tree().get_first_node_in_group("fade").fade(2,0.5)
+		var duration = 2
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
+		player.fiddle_time = false
+		$Sprite3D.texture = old_sprite
 		await get_tree().create_timer(wait + duration).timeout
+		get_tree().get_first_node_in_group("fade").get_node("ColorRect").modulate = Color(0.0, 0.0, 0.0, 0.0)
+		player.state = 0
 		Dialogic.start("faun")
 	elif message == "end":
 		player.state = 6

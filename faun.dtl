@@ -112,9 +112,10 @@ elif {game_state} == 7.0:
 		Faunus: Now go on to the flower and play for it
 		Faunus: Coming from your heart, it will not fail
 		Obtained the Fiddle
-		[signal arg=""give fiddle"]
-		Faunus: It is time now, I'll follow your lead
+		[signal arg="give fiddle"]
 		[signal arg="party"]
+		Faunus: It is time now, I'll follow your lead
+		[wait time="5.0"]
 		[signal arg="dance"]
 		Faunus: dance everyone
 		set {game_state} = 8.0
@@ -149,7 +150,7 @@ elif {game_state} == 9.0:
 	Faunus: it’s clear that you are the successor the forest has chosen for me
 	Faunus: after all this time I’ve been waiting and searching
 	You: Hold on, your successor?
-	Faunus:  promised you at the beginning that I would reveal all in due time
+	Faunus: promised you at the beginning that I would reveal all in due time
 	Faunus: and that time has come
 	Faunus: You see, I am quite old
 	Faunus: Of course, I still have a couple hundred years left to perform my duties as the guardian of the forest
@@ -160,11 +161,13 @@ elif {game_state} == 9.0:
 	You: You truly want me to become your apprentice and the next guardian, sir?
 	You: But I’m just a mortal who cannot even remember their own name
 	You: How could I possibly ever take your place?
-	Faunus:  Ah yes… perhaps once you were simply a mortal
+	Faunus: Ah yes… perhaps once you were simply a mortal
 	Faunus: but your long hibernation slumbering in this forest
 	Faunus: like a bulb that takes time to sprout out shoots and blooms has transformed you into something greater
-	Faunus:  Perhaps this was always your destiny
+	Faunus: Perhaps this was always your destiny
 	Faunus: Amalthea’s presence and blessing is not one bestowed to just anyone
+	Faunus: In any case, it’s for the best your true name evades your recollection in any case for your safety in fae dealings
+	Faunus: However, like the rest of us in this forest, I think it may be time for you to come up with your own chosen name to go by, little one
 	Faunus: Your base mortal nature makes you empathetic to all the creatures of the forest in a way most born here are not
 	Faunus: but your lifespan is no longer as brief a flicker as that of a true mortal
 	Faunus: and neither is the spirit beating and swirling inside of you
@@ -185,5 +188,28 @@ elif {game_state} == 9.0:
 	Faunus: Your worthiness shines so brightly
 	Faunus: it is clear you are the only one meant to be the next guardian
 	Faunus: Do not doubt your capabilities!
-	<Empty Text Event>
+	You: If it is you sir who says so, who am I to question myself for this role?
+	You: I will not let you or this forest down
+	You: I accept all you say
+	You: I will be your apprentice, and in time, the next guardian of the forest
+	Faunus: That’s a good one
+	Faunus: My brave one
+	Faunus: My apprentice and my successor
+	You: But what will happen to you when your time ends?
+	Faunus: I will simply return back to nature
+	Faunus: My presence will always linger in this forest and will always protect you
+	Faunus: I wonder what leafy form my essence will take
+	Faunus: Whatever the forest deems proper, I will be happy with, as it is right
+	Faunus: However, I think I would like to take the form of an oak tree if the forest takes such wishes as this into account
+	Faunus: It is not a sad thing but one that is beautiful
+	Faunus: You will come to take this fully to heart in time, dear one
+	You: I don’t understand all of this right now, but I believe you, Faunus sir
+	You: Even with this small duty and even when I doubted myself
+	You: You led me well and did not share such doubts in me
+	You: I am ready to follow your mentoring and instruction wherever it goes
+	Faunus: Excellent! Believe me, brave one, you contain so much more power than you believe
+	Faunus: Come now\: let us enjoy the festivities and the fruits of your labour a while longer
+	Faunus: Tomorrow is another day, and your further instruction under me can wait to continue then
+	Faunus: Let us play our melodies and continue the dance and reveleries a while longer
+	Faunus: You deserve this celebration, future guardian of the forest
 	[signal arg="end"]

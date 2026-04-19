@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://el1anl5aaefs" path="res://scenes/npc_talk_range.tscn" id="3_a1j51"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_upkiv"]
-height = 0.5
+height = 1.5375977
+radius = 1.3325195
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a1j51"]
 height = 0.5
