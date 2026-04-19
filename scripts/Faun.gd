@@ -87,6 +87,7 @@ func on_dialogic_signal(message):
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
 		player.fiddle_time = false
+		player.animated_sprite.play("player_back")
 		$Sprite3D.texture = old_sprite
 		await get_tree().create_timer(wait + duration).timeout
 		get_tree().get_first_node_in_group("fade").get_node("ColorRect").modulate = Color(0.0, 0.0, 0.0, 0.0)

@@ -1,5 +1,4 @@
-# Attribution
-## Collaborators
+# Vernal Awakening
 
 ### Art
 [Ari Ganahl](https://ariganahl.itch.io/)  

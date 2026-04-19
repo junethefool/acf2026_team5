@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dcxfv5hpbid8y" path="res://sprites/player/FloatE_0004.png" id="18_75vpc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56udc"]
+radius = 0.36035156
 height = 1.604248
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qwq0k"]
