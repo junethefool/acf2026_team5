@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crpklun54yrw7"
-path.s3tc="res://.godot/imported/leaves2.png-1509f9870f4b5187666880f2f2f44478.s3tc.ctex"
+uid="uid://creiy3d4pcv6k"
+path.s3tc="res://.godot/imported/bearzzz.png-ad21c67bf7fcb88744f1206316024db8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/scenery/leaves2.png"
-dest_files=["res://.godot/imported/leaves2.png-1509f9870f4b5187666880f2f2f44478.s3tc.ctex"]
+source_file="res://sprites/npcs/bearzzz.png"
+dest_files=["res://.godot/imported/bearzzz.png-ad21c67bf7fcb88744f1206316024db8.s3tc.ctex"]
 
 [params]
 
