@@ -15,6 +15,8 @@ func on_interact():
 	Dialogic.start("bear asleep")
 
 func _process(_delta: float) -> void:
+	if not is_instance_valid(self):
+		return
 	if global_position.distance_to(berries.global_position) < 5 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
 		awake = true
 		berry.emit()
@@ -25,7 +27,7 @@ func on_berry():
 		var duration = 0.5
 		var wait = 0.5
 		await get_tree().create_timer(duration).timeout
-		berries.queue_free()
+		
 		faun.global_position = $faun_position.global_position
 		player.global_position = $player_position.global_position
 		$Sprite3D.visible = false
@@ -33,4 +35,6 @@ func on_berry():
 		await get_tree().create_timer(wait + duration).timeout
 		Dialogic.start("faun")
 		interactable.Interact.disconnect(on_interact)
+		set_process(false)
+		berries.queue_free()
 		queue_free()
