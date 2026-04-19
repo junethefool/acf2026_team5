@@ -79,7 +79,7 @@ func on_dialogic_signal(message):
 		Dialogic.start("faun")
 	elif message == "end":
 		player.state = 6
-		await get_tree().get_first_node_in_group("fade").fade_out(0.5)
+		#await get_tree().get_first_node_in_group("fade").fade_out(0.5)
 		credits.visible = true
 func _on_room_transition():
 	if gone == true and player.inventory.find(hair) != -1 and player.inventory.find(wood) != -1:

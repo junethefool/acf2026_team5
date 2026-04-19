@@ -2,15 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bwnckxv0q5l7q" path="res://scripts/player_controller_new.gd" id="1_herhr"]
 [ext_resource type="Texture2D" uid="uid://vu1cdyi67km3" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_idle.png" id="2_herhr"]
+[ext_resource type="Texture2D" uid="uid://d284qsrmo7wfl" path="res://sprites/player/FloatN_0001.png" id="3_bxieb"]
 [ext_resource type="Texture2D" uid="uid://bs357huwes12y" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk0.png" id="3_xb3ya"]
+[ext_resource type="Texture2D" uid="uid://b6al0fmi7s3pr" path="res://sprites/player/FloatN_0002.png" id="4_nos2o"]
 [ext_resource type="Texture2D" uid="uid://croc7gvak8nsy" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk1.png" id="4_s7f3b"]
+[ext_resource type="Texture2D" uid="uid://bfskjcqwu1xc1" path="res://sprites/player/FloatN_0003.png" id="5_66bo7"]
 [ext_resource type="Texture2D" uid="uid://bnetxhha72xjy" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk2.png" id="5_c4hvp"]
+[ext_resource type="Texture2D" uid="uid://crfl2lo0vewa1" path="res://sprites/player/FloatN_0004.png" id="6_0n276"]
 [ext_resource type="Texture2D" uid="uid://bbcadiswhritd" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk3.png" id="6_2vlw4"]
+[ext_resource type="Texture2D" uid="uid://mqm7a8ve8jqg" path="res://sprites/player/FloatS_0001.png" id="7_dpr6s"]
 [ext_resource type="Texture2D" uid="uid://35cy4wjxpanm" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk4.png" id="7_joi77"]
 [ext_resource type="Texture2D" uid="uid://gf1jdeij3rvg" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk5.png" id="8_br6ma"]
+[ext_resource type="Texture2D" uid="uid://cgsvud7snaqop" path="res://sprites/player/FloatS_0002.png" id="8_gyyv3"]
+[ext_resource type="Texture2D" uid="uid://c62erbarfwb0o" path="res://sprites/player/FloatS_0003.png" id="9_kwd2h"]
 [ext_resource type="Texture2D" uid="uid://ikynhrqnfd33" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk6.png" id="9_xc70a"]
 [ext_resource type="Texture2D" uid="uid://c8vgcnf7ccxj6" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk7.png" id="10_2w5w8"]
+[ext_resource type="Texture2D" uid="uid://du4briilyxj4p" path="res://sprites/player/FloatS_0004.png" id="10_vjh3r"]
+[ext_resource type="Texture2D" uid="uid://dt870yuh7wcyc" path="res://sprites/player/FloatW_0001.png" id="11_1hs58"]
 [ext_resource type="Script" uid="uid://bcpo7hgrareib" path="res://scripts/player_range.gd" id="11_xb3ya"]
+[ext_resource type="Texture2D" uid="uid://t4rqlwpt4inp" path="res://sprites/player/FloatW_0002.png" id="12_oi1jg"]
+[ext_resource type="Texture2D" uid="uid://bmpl771vah5j7" path="res://sprites/player/FloatW_0003.png" id="13_pkxds"]
+[ext_resource type="Texture2D" uid="uid://lpacyma2cjo6" path="res://sprites/player/FloatW_0004.png" id="14_b8kkg"]
+[ext_resource type="Texture2D" uid="uid://daochvgf1lvf5" path="res://sprites/player/FloatE_0001.png" id="15_6rdx2"]
+[ext_resource type="Texture2D" uid="uid://76y0v504r57y" path="res://sprites/player/FloatE_0002.png" id="16_oi8fm"]
+[ext_resource type="Texture2D" uid="uid://b6tt3gak1gpwe" path="res://sprites/player/FloatE_0003.png" id="17_d6jif"]
+[ext_resource type="Texture2D" uid="uid://dcxfv5hpbid8y" path="res://sprites/player/FloatE_0004.png" id="18_75vpc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_56udc"]
 height = 1.604248
@@ -23,6 +39,74 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bxieb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nos2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_66bo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0n276")
+}],
+"loop": true,
+"name": &"player_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dpr6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gyyv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kwd2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vjh3r")
+}],
+"loop": true,
+"name": &"player_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_1hs58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oi1jg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pkxds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_b8kkg")
+}],
+"loop": true,
+"name": &"player_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_6rdx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_oi8fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d6jif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_75vpc")
+}],
+"loop": true,
+"name": &"player_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -67,14 +151,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7401893, 0)
 shape = SubResource("CapsuleShape3D_56udc")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1320450425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09991416, 0)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0.787809, 0)
 gi_mode = 2
 offset = Vector2(0, 70)
 billboard = 1
 alpha_antialiasing_mode = 1
 alpha_antialiasing_edge = 0.04
 sprite_frames = SubResource("SpriteFrames_qwq0k")
-animation = &"idle"
+animation = &"player_back"
 
 [node name="PlayerRange" type="Area3D" parent="." unique_id=675698056]
 collision_layer = 17

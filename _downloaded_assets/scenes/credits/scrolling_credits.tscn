@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cacxgy0xg6pa4"]
 
-[ext_resource type="Script" path="res://_downloaded_assets/scenes/credits/scrolling_credits.gd" id="1_236kq"]
-[ext_resource type="PackedScene" path="res://_downloaded_assets/scenes/credits/credits_label.tscn" id="2_6bny5"]
+[ext_resource type="Script" uid="uid://b17hymkfy7iv" path="res://_downloaded_assets/scenes/credits/scrolling_credits.gd" id="1_236kq"]
+[ext_resource type="PackedScene" uid="uid://ba72fp56twj44" path="res://_downloaded_assets/scenes/credits/credits_label.tscn" id="2_6bny5"]
 
-[node name="ScrollingCredits" type="Control"]
+[node name="ScrollingCredits" type="Control" unique_id=527999186]
+visibility_layer = 524288
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,28 +13,88 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_236kq")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2059316598]
 unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
+scroll_vertical = 1606
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1131759633]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
+[node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=478138298]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 720)
 layout_mode = 2
 
-[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_6bny5")]
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=1761507497 instance=ExtResource("2_6bny5")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "[font_size=48]Collaborators[/font_size]
 
-[node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
+[font_size=32]Art[/font_size]
+[url=https://ariganahl.itch.io/]Ari Ganahl[/url]  
+[url=https://scatterhearts.tumblr.com/]Scatterhert[/url]  
+
+[font_size=32]Additional Art[/font_size]
+[url=]Mara[/url]  
+
+[font_size=32]Game Design[/font_size]
+Louis
+
+[font_size=32]Programming[/font_size]
+Louis
+[url=https://lstrikecreates.com/]Lstrike[/url]
+[url=]Mara[/url] 
+
+
+[font_size=32]Sound[/font_size]
+[url=https://lstrikecreates.com/]Lstrike[/url]
+
+[font_size=32]Writing[/font_size]
+CassandraCassandra
+
+[font_size=32]Additional Writing[/font_size]
+Louis
+
+
+[font_size=48]Additional Assets[/font_size]
+[font_size=32]Outline and Glow Shader Sprite 3D[/font_size]
+Author: terrytwo
+Source: [url=https://godotshaders.com/shader/outline-and-glow-shader-sprite-3d/?post_id=7452&new_post=true]Domain : webpage.html[/url]  
+License: [url=/addons/license.txt]License[/url]
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///_downloaded_assets/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Dialogic 2[/font_size]
+[img=80]res:///addons/dialogic/Editor/Images/dialogic-logo.svg[/img]
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Jowan Spooner and contributors[/url]  
+Source: [url=https://github.com/dialogic-godot/dialogic]github: Dialogic 2[/url]  
+License: [url=LICENSE.txt]MIT License[/url]
+
+[font_size=24]Godot Credits Scene[/font_size]
+[img=80]res:///_downloaded_assets/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Git[/font_size]
+[img=80]res:///_downloaded_assets/assets/git_logo/Git-Logo-2Color.png[/img]  
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+"
+
+[node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=622020603]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 720)
 layout_mode = 2

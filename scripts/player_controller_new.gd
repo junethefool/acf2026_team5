@@ -180,12 +180,25 @@ func _physics_process(delta: float) -> void:
 			
 	# --- Animation ---
 	if animated_sprite:
-		if input_dir.x < 0:
-			animated_sprite.flip_h = true
-		elif input_dir.x > 0:
-			animated_sprite.flip_h = false
-		if input_dir.length() > 0.1:
-			animated_sprite.play("walk")
-		else:
-			animated_sprite.play("idle")
-	
+		if state == 0 or state == 2:
+			if abs(input_dir.y) > 0.1 or abs(input_dir.x) > 0.1:
+				if input_dir.y < 0:
+					if input_dir.x < -0.3:
+						animated_sprite.play("player_left")
+					elif input_dir.x > 0.3:
+						animated_sprite.play("player_right")
+					else:
+						animated_sprite.play("player_back")
+				else:
+					if input_dir.x < -0.3:
+						animated_sprite.play("player_left")
+					elif input_dir.x > 0.3:
+						animated_sprite.play("player_right")
+					else:
+						animated_sprite.play("player_front")
+			
+#		if input_dir.length() > 0.1:
+#			animated_sprite.play("walk")
+#		else:
+#			animated_sprite.play("idle")
+#	

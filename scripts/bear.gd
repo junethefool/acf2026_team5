@@ -28,7 +28,9 @@ func on_berry():
 		berries.queue_free()
 		faun.global_position = $faun_position.global_position
 		player.global_position = $player_position.global_position
+		$Sprite3D.visible = false
+		$Zsprite.visible = false
+		await get_tree().create_timer(wait + duration).timeout
 		Dialogic.start("faun")
 		interactable.Interact.disconnect(on_interact)
 		queue_free()
-		await get_tree().create_timer(wait + duration).timeout
