@@ -65,6 +65,7 @@ if {game_state} == 3.0:
 			Crow: Here’s your berries, as promised!
 			Crow: Best of luck getting through your duties without getting caught up in any more fae mischief, kid
 			Crow: I’m not always gonna be around to save your backside if you get sloppy in your engagements and negotiations ~keh keh keh~
+			Obtained Berries
 			set {game_state} = 4.0
 			[signal arg="give berries"]
 elif {game_state} >= 4.0 and {game_state} < 6.0:
@@ -116,6 +117,7 @@ elif {game_state} == 6.0:
 	Crow: Here ya go
 	Crow: Let me know when it’s showtime
 	Crow: I bet it’ll be a performance for the ages, nerves and all ~keh keh keh~
+	Obtained Carving Knife
 	[signal arg="give knife"]
 elif {game_state} >= 7.0 and {game_state} < 8.0:
 	if {crow_invited} == 0.0:
