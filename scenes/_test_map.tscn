@@ -75,6 +75,7 @@
 [ext_resource type="AudioStream" uid="uid://djmsh7wp24oiv" path="res://audio/music/Forest Exploration (Gamejam).wav" id="71_xqhk7"]
 [ext_resource type="Texture2D" uid="uid://jvrl7olsw41v" path="res://sprites/scenery/thin_tree2.png" id="73_rkh0n"]
 [ext_resource type="Texture2D" uid="uid://dvbrkhdg4ym16" path="res://sprites/scenery/thin_tree3.png" id="74_wtv5k"]
+[ext_resource type="Script" uid="uid://c7vwwds5yltft" path="res://scenes/audio_stream_player.gd" id="76_bsc6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qweeu"]
 size = Vector3(4.020447, 1, 1)
@@ -864,7 +865,7 @@ top_level = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2643577, 0, 1.4327393)
 
 [node name="finale_player" type="Marker3D" parent="Tutorial_Room/Faun (tutorial)" unique_id=601788586]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1140535, 0, 1.5121765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4913478, 0, 0.2803955)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Tutorial_Room" unique_id=797305596]
 
@@ -1071,6 +1072,8 @@ script = ExtResource("26_g5i5s")
 berries = NodePath("../../Flower_Room/berries")
 knife = NodePath("../../Tutorial_Room/knife")
 player = NodePath("../../Tutorial_Room/PlayerCharacter")
+knife_description = "Carving Knife:
+A spottlessly gleaming knife used for carving wood. Faunus must put a lot of effort into keeping it in perfect condition. He will make a beautiful fiddle using this."
 
 [node name="Sprite3D" parent="Seelie_Room/crow" index="1" unique_id=311256161]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.5494373, 0)
@@ -2737,6 +2740,7 @@ stream = ExtResource("71_xqhk7")
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
+script = ExtResource("76_bsc6v")
 
 [editable path="Flower_Room/Bear"]
 [editable path="Flower_Room/Faun"]

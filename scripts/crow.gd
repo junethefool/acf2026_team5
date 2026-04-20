@@ -10,7 +10,7 @@ var dictionary = {	"moss": "something soft",
 					"mirror_shard": "something shiny",
 					"twig": "something twiggy",
 					"mud" : "something sticky"}
-
+@export_multiline var knife_description: String
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)
 	Dialogic.signal_event.connect(on_dialogic_signal)
@@ -41,7 +41,7 @@ func on_dialogic_signal(message):
 				child.disabled = true
 		player.inventory.push_front(berries)
 	elif message == "give knife":
-		knife.description = "A spottlessly gleaming knife used for carving wood. Faunus must put a lot of effort into keeping it in perfect condition. He will make a beautiful fiddle using this."
+		knife.description = knife_description
 		for child in knife.get_children():
 			if child is Sprite3D:
 				child.visible = false
