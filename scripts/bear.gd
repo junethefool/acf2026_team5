@@ -16,10 +16,11 @@ func on_interact():
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(self):
-		if global_position.distance_to(berries.global_position) < 5 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
-			awake = true
-			berry.emit()
 		return
+	if global_position.distance_to(berries.global_position) < 5 and awake == false and berries.get_node("CollisionShape3D").disabled == false:
+		awake = true
+		berry.emit()
+		
 	
 func on_berry():
 		Dialogic.VAR.game_state = 5

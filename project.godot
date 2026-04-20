@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://c436crj5lyv0f"
 Dialogic="*uid://ds2q0uclmolvu"
 GameManager="*res://scripts/game_manager.gd"
 ListsForDialogic="*uid://icgpky4rr0g7"
+GameState="*uid://0618uqs8wimh"
 
 [dialogic]
 
@@ -40,12 +41,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "Crow invitation": "res://Dialogic timelines/Crow invitation.dtl",
-"Faun couldn't find the knife": "res://Dialogic timelines/Faun couldn't find the knife.dtl",
-"Faun fiddle task": "res://Dialogic timelines/Faun fiddle task.dtl",
-"Faun finale": "res://Dialogic timelines/Faun finale.dtl",
 "Faun hints": "res://Dialogic timelines/Faun hints.dtl",
-"Faun making the fiddle": "res://Dialogic timelines/Faun making the fiddle.dtl",
-"Faun ready for music": "res://Dialogic timelines/Faun ready for music.dtl",
 "Opening Cutscene": "res://Dialogic timelines/Opening Cutscene.dtl",
 "Seelie and berries": "res://Dialogic timelines/Seelie and berries.dtl",
 "Seelie invitation": "res://Dialogic timelines/Seelie invitation.dtl",
@@ -111,7 +107,7 @@ audio/channel_defaults={
 "volume": 0.0
 },
 "music": {
-"audio_bus": "",
+"audio_bus": "Music",
 "fade_length": 0.0,
 "loop": true,
 "volume": 0.0
