@@ -16,6 +16,7 @@ var gone = false
 var needed_item_list = ["hair", "knife", "wood"]
 var present_item_list: Array = []
 var difference = []
+var interact_lock = false
 
 func _ready() -> void:
 	interactable.Interact.connect(on_interact)

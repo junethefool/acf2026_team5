@@ -6,7 +6,7 @@ if {game_state} == 2.0:
 	else:
 		if {crow_intervened} == 0.0:
 			Acacia: Oh! A new lost soul! A new plaything! Lucky us! Now what’s your name, pet?
-			You:  I can’t remember…
+			You: I can’t remember…
 			Seelie: A clever one I see!
 			Seelie: ~tricky trickyyyy~
 			You: Huh?
@@ -25,6 +25,7 @@ if {game_state} == 2.0:
 			Seelie: Come now, mortal. What say you?
 			You: That sounds goo—
 			[signal arg="crow"]
+			audio "res://audio/sound_effects/813114__qubodup__crow-call.ogg" [volume="-2.0"]
 			set {crow_intervened} = 1.0
 		elif {crow_intervened} == 1.0:
 			Crow: Ladies, this little one is new here
@@ -81,14 +82,14 @@ elif {game_state} >= 3.0:
 			You: I will be there shortly to start the performance
 			Acacia: Wonderful indeed, pet
 			Acacia: I hope it is not a performance to disappoint
-			Acacia:  Bringing revelry is certainly always a more pleasing outcome than sowing disappointment, you know
+			Acacia: Bringing revelry is certainly always a more pleasing outcome than sowing disappointment, you know
 			You: I will be doing my best
 			You: I mean, no matter what else, I must if I want spring to awaken
 			Seelie: Pay Acacia no mind, clever mortal
-			Seelie:  She is just hungry for a new fascination and not so high in patience
+			Seelie: She is just hungry for a new fascination and not so high in patience
 			Seelie: I am sure your performance will not disappoint us
 			Seelie: Goodbye goodbye for now
-			Acacia:  We will be seeing you soon, pet
+			Acacia: We will be seeing you soon, pet
 			set {seelie_invited} = 1.0
 		elif {seelie_invited} == 1.0:
 			Acacia: We will be seeing you soon, pet

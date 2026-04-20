@@ -5,7 +5,7 @@
 [Scatterhert](https://scatterhearts.tumblr.com/)  
 
 ### Additional Art
-[Mara]()  
+Mara
 
 ### Game Design
 Louis
@@ -13,14 +13,14 @@ Louis
 ### Programming
 Louis
 [Lstrike](https://lstrikecreates.com/)
-[Mara]() 
+Mara 
 
 
 ### Sound
 [Lstrike](https://lstrikecreates.com/)
 
 ### Writing
-CassandraCassandra
+[CassandraCassandra](https://www.instagram.com/mosh_a.cameronn)
 
 ### Additional Writing
 Louis
@@ -30,6 +30,11 @@ Louis
 ### Outline and Glow Shader Sprite 3D
 Author: terrytwo
 Source: [Domain : webpage.html](https://godotshaders.com/shader/outline-and-glow-shader-sprite-3d/?post_id=7452&new_post=true)  
+License: [License](/addons/license.txt)
+
+### Crow Call Sound Effect
+By: qubodup
+Source: [freesound.org](https://freesound.org/people/qubodup/sounds/813114/)
 License: [License](/addons/license.txt)
 
 ## Tools

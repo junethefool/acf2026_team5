@@ -2,25 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bwnckxv0q5l7q" path="res://scripts/player_controller_new.gd" id="1_herhr"]
 [ext_resource type="Texture2D" uid="uid://2c0ysv2g5ovl" path="res://sprites/player/fiddle_0001.png" id="2_dpr6s"]
-[ext_resource type="Texture2D" uid="uid://vu1cdyi67km3" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_idle.png" id="2_herhr"]
 [ext_resource type="Texture2D" uid="uid://d284qsrmo7wfl" path="res://sprites/player/FloatN_0001.png" id="3_bxieb"]
 [ext_resource type="Texture2D" uid="uid://budedl7cnoa1k" path="res://sprites/player/fiddle_0002.png" id="3_gyyv3"]
-[ext_resource type="Texture2D" uid="uid://bs357huwes12y" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk0.png" id="3_xb3ya"]
 [ext_resource type="Texture2D" uid="uid://e7pitji7m7rq" path="res://sprites/player/fiddle_0003.png" id="4_kwd2h"]
 [ext_resource type="Texture2D" uid="uid://b6al0fmi7s3pr" path="res://sprites/player/FloatN_0002.png" id="4_nos2o"]
-[ext_resource type="Texture2D" uid="uid://croc7gvak8nsy" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk1.png" id="4_s7f3b"]
 [ext_resource type="Texture2D" uid="uid://bfskjcqwu1xc1" path="res://sprites/player/FloatN_0003.png" id="5_66bo7"]
-[ext_resource type="Texture2D" uid="uid://bnetxhha72xjy" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk2.png" id="5_c4hvp"]
 [ext_resource type="Texture2D" uid="uid://drnsoms81rads" path="res://sprites/player/fiddle_0004.png" id="5_vjh3r"]
 [ext_resource type="Texture2D" uid="uid://crfl2lo0vewa1" path="res://sprites/player/FloatN_0004.png" id="6_0n276"]
-[ext_resource type="Texture2D" uid="uid://bbcadiswhritd" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk3.png" id="6_2vlw4"]
 [ext_resource type="Texture2D" uid="uid://mqm7a8ve8jqg" path="res://sprites/player/FloatS_0001.png" id="7_dpr6s"]
-[ext_resource type="Texture2D" uid="uid://35cy4wjxpanm" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk4.png" id="7_joi77"]
-[ext_resource type="Texture2D" uid="uid://gf1jdeij3rvg" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk5.png" id="8_br6ma"]
 [ext_resource type="Texture2D" uid="uid://cgsvud7snaqop" path="res://sprites/player/FloatS_0002.png" id="8_gyyv3"]
 [ext_resource type="Texture2D" uid="uid://c62erbarfwb0o" path="res://sprites/player/FloatS_0003.png" id="9_kwd2h"]
-[ext_resource type="Texture2D" uid="uid://ikynhrqnfd33" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk6.png" id="9_xc70a"]
-[ext_resource type="Texture2D" uid="uid://c8vgcnf7ccxj6" path="res://_downloaded_assets/kenney_toon_character_robot/character_robot_walk7.png" id="10_2w5w8"]
 [ext_resource type="Texture2D" uid="uid://du4briilyxj4p" path="res://sprites/player/FloatS_0004.png" id="10_vjh3r"]
 [ext_resource type="Texture2D" uid="uid://dt870yuh7wcyc" path="res://sprites/player/FloatW_0001.png" id="11_1hs58"]
 [ext_resource type="Script" uid="uid://bcpo7hgrareib" path="res://scripts/player_range.gd" id="11_xb3ya"]
@@ -53,14 +44,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"fiddle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_herhr")
-}],
-"loop": true,
-"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -129,35 +112,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"player_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_xb3ya")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_s7f3b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_c4hvp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_2vlw4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_joi77")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_br6ma")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xc70a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_2w5w8")
-}],
-"loop": true,
-"name": &"walk",
 "speed": 5.0
 }]
 

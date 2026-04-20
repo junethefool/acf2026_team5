@@ -52,9 +52,9 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := Vector3(input_dir.x, 0.0, input_dir.y)
 	
-	if Input.is_action_just_pressed("dance"):
-		GameManager.adjust_all_grids_spring(1)
-		GameManager.adjust_all_grids_snow(-1)
+#	if Input.is_action_just_pressed("dance"):
+#		GameManager.adjust_all_grids_spring(1)
+#		GameManager.adjust_all_grids_snow(-1)
 		
 	match state:
 		neutral:
@@ -201,8 +201,4 @@ func _physics_process(delta: float) -> void:
 						animated_sprite.play("player_front")
 		elif state == 6 and fiddle_time == true:
 			animated_sprite.play("fiddle")
-#		if input_dir.length() > 0.1:
-#			animated_sprite.play("walk")
-#		else:
-#			animated_sprite.play("idle")
 #	
