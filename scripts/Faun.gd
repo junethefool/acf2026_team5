@@ -77,7 +77,6 @@ func on_dialogic_signal(message):
 		await get_tree().create_timer(wait + duration).timeout
 	
 	elif message == "dance":
-		music_player.stop()
 		player.state = 6
 		player.fiddle_time = true
 	elif message == "dance end":

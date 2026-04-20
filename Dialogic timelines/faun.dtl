@@ -114,10 +114,10 @@ elif {game_state} == 7.0:
 		Obtained the Fiddle
 		[signal arg="give fiddle"]
 		[signal arg="party"]
-		Faunus: It is time now, I'll follow your lead
 		audio music -
+		Faunus: It is time now, I'll follow your lead
 		[wait time="5.0"]
-		audio music "res://audio/music/Dance! (Game Jam).wav"
+		audio music "res://audio/music/Dance! (Game Jam).wav" [volume="-20.0"]
 		[signal arg="dance"]
 		Faunus: dance everyone
 		set {game_state} = 8.0
