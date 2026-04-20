@@ -31,16 +31,6 @@ custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 text = "Resume"
 
-[node name="SaveButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1308915427]
-custom_minimum_size = Vector2(200, 40)
-layout_mode = 2
-text = "Save Game"
-
-[node name="LoadButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1859670380]
-custom_minimum_size = Vector2(200, 40)
-layout_mode = 2
-text = "Load Game"
-
 [node name="MainMenuButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=297289802]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
@@ -50,8 +40,3 @@ text = "Main Menu"
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 text = "Exit"
-
-[node name="SavedLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=2099800279]
-layout_mode = 2
-text = "Saved!"
-horizontal_alignment = 1

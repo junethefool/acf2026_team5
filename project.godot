@@ -24,7 +24,6 @@ buses/default_bus_layout="uid://c436crj5lyv0f"
 Dialogic="*uid://ds2q0uclmolvu"
 GameManager="*res://scripts/game_manager.gd"
 ListsForDialogic="*uid://icgpky4rr0g7"
-GameState="*uid://0618uqs8wimh"
 
 [dialogic]
 

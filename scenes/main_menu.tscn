@@ -42,11 +42,6 @@ custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 text = "Start Game"
 
-[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2001123535]
-custom_minimum_size = Vector2(200, 40)
-layout_mode = 2
-text = "Load Game"
-
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1020373319]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
